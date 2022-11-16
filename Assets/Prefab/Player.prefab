@@ -163,7 +163,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 62dc3f97f45c59041a9d82bd31171971, type: 2}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &8488144919857834284
@@ -180,6 +180,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingSpeed: 5
   jumpForce: 7
+  invincibilityTime: 2
+  maxHp: 3
+  hp: 0
+  isInvincible: 0
   groundCheck: {fileID: 6401787531695052235}
   score: 0
 --- !u!1 &6952628394585513906

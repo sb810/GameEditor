@@ -7,9 +7,9 @@ public class SavedLevel
 {
     public SavedLevel()
     {
-        List<int> index;
-        List<Vector3> positions;
-        List<string> prefabs;
+        List<int> index = new List<int>();
+        List<Vector3> positions =new List<Vector3>(); ;
+        List<string> prefabs = new List<string>(); ;
     }
 
     public List<int> index = new List<int>();
@@ -31,7 +31,7 @@ public class SaveLoadLevel : MonoBehaviour
 
     private BuildingManager manager;
 
-    void Start()
+    void Awake()
     {
         manager = gameObject.GetComponent<BuildingManager>();
         Initialize();
@@ -40,6 +40,10 @@ public class SaveLoadLevel : MonoBehaviour
 
     public void SaveData()
     {
+        myPositions.Clear();
+        myPrefabs.Clear();
+        myIndex.Clear();
+
         int newIndex = 0;
         foreach (GameObject obj in manager.placedObject)
         {
@@ -79,6 +83,37 @@ public class SaveLoadLevel : MonoBehaviour
             GameObject myObject = Instantiate(GetPrefab(myPrefabs[i]));
             manager.placedObject.Add(myObject);
             myObject.transform.position = myPositions[i];
+        }
+
+        //default
+        if(manager.placedObject.Count == 0)
+        {
+            //player
+            GameObject myObject = Instantiate(GetPrefab("Player"));
+            manager.placedObject.Add(myObject);
+            myObject.transform.position = new Vector3(-16, -6.5f, 0);
+
+            //finish
+            myObject = Instantiate(GetPrefab("Finish"));
+            manager.placedObject.Add(myObject);
+            myObject.transform.position = new Vector3(16, -6.5f, 0);
+
+            //platforms
+            myObject = Instantiate(GetPrefab("PlatformDirtL"));
+            manager.placedObject.Add(myObject);
+            myObject.transform.position = new Vector3(-13.5f, -9, 0);
+
+            myObject = Instantiate(GetPrefab("PlatformDirtL"));
+            manager.placedObject.Add(myObject);
+            myObject.transform.position = new Vector3(-5, -9, 0);
+
+            myObject = Instantiate(GetPrefab("PlatformDirtL"));
+            manager.placedObject.Add(myObject);
+            myObject.transform.position = new Vector3(3.5f, -9, 0);
+
+            myObject = Instantiate(GetPrefab("PlatformDirtL"));
+            manager.placedObject.Add(myObject);
+            myObject.transform.position = new Vector3(12f, -9, 0);
         }
     }
 

@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     public Transform groundCheck;
 
-    [HideInInspector]  public Transform lastCheckpoint;
+    [HideInInspector]  public Vector3 lastCheckpoint;
 
     private Rigidbody2D rb;
     [HideInInspector] public SpriteRenderer renderer;
@@ -31,17 +31,26 @@ public class Player : MonoBehaviour
     [HideInInspector] public int score;
     private Text scoreUI;
 
+    private Animator anim;
+
+    public GameObject feet;
+    public AudioClip jumpSFX;
+    public AudioClip hitSFX;
     void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
         scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
-
+        lastCheckpoint = transform.position;
+        
         for (int i = 0; i < GameObject.Find("Health").transform.childCount; i++)
         {
             heart.Add(GameObject.Find("Health").transform.GetChild(i).gameObject);
         }
         hp = maxHp;
+        UpdateLife();
+        UpdateScore();
     }
 
     void Update()
@@ -56,6 +65,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            GetComponent<AudioSource>().PlayOneShot(jumpSFX);
         }
 
         if (facingRight == false && moveInput > 0)
@@ -67,7 +77,7 @@ public class Player : MonoBehaviour
             Flip();
         }
         
-        if(hp == 0)
+        if(hp == 0 || transform.position.y <= -13)
         {
             Death();
         }
@@ -77,6 +87,24 @@ public class Player : MonoBehaviour
     {
         CheckGround();
         
+        if(!isGrounded)
+        {
+            anim.SetBool("isJumping", true);
+        }
+        else
+        {
+            anim.SetBool("isJumping", false);
+        }
+        
+        moveInput = Input.GetAxisRaw("Horizontal");
+        if (moveInput != 0)
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
     }
 
     private void Flip()
@@ -88,7 +116,7 @@ public class Player : MonoBehaviour
     private void CheckGround()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.2f);
-        isGrounded = colliders.Length > 1;
+        isGrounded = colliders.Length > 2;
     }
 
     public void UpdateScore()
@@ -118,11 +146,14 @@ public class Player : MonoBehaviour
 
     public IEnumerator InvincibleTimer()
     {
+        GetComponent<AudioSource>().PlayOneShot(hitSFX);
         isInvincible = true;
         renderer.color = new Color(1, 1, 1, 0.2f);
         canMove = false;
+        feet.SetActive(false);
         yield return new WaitForSeconds(loseControlAfterHit);
         canMove = true;
+        feet.SetActive(true);
         yield return new WaitForSeconds(invincibilityTime-loseControlAfterHit);
         renderer.color = new Color(1, 1, 1, 1);
         isInvincible = false;
@@ -131,11 +162,14 @@ public class Player : MonoBehaviour
 
     public IEnumerator InvincibleTimer(float time)
     {
+        GetComponent<AudioSource>().PlayOneShot(hitSFX);
         isInvincible = true;
         renderer.color = new Color(1, 1, 1, 0.2f);
         canMove = false;
+        feet.SetActive(false);
         yield return new WaitForSeconds(loseControlAfterHit);
         canMove = true;
+        feet.SetActive(true);
         yield return new WaitForSeconds(time - loseControlAfterHit);
         renderer.color = new Color(1, 1, 1, 1);
         isInvincible = false;
@@ -147,6 +181,9 @@ public class Player : MonoBehaviour
         hp = maxHp;
         renderer.color = new Color(1, 1, 1, 1);
         isInvincible = false;
+        canMove = true;
+        feet.SetActive(true);
+        StopAllCoroutines();
         UpdateLife();
         
         GameOverMenu gameOver = GameObject.Find("GameManager").GetComponent<GameOverMenu>();
@@ -160,11 +197,12 @@ public class Player : MonoBehaviour
 
     public void TpToLastcheckpoint()
     {
-        transform.position = lastCheckpoint.position;
+        transform.position = lastCheckpoint;
     }
 
     public void Bounce(Vector2 force)
     {
         rb.AddForce(force, ForceMode2D.Impulse);
+        GetComponent<AudioSource>().PlayOneShot(jumpSFX);
     }
 }

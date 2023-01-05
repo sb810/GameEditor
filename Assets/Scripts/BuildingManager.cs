@@ -22,18 +22,17 @@ public class BuildingManager : MonoBehaviour
 
     private GameObject cam;
 
-    public float camSpeed;
     public float camLimit;
-    public GameObject leftButton;
-    public GameObject rightButton;
 
     private bool mouseOnTrash = false;
     private bool firstPlacement = false;
 
+    SaveLoadLevel saveLvl;
     void Start()
     {
         cam = GameObject.Find("Main Camera");
-        
+        saveLvl = GetComponent<SaveLoadLevel>();
+        saveLvl.LoadData();
     }
 
     void Update()
@@ -51,6 +50,7 @@ public class BuildingManager : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && canPlace)
             {
                 PlaceObject();
+                //saveLvl.SaveData();
             }
 
         }
@@ -58,6 +58,7 @@ public class BuildingManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && mouseOnTrash && pendingObj != null)
         {
             Delete();
+            //saveLvl.SaveData();
         }
     }
 
@@ -103,45 +104,49 @@ public class BuildingManager : MonoBehaviour
 
     public void Play()
     {
+        saveLvl.SaveData();
         levelEditorUI.SetActive(false);
         inGameUI.SetActive(true);
-        foreach (GameObject obj in placedObject)
-        {
-            if(obj!=null)
-            {
-                obj.GetComponent<SpriteRenderer>().enabled = false;
-                obj.GetComponent<Collider2D>().enabled = false;
-                obj.transform.GetChild(0).gameObject.SetActive(true);
-            }
-        }     
-        cam.GetComponent<CameraController>().enabled = true;
-
-        Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        player.score = 0;
-        player.UpdateScore();
-        player.hp = player.maxHp;
-        player.UpdateLife();
-        player.isInvincible = false;
-        player.transform.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-        player.lastCheckpoint = player.transform.parent;
-        player.canMove = true;
-    }
-
-    public void Stop()
-    {
-        levelEditorUI.SetActive(true);
 
         foreach (GameObject obj in placedObject)
         {
             if (obj != null)
             {
-                obj.GetComponent<SpriteRenderer>().enabled = true;
-                obj.transform.GetChild(0).gameObject.SetActive(false);
-                obj.transform.GetChild(0).localPosition = new Vector2(0,0);
-                obj.transform.GetChild(0).localRotation = Quaternion.Euler(0,0,0);
-                obj.GetComponent<Collider2D>().enabled = true;
+                obj.GetComponent<SpriteRenderer>().enabled = false;
+                obj.GetComponent<Collider2D>().enabled = false;
+                obj.transform.GetChild(0).gameObject.SetActive(true);
             }
         }
+        cam.GetComponent<CameraController>().enabled = true;
+        cam.GetComponent<CameraController>().camLimit = camLimit;
+        cam.GetComponent<CameraController>().FindPlayer(cam.GetComponent<CameraController>().faceLeft);
+
+        //Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        //player.score = 0;
+        //player.UpdateScore();
+        //player.hp = player.maxHp;
+        //player.UpdateLife();
+        //player.isInvincible = false;
+        //player.transform.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        //player.lastCheckpoint = player.transform.parent;
+        //player.canMove = true;
+    }
+
+    public void Stop()
+    {
+        levelEditorUI.SetActive(true);
+        saveLvl.LoadData();
+        //foreach (GameObject obj in placedObject)
+        //{
+        //    if (obj != null)
+        //    {
+        //        obj.GetComponent<SpriteRenderer>().enabled = true;
+        //        obj.transform.GetChild(0).gameObject.SetActive(false);
+        //        obj.transform.GetChild(0).localPosition = new Vector2(0,0);
+        //        obj.transform.GetChild(0).localRotation = Quaternion.Euler(0,0,0);
+        //        obj.GetComponent<Collider2D>().enabled = true;
+        //    }
+        //}
 
         foreach (GameObject obj in objectToDestroy)
         {
@@ -154,26 +159,8 @@ public class BuildingManager : MonoBehaviour
 
         inGameUI.SetActive(false);
         cam.GetComponent<CameraController>().enabled = false;
+        
         cam.transform.position = new Vector3(0, 0, -10);
-    }
-
-    public void MoveScreen(int direction)
-    {
-        cam.transform.position += new Vector3(camSpeed * direction,0,-10);
-
-        rightButton.SetActive(true);
-        leftButton.SetActive(true);
-
-        if (cam.transform.position.x >= camLimit)
-        {
-            cam.transform.position = new Vector3(camLimit, 0, -10);
-            rightButton.SetActive(false);
-        }
-        if(cam.transform.position.x <= 0)
-        {
-            cam.transform.position = new Vector3(0, 0, -10);
-            leftButton.SetActive(false);
-        }
     }
 
     public void Delete()

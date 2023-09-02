@@ -6,9 +6,11 @@ public class Bub : MonoBehaviour
 {
     public float moveSpeed = 1f;
     public LayerMask ground;
+    public LayerMask ennemi;
 
     private Rigidbody2D rb;
-    public Collider2D triggerCollider;
+    public Collider2D triggerColliderGround;
+    public Collider2D triggerColliderWall;
 
     void Start()
     {
@@ -22,7 +24,7 @@ public class Bub : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!triggerCollider.IsTouchingLayers(ground))
+        if (!triggerColliderGround.IsTouchingLayers(ground) || triggerColliderWall.IsTouchingLayers(ennemi))
         {
             Flip();
         }

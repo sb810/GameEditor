@@ -29,12 +29,19 @@ public class BuildingManager : MonoBehaviour
 
     [HideInInspector] public SaveLoadLevel saveLvl;
 
-    public GameObject spriteEditor;
+    SelectObject selectObj;
+
+    [HideInInspector] public Vector3 decalage;
+
+    public Sprite trashIn;
+    public Sprite trashOut;
     void Start()
     {
         cam = GameObject.Find("Main Camera");
         saveLvl = GetComponent<SaveLoadLevel>();
-        saveLvl.LoadData();
+        saveLvl.LoadData("Level");
+        saveZID.Clear();
+        selectObj = GetComponent<SelectObject>();
     }
 
     void Update()
@@ -42,7 +49,6 @@ public class BuildingManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && mouseOnTrash && pendingObj != null)
         {
             Delete();
-            //saveLvl.SaveData();
         }
 
         if (pendingObj != null)
@@ -58,7 +64,6 @@ public class BuildingManager : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && canPlace)
             {
                 PlaceObject();
-                //saveLvl.SaveData();
             }
             else if (Input.GetMouseButtonUp(0) && !canPlace && firstPlacement)
             {
@@ -67,7 +72,10 @@ public class BuildingManager : MonoBehaviour
             }
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            LoadZ();
+        }
     }
 
     void PlaceObject()
@@ -86,17 +94,21 @@ public class BuildingManager : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos = mousePosition;
+        pos = new Vector3(mousePosition.x, mousePosition.y, 0) - decalage;
     }
 
-    public void SelectObject(GameObject objectToSpawn)
+    public void SelectObject(PrefabInButton script)
     {
         if (Input.GetKeyDown(KeyCode.Mouse1)) return;
 
+        GameObject objectToSpawn = script.prefab;
+
         if (!IsPrefabLimitExceeded(objectToSpawn))
         {
+            SaveZ();
             pendingObj = Instantiate(objectToSpawn, pos, transform.rotation);
             firstPlacement = true;
+            selectObj.selectedObj = pendingObj;
         }
     }
 
@@ -114,7 +126,7 @@ public class BuildingManager : MonoBehaviour
 
     public void Play()
     {
-        saveLvl.SaveData();
+        saveLvl.SaveData("Level");
         levelEditorUI.SetActive(false);
         inGameUI.SetActive(true);
 
@@ -126,23 +138,26 @@ public class BuildingManager : MonoBehaviour
                 obj.GetComponent<Collider2D>().enabled = false;
 
                 int startChildCount = obj.transform.childCount;
-                for (int i = 1; i < startChildCount; i++)
+                for (int i = 2; i < startChildCount; i++)
                 {
-                        obj.transform.GetChild(1).parent = obj.transform.GetChild(0);
+                        obj.transform.GetChild(2).parent = obj.transform.GetChild(1);
                 }
 
-                obj.transform.GetChild(0).gameObject.SetActive(true);
+                obj.transform.GetChild(0).gameObject.SetActive(false);
+                obj.transform.GetChild(1).gameObject.SetActive(true);
             }
         }
         cam.GetComponent<CameraController>().enabled = true;
         cam.GetComponent<CameraController>().camLimit = camLimit;
         cam.GetComponent<CameraController>().FindPlayer(cam.GetComponent<CameraController>().faceLeft);
+
+        saveZID.Clear();
     }
 
     public void Stop()
     {
         levelEditorUI.SetActive(true);
-        saveLvl.LoadData();
+        saveLvl.LoadData("Level");
 
         foreach (GameObject obj in objectToDestroy)
         {
@@ -170,14 +185,33 @@ public class BuildingManager : MonoBehaviour
         pendingObj = null;
     }
 
-    public void MouseEnterTrash()
+    public void MouseEnterTrash(GameObject obj)
     {
         mouseOnTrash = true;
+        if (selectObj.selectedObj != null)
+            obj.SetActive(true);
     }
-    public void MousExitTrash()
+    
+    public void MouseEnterTrashImage(GameObject obj)
+    {
+        mouseOnTrash = true;
+        if (selectObj.selectedObj != null)
+            obj.GetComponent<Image>().sprite = trashIn;
+    }
+
+    public void MousExitTrash(GameObject obj)
     {
         mouseOnTrash = false;
+
+            obj.SetActive(false);
     }
+    public void MouseExitTrashImage(GameObject obj)
+    {
+        mouseOnTrash = false;
+        if (selectObj.selectedObj != null)
+            obj.GetComponent<Image>().sprite = trashOut;
+    }
+    
 
     public bool IsPrefabLimitExceeded(GameObject prefab)
     {
@@ -212,22 +246,35 @@ public class BuildingManager : MonoBehaviour
         cam.transform.position = new Vector3(camLimit*map.value, 0, -10);
     }
 
-    public void OpenSpriteEditor(GameObject prefabToEdit)
+    public void Reset()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse1))
+        saveLvl.ClearData();
+    }
+
+    // ctrlZ
+    List<string> saveZID = new List<string>();
+    public void SaveZ()
+    {
+        saveLvl.SaveData("Z" + saveZID.Count);
+        saveZID.Add("Z" + saveZID.Count);
+    }
+
+    public void LoadZ()
+    {
+        if (saveZID.Count != 0)
         {
-            mouseOnTrash = false;
-            spriteEditor.SetActive(true);
-            transform.parent.gameObject.SetActive(false);
-
-            saveLvl.SaveData();
-            foreach (GameObject obj in placedObject)
-            {
-                Destroy(obj);
-            }
-
-            spriteEditor.GetComponent<SpriteEditor>().editedPrefab = prefabToEdit;
-            spriteEditor.GetComponent<SpriteEditor>().OpenSpriteEditor();
+            saveLvl.LoadData(saveZID[saveZID.Count - 1]);
+            saveZID.RemoveAt(saveZID.Count - 1);
         }
+
+    }
+
+    public void ClearZ()
+    {
+        foreach (string save in saveZID)
+        {
+            PlayerPrefs.DeleteKey(save);
+        }
+        saveZID.Clear();
     }
 }

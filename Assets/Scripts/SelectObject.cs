@@ -6,7 +6,6 @@ using TMPro;
 public class SelectObject : MonoBehaviour
 {
     public GameObject selectedObj;
-
     BuildingManager buildManager;
 
     void Start()
@@ -23,11 +22,8 @@ public class SelectObject : MonoBehaviour
             {
                 if(hit.collider.gameObject.CompareTag("Placement"))
                 {
+                    buildManager.SaveZ();
                     Select(hit.collider.gameObject);
-                }
-                else
-                {
-                    if (selectedObj != null) Deselect();
                 }
             }
             else
@@ -43,13 +39,13 @@ public class SelectObject : MonoBehaviour
 
     void Select(GameObject obj)
     {
-        if (obj == selectedObj) return;
-
         if (selectedObj != null) Deselect();
 
-        selectedObj = obj;
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        buildManager.decalage = new Vector3(mousePosition.x, mousePosition.y, 0) -obj.transform.position;
 
-        Move();
+        selectedObj = obj;
+        buildManager.pendingObj = selectedObj;
     }
 
     void Deselect()
@@ -62,9 +58,5 @@ public class SelectObject : MonoBehaviour
         GameObject objToDestroy = selectedObj;
         Deselect();
         Destroy(objToDestroy);
-    }
-    public void Move()
-    {
-        buildManager.pendingObj = selectedObj;
     }
 }

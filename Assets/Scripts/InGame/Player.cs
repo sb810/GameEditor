@@ -19,9 +19,12 @@ public class Player : MonoBehaviour
 
 
     private bool facingRight = true;
+    private float facing = 1f;
 
     private bool isGrounded;
     public Transform groundCheck;
+
+    public Animator dustParticlesAnimator;
 
     [HideInInspector]  public Vector3 lastCheckpoint;
 
@@ -30,7 +33,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public int score;
     private Text scoreUI;
 
-    public Animator anim;
+    Animator anim;
 
     public GameObject feet;
     public AudioClip jumpSFX;
@@ -38,6 +41,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
         lastCheckpoint = transform.position;
         
@@ -52,6 +56,24 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0.35f*facing, 0, 0), Vector2.up, 1);
+        
+        if (hit.collider != null)
+        {
+            if (hit.collider.CompareTag("Wall"))
+            {
+                canMove = false;
+            }
+            else
+            {
+                canMove = true;
+            }
+        }
+        else
+        {
+            canMove = true;
+        }
+
         if (Input.GetButton("Horizontal")&&canMove)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
@@ -59,9 +81,10 @@ public class Player : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, movingSpeed * Time.deltaTime);
         } 
             
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            
             GetComponent<AudioSource>().PlayOneShot(jumpSFX);
         }
 
@@ -96,17 +119,36 @@ public class Player : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         if (moveInput != 0)
         {
-            anim.SetBool("IsMoving", true);
+            anim.SetBool("isMoving", true);
+            if (dustParticlesAnimator == null) return;
+            if (isGrounded)
+            {
+                dustParticlesAnimator.SetBool("active", true);
+                dustParticlesAnimator.Play("Run_dust", 0, anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            }
+            else dustParticlesAnimator.SetBool("active", false);
         }
         else
         {
-            anim.SetBool("IsMoving", false);
+            anim.SetBool("isMoving", false);
+            if (dustParticlesAnimator != null) dustParticlesAnimator.SetBool("active", false); 
         }
+
+        if (rb.velocity.x > 10)
+            rb.velocity = new Vector2(10,rb.velocity.y);
+        if (rb.velocity.y > 10)
+            rb.velocity = new Vector2(rb.velocity.x,10);
+
+        if (rb.velocity.x < -10)
+            rb.velocity = new Vector2(-10, rb.velocity.y);
+        if (rb.velocity.y < -10)
+            rb.velocity = new Vector2(rb.velocity.x, -10);
     }
 
     private void Flip()
     {
         facingRight = !facingRight;
+        facing *= -1;
         anim.gameObject.transform.localScale =new Vector3(-anim.gameObject.transform.localScale.x, anim.gameObject.transform.localScale.y, anim.gameObject.transform.localScale.z);
     }
 
@@ -145,14 +187,14 @@ public class Player : MonoBehaviour
     {
         GetComponent<AudioSource>().PlayOneShot(hitSFX);
         isInvincible = true;
-        //GetComponent<Renderer>().color = new Color(1, 1, 1, 0.2f);
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         canMove = false;
         feet.SetActive(false);
         yield return new WaitForSeconds(loseControlAfterHit);
         canMove = true;
         feet.SetActive(true);
         yield return new WaitForSeconds(invincibilityTime-loseControlAfterHit);
-        //GetComponent<Renderer>().color = new Color(1, 1, 1, 1);
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         isInvincible = false;
         yield return null;
     }
@@ -173,7 +215,7 @@ public class Player : MonoBehaviour
         yield return null;
     }
 
-    void Death()
+    public void Death()
     {
         hp = maxHp;
         //GetComponent<Renderer>().color = new Color(1, 1, 1, 1);
@@ -199,7 +241,8 @@ public class Player : MonoBehaviour
 
     public void Bounce(Vector2 force)
     {
-        rb.AddForce(force, ForceMode2D.Impulse);
+        rb.velocity = Vector2.zero;
+        rb.AddForce(force , ForceMode2D.Impulse );
         GetComponent<AudioSource>().PlayOneShot(jumpSFX);
     }
 }

@@ -155,7 +155,7 @@ public class SpriteEditor : MonoBehaviour
             prefab.GetComponent<CheckPlacement>().enabled = true;
         }
 
-        buildingManager.GetComponent<SaveLoadLevel>().LoadData();
+        buildingManager.GetComponent<SaveLoadLevel>().LoadData("Level");
 
         cam.orthographicSize = 10;
     }

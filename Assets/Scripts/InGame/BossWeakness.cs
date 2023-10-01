@@ -10,14 +10,14 @@ public class BossWeakness : MonoBehaviour
     {
         if (other.CompareTag("PlayerHazard"))
         {
-            if (!boss.isInvincible)
+            /*if (!boss.isInvincible)
             {
                 Player player = other.GetComponentInParent<Player>();
                 player.Bounce(force);
 
                 boss.hp--;
                 boss.StartCoroutine(boss.InvincibleTimer());
-            }
+            }*/
         }
     }
 }

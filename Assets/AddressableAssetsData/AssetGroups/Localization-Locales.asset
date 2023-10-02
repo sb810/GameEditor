@@ -17,13 +17,13 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: fb0d0339a2818e040b71582782a606b6
   m_SerializeEntries:
-  - m_GUID: 2443dd8ee865f2b4ca8c745e2d9f36db
-    m_Address: French (Canada) (fr-CA)
+  - m_GUID: 2c1e0e056fde1e146a87b67f010086f6
+    m_Address: English (Canada) (en-CA)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
-  - m_GUID: 2c1e0e056fde1e146a87b67f010086f6
-    m_Address: English (Canada) (en-CA)
+  - m_GUID: 2443dd8ee865f2b4ca8c745e2d9f36db
+    m_Address: French (Canada) (fr-CA)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale

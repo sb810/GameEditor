@@ -15,12 +15,12 @@ MonoBehaviour:
   m_TableCollectionName: UI Text
   m_TableCollectionNameGuidString: 1cc9ecebb5c509a418d8c8ca28abe4f9
   m_Entries:
-  - m_Id: 1304537591808
-    m_Key: WorkshopTitle
+  - m_Id: 14899841331200
+    m_Key: MainMenuSubtitle
     m_Metadata:
       m_Items: []
-  - m_Id: 2362479472640
-    m_Key: StartLabel
+  - m_Id: 15050228101120
+    m_Key: MainMenuStartButtonLabel
     m_Metadata:
       m_Items: []
   m_Metadata:

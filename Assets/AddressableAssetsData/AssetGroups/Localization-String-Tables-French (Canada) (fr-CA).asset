@@ -22,7 +22,6 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr-CA
-    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 20ac862fdc0c8bc46a2b0dc7129c26b8, type: 2}
   m_SchemaSet:

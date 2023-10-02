@@ -29,7 +29,7 @@ public class NetworkManager : MonoBehaviour
         else
         {
             isProf = false;
-            profInterface.SetActive(false);
+            if(profInterface) profInterface.SetActive(false);
             if (PlayerPrefs.HasKey("myId"))
             {
                 myId = PlayerPrefs.GetString("myId");

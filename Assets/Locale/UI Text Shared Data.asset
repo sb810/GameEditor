@@ -23,6 +23,10 @@ MonoBehaviour:
     m_Key: MainMenuStartButtonLabel
     m_Metadata:
       m_Items: []
+  - m_Id: 143374254145536
+    m_Key: LoadingText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

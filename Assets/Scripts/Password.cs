@@ -6,7 +6,7 @@ public class Password : MonoBehaviour
 {
     public string password;
     public bool done;
-    public LerpCurve lerp;
+    public AsyncSceneLoader lerp;
     private void Start()
     {
 

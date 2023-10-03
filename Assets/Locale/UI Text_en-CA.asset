@@ -30,6 +30,18 @@ MonoBehaviour:
     m_Localized: Loading...
     m_Metadata:
       m_Items: []
+  - m_Id: 238834914492416
+    m_Localized: PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 240411381399552
+    m_Localized: RESTART
+    m_Metadata:
+      m_Items: []
+  - m_Id: 255599379808256
+    m_Localized: What's your name ?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

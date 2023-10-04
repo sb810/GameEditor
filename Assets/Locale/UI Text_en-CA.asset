@@ -42,6 +42,18 @@ MonoBehaviour:
     m_Localized: What's your name ?
     m_Metadata:
       m_Items: []
+  - m_Id: 711803587784704
+    m_Localized: 'Enter the password :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 734538665816064
+    m_Localized: Submit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 753969693454336
+    m_Localized: Invalid password !
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

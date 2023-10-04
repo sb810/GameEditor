@@ -12,20 +12,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Prod/UI TEST 2.unity
     guid: 596160b2abd3a77448a55c0670cf3acc
   - enabled: 1
-    path: Assets/Scenes/Dev/ExerciceProg/Exo1.unity
+    path: Assets/Scenes/Prod/ExerciceProg/Exo1.unity
     guid: 1d74b6ce8c0e8e04a941152551954867
   - enabled: 1
-    path: Assets/Scenes/Dev/ExerciceProg/Exo2.unity
+    path: Assets/Scenes/Prod/ExerciceProg/Exo2.unity
     guid: f29e694017154f941ab313cc20e542e1
   - enabled: 1
-    path: Assets/Scenes/Dev/ExerciceProg/Exo3.unity
+    path: Assets/Scenes/Prod/ExerciceProg/Exo3.unity
     guid: 642466dc3b0e1394286724e870a9c150
   - enabled: 1
-    path: Assets/Scenes/Dev/ExerciceProg/Exo4.unity
+    path: Assets/Scenes/Prod/ExerciceProg/Exo4.unity
     guid: b30487e39c65f164abf423151160386c
   - enabled: 1
-    path: Assets/Scenes/Dev/ExerciceProg/Exo5.unity
+    path: Assets/Scenes/Prod/ExerciceProg/Exo5.unity
     guid: 850c9e071d370144fb4781441cb14a3a
+  - enabled: 1
+    path: Assets/Scenes/Prod/FirstPassword.unity
+    guid: acbca0de028786246b30d3209527cf67
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 4bf86e3945874ab458f74677d4a5d346, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: ca934072a36b52b43a4981feb3be051a, type: 2}

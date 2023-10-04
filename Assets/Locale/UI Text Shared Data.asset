@@ -39,6 +39,18 @@ MonoBehaviour:
     m_Key: FirstPasswordNamePrompt
     m_Metadata:
       m_Items: []
+  - m_Id: 711803587784704
+    m_Key: FirstPasswordPassPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 734538665816064
+    m_Key: FirstPasswordValidateButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 753969693454336
+    m_Key: FirstPasswordIncorrectPrompt
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

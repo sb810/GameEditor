@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class HoverHandler : MonoBehaviour
+public class MouseEventHandler : MonoBehaviour
 {
+    
     public UnityEvent mouseEnterEvent;
     public UnityEvent mouseExitEvent;
-
+    public UnityEvent mouseDownEvent;
+    public UnityEvent mouseUpEvent;
+    
     private void OnMouseEnter()
     {
         mouseEnterEvent.Invoke();
@@ -17,5 +20,15 @@ public class HoverHandler : MonoBehaviour
     private void OnMouseExit()
     {
         mouseExitEvent.Invoke();
+    }
+
+    private void OnMouseDown()
+    {
+        mouseDownEvent.Invoke();
+    }
+
+    private void OnMouseUp()
+    {
+        mouseUpEvent.Invoke();
     }
 }

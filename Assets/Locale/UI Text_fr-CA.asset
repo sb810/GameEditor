@@ -42,6 +42,18 @@ MonoBehaviour:
     m_Localized: Quel est ton nom ?
     m_Metadata:
       m_Items: []
+  - m_Id: 711803587784704
+    m_Localized: 'Entre le mot de passe :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 734538665816064
+    m_Localized: Valider
+    m_Metadata:
+      m_Items: []
+  - m_Id: 753969693454336
+    m_Localized: Mot de passe invalide !
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

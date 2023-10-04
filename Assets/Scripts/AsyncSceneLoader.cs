@@ -6,13 +6,13 @@ using Image = UnityEngine.UI.Image;
 
 public class AsyncSceneLoader : MonoBehaviour
 {
-    private enum TRANSITION_TYPE
+    private enum TransitionType
     {
-        fade,
-        wipe
+        Fade,
+        Wipe
     }
     [Header("Transition")]
-    [SerializeField] private TRANSITION_TYPE transitionType;
+    [SerializeField] private TransitionType transitionType;
     [SerializeField] private Transform endPositionTransform;
     [SerializeField] private float transitionDurationSeconds;
     [SerializeField] private bool playOnStart;
@@ -32,17 +32,17 @@ public class AsyncSceneLoader : MonoBehaviour
     // [SerializeField] private AnimationCurve curve;
     // public Password password;
 
-    void Start()
+    private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         
         startPosition = transform.position;
         if(endPositionTransform != null) endPosition = endPositionTransform.position;
         if (playOnStart)
-            StartCoroutine(transitionType == TRANSITION_TYPE.wipe && endPositionTransform ? WipeIn() : FadeIn());
+            StartCoroutine(transitionType == TransitionType.Wipe && endPositionTransform ? WipeIn() : FadeIn());
     }
 
-    public IEnumerator WipeIn()
+    private IEnumerator WipeIn()
     {
         elapsedTime = 0;
         while (elapsedTime < transitionDurationSeconds)
@@ -57,7 +57,7 @@ public class AsyncSceneLoader : MonoBehaviour
         yield return null;
     }
     
-    public IEnumerator WipeOut()
+    private IEnumerator WipeOut()
     {
         elapsedTime = 0;
         while (elapsedTime < transitionDurationSeconds)
@@ -72,7 +72,7 @@ public class AsyncSceneLoader : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator FadeIn()
+    private IEnumerator FadeIn()
     {
         elapsedTime = 0;
         while (elapsedTime < transitionDurationSeconds)
@@ -124,8 +124,7 @@ public class AsyncSceneLoader : MonoBehaviour
         StartCoroutine(FadeOut());
         await Task.Delay(500);
         transitionDurationSeconds = tempTransitionDuration;
-
-        betweenScenesObject.SetActive(false);
+        
         scene.allowSceneActivation = true;
     }
 }

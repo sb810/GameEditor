@@ -5,17 +5,28 @@ using UnityEngine.UI;
 
 // attach to UI Text component (with the full text already there)
 
-public class TypewriterEffect : MonoBehaviour 
+public class TypewriterEffect : MonoBehaviour
 {
-
+    [SerializeField] private bool active;
+    
     private TMP_Text tmp;
     private string story;
     [SerializeField] private bool waitForTextUpdate = true;
     [SerializeField] private float startDelay = 1f;
     [SerializeField] private float characterDelay = 0.125f;
+    
+    private bool awoken = false;
 
-    void Awake () 
+    public void SetActive(bool a)
     {
+        active = a;
+    }
+    
+    void Awake ()
+    {
+        if (awoken || !active) return;
+        awoken = true;
+        
         tmp = GetComponent<TMP_Text> ();
         story = tmp.text;
         
@@ -25,8 +36,13 @@ public class TypewriterEffect : MonoBehaviour
 
     public void UpdateText(string str)
     {
+        if (!active) return;
+        
+        Awake();
+
         story = str;
-        StopCoroutine(PlayText());
+        if(!waitForTextUpdate)
+            StopCoroutine(PlayText());
         StartCoroutine(PlayText());
     }
     
@@ -42,5 +58,4 @@ public class TypewriterEffect : MonoBehaviour
             yield return new WaitForSeconds (characterDelay);
         }
     }
-
 }

@@ -55,6 +55,18 @@ MonoBehaviour:
     m_Key: EditorSaveButtonLabel
     m_Metadata:
       m_Items: []
+  - m_Id: 1484286313955328
+    m_Key: EditorRestartConfirmationConfirmButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484486025740288
+    m_Key: EditorRestartConfirmationCancelButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484884874690560
+    m_Key: EditorRestartConfirmationPrompt
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

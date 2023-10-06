@@ -58,6 +58,18 @@ MonoBehaviour:
     m_Localized: SAUVER
     m_Metadata:
       m_Items: []
+  - m_Id: 1484286313955328
+    m_Localized: OUI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484486025740288
+    m_Localized: NON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484884874690560
+    m_Localized: "Es-tu s\xFBr de vouloir recommencer ?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

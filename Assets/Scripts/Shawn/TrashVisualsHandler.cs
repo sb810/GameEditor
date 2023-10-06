@@ -1,11 +1,12 @@
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Shawn.Scripts
 {
-    public class TrashVisualsHandler : MonoBehaviour
+    public class TrashVisualsHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [Category("Dependencies")]
         public BuildingManager bm;
@@ -20,6 +21,7 @@ namespace Shawn.Scripts
 
         private bool holding;
         private bool bm_couldPlace;
+        private bool objectInTrash;
         private Camera mainCamera;
 
         // Start is called before the first frame update
@@ -53,10 +55,7 @@ namespace Shawn.Scripts
                 holding = false;
             }
             
-            Debug.Log("Pending exists : " + pendingExists);
-            Debug.Log("BMCanPlace : " + bm.canPlace);
-            
-            bm_couldPlace = pendingExists && bm.canPlace;
+            bm_couldPlace = pendingExists && bm.canPlace && !objectInTrash;
         }
 
         void OnObjectLetGo()
@@ -83,6 +82,18 @@ namespace Shawn.Scripts
                     o.SetActive(false);
                 }
             }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            objectInTrash = true;
+            Debug.Log("Entered!");
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            objectInTrash = false;
+            Debug.Log("Exited!");
         }
     }
 }

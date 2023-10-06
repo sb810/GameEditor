@@ -58,6 +58,18 @@ MonoBehaviour:
     m_Localized: SAVE
     m_Metadata:
       m_Items: []
+  - m_Id: 1484286313955328
+    m_Localized: YES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484486025740288
+    m_Localized: NO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484884874690560
+    m_Localized: Are you sure you want to restart ?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

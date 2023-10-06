@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 240411381399552
-    m_Localized: RESTART
+    m_Localized: RESET
     m_Metadata:
       m_Items: []
   - m_Id: 255599379808256
@@ -52,6 +52,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 753969693454336
     m_Localized: Invalid password !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1431827294187520
+    m_Localized: SAVE
     m_Metadata:
       m_Items: []
   references:

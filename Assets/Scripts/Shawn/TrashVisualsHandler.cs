@@ -16,16 +16,17 @@ namespace Shawn.Scripts
         public bool invisibleOnStart;
 
         private Image img;
-        private Image childImg;
+        [SerializeField] private Image childImg;
 
         private bool holding;
         private bool bm_couldPlace;
+        private Camera mainCamera;
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
+            mainCamera = Camera.main;
             img = GetComponent<Image>();
-            childImg = GetComponentInChildren<Image>();
             if (invisibleOnStart)
             {
                 img.enabled = false;
@@ -45,11 +46,15 @@ namespace Shawn.Scripts
             }
             else if(!pendingExists && holding)
             {
+                Vector3 pos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
                 OnObjectLetGo();
                 if(!bm_couldPlace)
-                    Instantiate(disappearFXPrefab, Input.mousePosition, Quaternion.identity, transform.parent);
+                    Instantiate(disappearFXPrefab, new Vector3(pos.x, pos.y, 0), Quaternion.identity, transform.parent);
                 holding = false;
             }
+            
+            Debug.Log("Pending exists : " + pendingExists);
+            Debug.Log("BMCanPlace : " + bm.canPlace);
             
             bm_couldPlace = pendingExists && bm.canPlace;
         }

@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: FirstPasswordIncorrectPrompt
     m_Metadata:
       m_Items: []
+  - m_Id: 1431827294187520
+    m_Key: EditorSaveButtonLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -23,32 +23,76 @@ namespace Shawn.Scripts
                 Instance = this;
             }
         }
+        
+        private bool cursorLock = false;
+
+        public void SetCursorLock(bool locked)
+        {
+            Debug.Log("Locked status : " + locked);
+            cursorLock = locked;
+        }
+
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             Cursor.visible = true;
             SetCursorDefault();
         }
+        
+        private delegate void NextCursorFunction();
+        private NextCursorFunction eNextCursorFunction;
 
         public void SetCursorDefault()
         {
-            Cursor.SetCursor(cursorDefault, Vector2.zero, CursorMode.Auto);
+            if(!cursorLock)
+                Cursor.SetCursor(cursorDefault, Vector2.zero, CursorMode.Auto);
         }
         
         public void SetCursorPointer()
         {
-            Cursor.SetCursor(cursorPointer, Vector2.zero, CursorMode.Auto);
+            if(!cursorLock)
+                Cursor.SetCursor(cursorPointer, Vector2.zero, CursorMode.Auto);
         }
         
         public void SetCursorHandOpen()
         {
-            Cursor.SetCursor(cursorHandOpen, Vector2.zero, CursorMode.Auto);
+            if(!cursorLock)
+                Cursor.SetCursor(cursorHandOpen, Vector2.zero, CursorMode.Auto);
         }
         
         public void SetCursorHandHold()
         {
-            Cursor.SetCursor(cursorHandHold, Vector2.zero, CursorMode.Auto);
+            if(!cursorLock)
+                Cursor.SetCursor(cursorHandHold, Vector2.zero, CursorMode.Auto);
+        }
+        
+        public void SetCursorDefaultQueued()
+        {
+            eNextCursorFunction = SetCursorDefault;
+        }
+        
+        public void SetCursorPointerQueued()
+        {
+            eNextCursorFunction = SetCursorPointer;
+        }
+        
+        public void SetCursorHandOpenQueued()
+        {
+            eNextCursorFunction = SetCursorHandOpen;
+        }
+        
+        public void SetCursorHandHoldQueued()
+        {
+            eNextCursorFunction = SetCursorHandHold;
+        }
+
+        private void Update()
+        {
+            if (cursorLock || eNextCursorFunction == null) return;
+            eNextCursorFunction.Invoke();
+            eNextCursorFunction = null;
+            Debug.Log("Update invoked!");
         }
     }
 }

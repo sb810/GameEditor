@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1484884874690560
-    m_Localized: "Es-tu s\xFBr de vouloir recommencer ?"
+    m_Localized: "Es-tu certain \nde vouloir \nrecommencer ?"
     m_Metadata:
       m_Items: []
   - m_Id: 1792450867560448
@@ -75,7 +75,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1792618694246400
-    m_Localized: Conception
+    m_Localized: RETOUR
     m_Metadata:
       m_Items: []
   - m_Id: 1792969266757632

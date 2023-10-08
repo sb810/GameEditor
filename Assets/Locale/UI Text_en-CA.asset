@@ -70,6 +70,20 @@ MonoBehaviour:
     m_Localized: Are you sure you want to restart ?
     m_Metadata:
       m_Items: []
+  - m_Id: 1792450867560448
+    m_Localized: Try again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792618694246400
+    m_Localized: Edit level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792969266757632
+    m_Localized: 'Game
+
+      Over !'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

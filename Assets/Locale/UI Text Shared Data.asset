@@ -67,6 +67,18 @@ MonoBehaviour:
     m_Key: EditorRestartConfirmationPrompt
     m_Metadata:
       m_Items: []
+  - m_Id: 1792450867560448
+    m_Key: EditorGameOverTryAgainButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792618694246400
+    m_Key: EditorGameOverEditorButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792969266757632
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

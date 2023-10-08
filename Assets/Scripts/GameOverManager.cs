@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOverMenu : MonoBehaviour
+public class GameOverManager : MonoBehaviour
 {
     BuildingManager buildingManager;
     public GameObject gameOverMenu;
@@ -24,7 +24,7 @@ public class GameOverMenu : MonoBehaviour
     {
         inGameUI.SetActive(true);
         player.SetActive(true);
-        player.GetComponent<Player>().TpToLastcheckpoint();
+        player.GetComponent<Player>().TpToLastCheckpoint();
         gameOverMenu.SetActive(false);
     }
 

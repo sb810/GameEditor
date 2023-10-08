@@ -126,6 +126,8 @@ public class BuildingManager : MonoBehaviour
 
     public void Play()
     {
+        Debug.Log("Started from Building Manager!");
+        
         saveLvl.SaveData("Level");
         levelEditorUI.SetActive(false);
         inGameUI.SetActive(true);
@@ -156,6 +158,8 @@ public class BuildingManager : MonoBehaviour
 
     public void Stop()
     {
+        Debug.Log("Stopped from Building Manager!");
+        
         levelEditorUI.SetActive(true);
         saveLvl.LoadData("Level");
 

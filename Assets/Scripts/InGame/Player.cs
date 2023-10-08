@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -10,73 +12,68 @@ public class Player : MonoBehaviour
     public float invincibilityTime;
     public float loseControlAfterHit;
     public int maxHp;
-    [HideInInspector] public List<GameObject> heart;
+
+
+    private List<GameObject> heart;
+
     [HideInInspector] public int hp;
     [HideInInspector] public bool isInvincible;
+    [HideInInspector]  public Vector3 lastCheckpoint;
 
     private float moveInput;
-    [HideInInspector] public bool canMove = true;
-
-
+    private bool canMove = true;
     private bool facingRight = true;
     private float facing = 1f;
-
     private bool isGrounded;
-    public Transform groundCheck;
 
-    public Animator dustParticlesAnimator;
 
-    [HideInInspector]  public Vector3 lastCheckpoint;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private Animator dustParticlesAnimator;
 
     private Rigidbody2D rb;
 
     [HideInInspector] public int score;
-    private Text scoreUI;
+    [SerializeField] private TextMeshProUGUI scoreLabel;
+    [SerializeField] private GameObject heartContainer;
+    [FormerlySerializedAs("gameOver")] [FormerlySerializedAs("gameOverMenu")] [SerializeField] private GameOverManager gameOverManager;
 
-    Animator anim;
+    private Animator anim;
 
     public GameObject feet;
-    void Start()
+    private static readonly int IsJumping = Animator.StringToHash("isJumping");
+    private static readonly int IsMoving = Animator.StringToHash("isMoving");
+    private static readonly int Active = Animator.StringToHash("active");
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
         lastCheckpoint = transform.position;
+        heart = new List<GameObject>();
         
-        for (int i = 0; i < GameObject.Find("Health").transform.childCount; i++)
-        {
-            heart.Add(GameObject.Find("Health").transform.GetChild(i).gameObject);
-        }
+        for (int i = 0; i < heartContainer.transform.childCount; i++)
+            heart.Add(heartContainer.transform.GetChild(i).gameObject);
+        
         hp = maxHp;
         UpdateLife();
         UpdateScore();
     }
 
-    void Update()
+    private void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0.35f*facing, 0, 0), Vector2.up, 1);
+        var pos = transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(pos + new Vector3(0.35f*facing, 0, 0), Vector2.up, 1);
         
         if (hit.collider != null)
-        {
-            if (hit.collider.CompareTag("Wall"))
-            {
-                canMove = false;
-            }
-            else
-            {
-                canMove = true;
-            }
-        }
+            canMove = !hit.collider.CompareTag("Wall");
         else
-        {
             canMove = true;
-        }
 
         if (Input.GetButton("Horizontal")&&canMove)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
             Vector3 direction = transform.right * moveInput;
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, movingSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(pos, pos + direction, movingSpeed * Time.deltaTime);
         } 
             
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -84,13 +81,12 @@ public class Player : MonoBehaviour
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         }
 
-        if (facingRight == false && moveInput > 0)
+        switch (facingRight)
         {
-            Flip();
-        }
-        else if (facingRight == true && moveInput < 0)
-        {
-            Flip();
+            case false when moveInput > 0:
+            case true when moveInput < 0:
+                Flip();
+                break;
         }
         
         if(hp == 0 || transform.position.y <= -13)
@@ -102,32 +98,25 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         CheckGround();
-        
-        if(!isGrounded)
-        {
-            anim.SetBool("isJumping", true);
-        }
-        else
-        {
-            anim.SetBool("isJumping", false);
-        }
-        
+
+        anim.SetBool(IsJumping, !isGrounded);
+
         moveInput = Input.GetAxisRaw("Horizontal");
         if (moveInput != 0)
         {
-            anim.SetBool("isMoving", true);
+            anim.SetBool(IsMoving, true);
             if (dustParticlesAnimator == null) return;
             if (isGrounded)
             {
-                dustParticlesAnimator.SetBool("active", true);
+                dustParticlesAnimator.SetBool(Active, true);
                 dustParticlesAnimator.Play("Run_dust", 0, anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
             }
-            else dustParticlesAnimator.SetBool("active", false);
+            else dustParticlesAnimator.SetBool(Active, false);
         }
         else
         {
-            anim.SetBool("isMoving", false);
-            if (dustParticlesAnimator != null) dustParticlesAnimator.SetBool("active", false); 
+            anim.SetBool(IsMoving, false);
+            if (dustParticlesAnimator != null) dustParticlesAnimator.SetBool(Active, false); 
         }
 
         if (rb.velocity.x > 10)
@@ -143,9 +132,11 @@ public class Player : MonoBehaviour
 
     private void Flip()
     {
+        GameObject go = anim.gameObject;
+        var localScale = go.transform.localScale;
         facingRight = !facingRight;
         facing *= -1;
-        anim.gameObject.transform.localScale =new Vector3(-anim.gameObject.transform.localScale.x, anim.gameObject.transform.localScale.y, anim.gameObject.transform.localScale.z);
+        go.transform.localScale =new Vector3(-localScale.x, localScale.y, localScale.z);
     }
 
     private void CheckGround()
@@ -156,27 +147,17 @@ public class Player : MonoBehaviour
 
     public void UpdateScore()
     {
-        if(scoreUI == null)
-        {
-            scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
-        }
-        
-        scoreUI.text = score.ToString();
+        if(scoreLabel)
+            scoreLabel.text = score.ToString();
     }
     
     public void UpdateLife()
     {
+        Debug.Log(heart);
+        Debug.Log(hp);
+        
         foreach (GameObject obj in heart)
-        {
-            if(hp >= heart.IndexOf(obj)+1)
-            {
-                obj.SetActive(true);
-            }
-            else
-            {
-                obj.SetActive(false);
-            }
-        }
+            obj.SetActive(hp >= heart.IndexOf(obj) + 1);
     }
 
     public IEnumerator InvincibleTimer()
@@ -209,7 +190,7 @@ public class Player : MonoBehaviour
         yield return null;
     }
 
-    public void Death()
+    private void Death()
     {
         hp = maxHp;
         //GetComponent<Renderer>().color = new Color(1, 1, 1, 1);
@@ -219,16 +200,15 @@ public class Player : MonoBehaviour
         StopAllCoroutines();
         UpdateLife();
         
-        GameOverMenu gameOver = GameObject.Find("GameManager").GetComponent<GameOverMenu>();
-        gameOver.gameOverMenu.SetActive(true);
-        gameOver.inGameUI.SetActive(false);
-        gameOver.player = gameObject;
+        gameOverManager.gameOverMenu.SetActive(true);
+        gameOverManager.inGameUI.SetActive(false);
+        gameOverManager.player = gameObject;    
 
         gameObject.SetActive(false);
 
     }
 
-    public void TpToLastcheckpoint()
+    public void TpToLastCheckpoint()
     {
         transform.position = lastCheckpoint;
     }

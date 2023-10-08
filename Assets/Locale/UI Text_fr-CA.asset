@@ -70,6 +70,20 @@ MonoBehaviour:
     m_Localized: "Es-tu s\xFBr de vouloir recommencer ?"
     m_Metadata:
       m_Items: []
+  - m_Id: 1792450867560448
+    m_Localized: Rejouer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792618694246400
+    m_Localized: Conception
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792969266757632
+    m_Localized: 'Partie
+
+      Perdue !'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -3,7 +3,11 @@ guid: c2e842defd460ba46b1417511019df0a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cursorDefault: {fileID: 2800000, guid: e0f6eb805817552458cc2bc7547817fa, type: 3}
+  - cursorPointer: {fileID: 2800000, guid: a2e848a4529bdba418a8ebc99f070081, type: 3}
+  - cursorHandOpen: {fileID: 2800000, guid: bffb66116e33b0b43a5fce025576affd, type: 3}
+  - cursorHandHold: {fileID: 2800000, guid: 832f9e13ab5d02e40be0a5ce433804b8, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

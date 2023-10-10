@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Shawn.Scripts
+namespace Shawn
 {
     public class MouseIconHandler : MonoBehaviour
     {
@@ -28,7 +27,6 @@ namespace Shawn.Scripts
 
         public void SetCursorLock(bool locked)
         {
-            Debug.Log("Locked status : " + locked);
             cursorLock = locked;
         }
 
@@ -92,7 +90,6 @@ namespace Shawn.Scripts
             if (cursorLock || eNextCursorFunction == null) return;
             eNextCursorFunction.Invoke();
             eNextCursorFunction = null;
-            Debug.Log("Update invoked!");
         }
     }
 }

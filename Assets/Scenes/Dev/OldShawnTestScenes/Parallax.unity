@@ -5050,7 +5050,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 130612210}
           m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
-          m_MethodName: MousExitTrash
+          m_MethodName: MouseExitTrash
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 1827767606}
@@ -21584,7 +21584,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 130612210}
           m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
-          m_MethodName: MousExitTrash
+          m_MethodName: MouseExitTrash
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 172893607}

@@ -79,6 +79,10 @@ MonoBehaviour:
     m_Key: New Entry
     m_Metadata:
       m_Items: []
+  - m_Id: 3160891742744576
+    m_Key: MainMenuPasswordPlaceholderLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

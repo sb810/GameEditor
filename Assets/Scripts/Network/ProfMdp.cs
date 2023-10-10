@@ -1,31 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-public class ProfMdp : MonoBehaviour
-{
-    public Image image;
-    public string password;
 
-    private void Start()
+namespace Network
+{
+    public class ProfMdp : MonoBehaviour
     {
-        if (PlayerPrefs.HasKey("isProf"))
+        public Button button;
+        public string password;
+
+        private void Start()
         {
-            image.color = Color.green;
+            if (PlayerPrefs.HasKey("isProf"))
+            {
+                button.interactable = false;
+            }
         }
-    }
-    public void CheckMdp(string Mdp)
-    {
-        if(Mdp == password)
+        public void CheckMdp(string mdp)
         {
-            image.color = Color.green;
-            PlayerPrefs.SetInt("isProf", 1);
-            GetComponent<TMP_InputField>().text = "";
-        }
-        else
-        {
-            GetComponent<TMP_InputField>().text = "";
+            if(mdp == password)
+            {
+                button.interactable = false;
+                PlayerPrefs.SetInt("isProf", 1);
+                GetComponent<TMP_InputField>().text = "";
+            }
+            else
+            {
+                GetComponent<TMP_InputField>().text = "";
+            }
         }
     }
 }

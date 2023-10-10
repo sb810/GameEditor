@@ -84,6 +84,10 @@ MonoBehaviour:
       Over !'
     m_Metadata:
       m_Items: []
+  - m_Id: 3160891742744576
+    m_Localized: Password
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

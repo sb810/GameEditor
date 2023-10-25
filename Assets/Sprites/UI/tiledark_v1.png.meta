@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,12 +121,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 124
+        y: 120
         width: 112
-        height: 20
+        height: 24
       alignment: 4
       pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 32, y: 12, z: 4, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -142,12 +142,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 124
+        y: 120
         width: 112
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 32, y: 12, z: 4, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -163,12 +163,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 124
+        y: 120
         width: 112
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 32, y: 12, z: 4, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -184,12 +184,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 336
-        y: 124
+        y: 120
         width: 112
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 32, y: 12, z: 4, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -205,12 +205,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 124
+        y: 120
         width: 112
-        height: 20
+        height: 24
       alignment: 4
       pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 32, y: 12, z: 4, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -228,7 +228,7 @@ TextureImporter:
         x: 0
         y: 104
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,12 +247,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 84
+        y: 80
         width: 112
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 12, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -270,7 +270,7 @@ TextureImporter:
         x: 112
         y: 104
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,12 +289,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 84
+        y: 80
         width: 112
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 12, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -312,7 +312,7 @@ TextureImporter:
         x: 224
         y: 104
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,12 +331,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 84
+        y: 80
         width: 112
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 12, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -354,7 +354,7 @@ TextureImporter:
         x: 336
         y: 104
         width: 16
-        height: 20
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,12 +373,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 336
-        y: 84
+        y: 80
         width: 112
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 12, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -394,7 +394,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 108
+        y: 104
         width: 16
         height: 16
       alignment: 2
@@ -415,12 +415,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 88
+        y: 80
         width: 112
-        height: 16
+        height: 24
       alignment: 4
       pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 12, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -436,12 +436,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 60
+        y: 56
         width: 112
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 12, z: 4, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -457,12 +457,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 60
+        y: 56
         width: 112
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 12, z: 4, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -478,12 +478,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 60
+        y: 56
         width: 112
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 12, z: 4, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -499,12 +499,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 336
-        y: 60
+        y: 56
         width: 112
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 12, z: 4, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -520,12 +520,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 60
+        y: 56
         width: 112
-        height: 20
+        height: 24
       alignment: 4
       pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 12, z: 4, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -609,7 +609,7 @@ TextureImporter:
         height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 16, z: 16, w: 16}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -813,6 +813,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tiledark_v1_33
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 24
+        width: 112
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 12, z: 4, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4f52ed7789555d46a65d680568fd50c
+      internalID: -1803520098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiledark_v1_34
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 1, z: 3, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab9d852f1aa190439ca4d7af63ecf9b
+      internalID: -1329866953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiledark_v1_35
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 10, z: 10, w: 10}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b530f743bdcfe1442ae83ff1b342093c
+      internalID: 184495717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiledark_v1_36
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 41
+        width: 112
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8852e32b06a567c4493f10034f1d18a4
+      internalID: -2134714952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiledark_v1_37
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 28
+        width: 112
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 0, z: 4, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef1efdc69a7f80347893b2fff1d3eb07
+      internalID: -1261792981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiledark_v1_38
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 120
+        width: 112
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 32, y: 12, z: 4, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca5f7b57b4e5fd4db2a10355daf3fdf
+      internalID: 1325044508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiledark_v1_39
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 84
+        width: 112
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 16, y: 12, z: 4, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b674c13111c16bd4b80dc775336fed4e
+      internalID: -1632781254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiledark_v1_40
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 56
+        width: 112
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 16, y: 12, z: 4, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3618c3c12219a843baffec307cfca14
+      internalID: 1327567160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -833,10 +1001,14 @@ TextureImporter:
       tiledark_v1_8: 1763007515
       tiledark_v1_17: 1089753163
       tiledark_v1_11: 1972035310
+      tiledark_v1_40: 1327567160
+      tiledark_v1_34: -1329866953
       tiledark_v1_18: 495431619
+      tiledark_v1_36: -2134714952
       tiledark_v1_9: -968067068
       tiledark_v1_27: 289662945
       tiledark_v1_28: 1614292641
+      tiledark_v1_38: 1325044508
       tiledark_v1_0: -1370727581
       tiledark_v1_12: -1585455137
       tiledark_v1_22: -1963574589
@@ -853,10 +1025,14 @@ TextureImporter:
       tiledark_v1_10: 923730995
       tiledark_v1_31: 1882751547
       tiledark_v1_25: -1773738218
+      tiledark_v1_39: -1632781254
       tiledark_v1_5: -1644637384
+      tiledark_v1_35: 184495717
       tiledark_v1_14: -637495196
-      tiledark_v1_21: 1770428523
+      tiledark_v1_33: -1803520098
       tiledark_v1_29: 818110185
+      tiledark_v1_21: 1770428523
+      tiledark_v1_37: -1261792981
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

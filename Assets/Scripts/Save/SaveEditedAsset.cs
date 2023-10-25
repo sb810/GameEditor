@@ -29,10 +29,11 @@ public class SaveEditedAsset : MonoBehaviour
     private List<string> mySprites = new List<string>();
     private List<int> myIndex = new List<int>();
 
-    SpriteEditor editor;
+    private SpriteEditor editor;
 
     public GameObject spriteTemplate;
-    void Awake()
+
+    private void Awake()
     {
         editor = GetComponent<SpriteEditor>();
         Initialize();
@@ -87,7 +88,7 @@ public class SaveEditedAsset : MonoBehaviour
         }
     }
 
-    void Initialize()
+    private void Initialize()
     {
         foreach (Sprite sprite in spritesList)
         {

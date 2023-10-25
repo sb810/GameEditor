@@ -6,7 +6,7 @@ public class HammerEnemy : MonoBehaviour
 {
     public Vector2 throwing;
     public float attackSpeed;
-    float startScale;
+    private float startScale;
 
     public GameObject hammer;
 
@@ -28,7 +28,8 @@ public class HammerEnemy : MonoBehaviour
     {
         canThrow = true;
     }
-    void Update()
+
+    private void Update()
     {
         float playerPos = player.transform.position.x - transform.position.x;
         if(playerPos >0)
@@ -55,7 +56,7 @@ public class HammerEnemy : MonoBehaviour
         }
     }
 
-    IEnumerator Throw()
+    private IEnumerator Throw()
     {
         GameObject projectile = Instantiate(hammer, transform.position, transform.rotation);
         float playerPos = player.transform.position.x - transform.position.x;

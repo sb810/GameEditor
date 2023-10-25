@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PreviewCheckpoint : MonoBehaviour
 {
     public GameObject winScreen;
-    public BlocCodeCheck codeCheck;
+    public BlockCodeCheck codeCheck;
     public float enemyTotal;
     [HideInInspector] public float enemyCount;
 
@@ -26,7 +26,7 @@ public class PreviewCheckpoint : MonoBehaviour
         }
     }
 
-    IEnumerator Win()
+    private IEnumerator Win()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         PlayerPrefs.SetInt("ProgLvl", sceneIndex + 1);

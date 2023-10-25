@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CheckPlacement : MonoBehaviour
 {
-    BuildingManager buildManager;
+    private BuildingManager buildManager;
     public int nbLimit;
 
-    void Start()
+    private void Start()
     {
-        buildManager = GameObject.Find("GameManager").GetComponent<BuildingManager>();
+        buildManager = GameManager.Instance.BuildingManager;
     }
     private void OnTriggerExit2D(Collider2D other)
     {

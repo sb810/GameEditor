@@ -6,6 +6,7 @@ public class BackgroundLayer : MonoBehaviour
 {
     private Camera mainCamera;
     [SerializeField] private float cameraPositionMultiplier = 1.0f;
+    [SerializeField] private float windStrength;
     [Min(1)] [SerializeField] private int positiveInstances = 1;
     [Min(1)] [SerializeField] private int negativeInstances = 1;
 
@@ -40,6 +41,6 @@ public class BackgroundLayer : MonoBehaviour
     private void Update()
     {
         transform.localPosition =
-            new Vector3(0 - cameraPositionMultiplier * mainCamera.transform.position.x % 18, 0, 0);
+            new Vector3(windStrength * Time.time - cameraPositionMultiplier * mainCamera.transform.position.x % 18, 0, 0);
     }
 }

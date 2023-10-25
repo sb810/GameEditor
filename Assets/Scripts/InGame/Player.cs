@@ -35,8 +35,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public int score;
     [SerializeField] private TextMeshProUGUI scoreLabel;
     [SerializeField] private GameObject heartContainer;
-    [FormerlySerializedAs("gameOver")] [FormerlySerializedAs("gameOverMenu")] [SerializeField] private GameOverManager gameOverManager;
 
+    private GameOverManager gameOverManager;
     private Animator anim;
 
     public GameObject feet;
@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        gameOverManager = GameManager.Instance.GameOverManager;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         lastCheckpoint = transform.position;

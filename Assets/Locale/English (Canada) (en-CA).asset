@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: English (Canada) (en-CA)
   m_EditorClassIdentifier: 
   m_Identifier:
-    m_Code: en-CA
+    m_Code: en
   m_Metadata:
     m_Items: []
-  m_LocaleName: English (Canada) (en-CA)
+  m_LocaleName: English
   m_CustomFormatCultureCode: 
   m_UseCustomFormatter: 0
   m_SortOrder: 10000

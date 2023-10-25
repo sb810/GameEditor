@@ -12,7 +12,8 @@ public class PreviewFirebal : MonoBehaviour
         if(speed<0)
         transform.localScale *= -1;
     }
-    void Update()
+
+    private void Update()
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
     }
@@ -27,7 +28,7 @@ public class PreviewFirebal : MonoBehaviour
         }
         if (collision.CompareTag("Enemy"))
         {
-            GameObject.Find("BlocStart").GetComponent<BlocCodeCheck>().ResetPreview();
+            GameObject.Find("BlocStart").GetComponent<BlockCodeCheck>().ResetPreview();
             Destroy(gameObject);
         }
     }

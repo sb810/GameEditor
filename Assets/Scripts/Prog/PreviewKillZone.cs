@@ -8,7 +8,7 @@ public class PreviewKillZone : MonoBehaviour
     {
         if (other.CompareTag("DeadBody"))
         {
-            GameObject.Find("BlocStart").GetComponent<BlocCodeCheck>().ResetPreview();
+            GameObject.Find("BlocStart").GetComponent<BlockCodeCheck>().ResetPreview();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SpriteEditor : MonoBehaviour
 {
-    Vector3 pos;
+    private Vector3 pos;
     [HideInInspector] public GameObject pendingObj;
 
     public float gridSize;
@@ -66,7 +66,7 @@ public class SpriteEditor : MonoBehaviour
         GetComponent<SaveEditedAsset>().LoadData(editedPrefab.name);
     }
 
-    void Update()
+    private void Update()
     {
         if (pendingObj != null)
         {
@@ -89,7 +89,7 @@ public class SpriteEditor : MonoBehaviour
         }
     }
 
-    void PlaceObject()
+    private void PlaceObject()
     {
         if (!mouseOnTrash)
         {
@@ -130,7 +130,7 @@ public class SpriteEditor : MonoBehaviour
     {
         mouseOnTrash = true;
     }
-    public void MousExitTrash()
+    public void MouseExitTrash()
     {
         mouseOnTrash = false;
     }
@@ -155,7 +155,7 @@ public class SpriteEditor : MonoBehaviour
             prefab.GetComponent<CheckPlacement>().enabled = true;
         }
 
-        buildingManager.GetComponent<SaveLoadLevel>().LoadData("Level");
+        GameManager.Instance.SaveManager.LoadData("Level");
 
         cam.orthographicSize = 10;
     }

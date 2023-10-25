@@ -10,7 +10,8 @@ public class CameraController : MonoBehaviour
     private Transform player;
     private int lastX;
     [HideInInspector] public float camLimit;
-    void Start()
+
+    private void Start()
     {
         offset = new Vector2(Mathf.Abs(offset.x), offset.y);
         FindPlayer(faceLeft);
@@ -19,7 +20,8 @@ public class CameraController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-    void Update()
+
+    private void Update()
     {
         if (player)
         {

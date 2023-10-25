@@ -8,12 +8,7 @@ public class Finish : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            LevelFinished();
+            GameManager.Instance.BuildingManager.Stop();
         }
-    }
-
-    void LevelFinished()
-    {
-        GameObject.FindObjectOfType<BuildingManager>().Stop();
     }
 }

@@ -10,7 +10,8 @@ public class FindPlayer : MonoBehaviour
     public GameObject button; // button from object selector, should contain a PrefabInButton
     [FormerlySerializedAs("button")] public Image buttonImage; // previous button<s image (can be in another gameobject)
     public GameObject prefab; // button from ChampSelect, should contain a PrefabInButton
-    void Start()
+
+    private void Start()
     {
         champSelect.player = gameObject;
         buttonImage.sprite = gameObject.GetComponent<SpriteRenderer>().sprite;

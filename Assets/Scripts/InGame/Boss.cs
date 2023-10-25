@@ -15,7 +15,8 @@ public class Boss : MonoBehaviour
 
     public GameObject fireball;
     public GameObject mouth;
-    void Start()
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -46,7 +47,7 @@ public class Boss : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (PlayerPrefs.GetInt("ProgLvl") < SceneManager.GetActiveScene().buildIndex + 5)
         {
@@ -103,15 +104,16 @@ public class Boss : MonoBehaviour
         GameObject obj = Instantiate(fireball, mouth.transform.position, Quaternion.identity);
         obj.GetComponent<Fireball>().speed *= -moveSpeed;
     }
-    
-    IEnumerator AttackBoucle()
+
+    private IEnumerator AttackBoucle()
     {
         yield return new WaitForSeconds(2f);
         anim.SetTrigger("Attack"); 
         StartCoroutine(AttackBoucle());
         yield return null;
     }
-    IEnumerator Avancer()
+
+    private IEnumerator Avancer()
     {
         float elapsedTime = 0f;
         //////Vector3 currentPos = transform.position;

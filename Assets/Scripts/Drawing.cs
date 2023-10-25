@@ -7,16 +7,16 @@ public class Drawing : MonoBehaviour
     public Camera cam;
     public GameObject brush;
 
-    LineRenderer currentLineRenderer;
+    private LineRenderer currentLineRenderer;
 
-    Vector2 lastPost;
+    private Vector2 lastPost;
 
-    void Update()
+    private void Update()
     {
         Draw();
     }
 
-    void Draw()
+    private void Draw()
     {
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -37,7 +37,7 @@ public class Drawing : MonoBehaviour
         }
     }
 
-    void CreateBrush()
+    private void CreateBrush()
     {
         GameObject brushInstance = Instantiate(brush);
         currentLineRenderer = brushInstance.GetComponent<LineRenderer>();
@@ -48,7 +48,7 @@ public class Drawing : MonoBehaviour
         currentLineRenderer.SetPosition(1, mousePos);
     }
 
-    void AddPoint(Vector2 pointPos)
+    private void AddPoint(Vector2 pointPos)
     {
         currentLineRenderer.positionCount++;
         int positionIndex = currentLineRenderer.positionCount - 1;

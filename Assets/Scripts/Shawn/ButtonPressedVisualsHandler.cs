@@ -20,7 +20,7 @@ namespace Shawn.Scripts
         private Sprite sourceBaseSprite;
     
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             sourceBaseSprite = sourceImage.sprite;
         }

@@ -8,9 +8,9 @@ public class BuildingManager : MonoBehaviour
     public GameObject levelEditorUI;
     public GameObject inGameUI;
     public Scrollbar map;
-    Vector3 pos;
+    private Vector3 pos;
     [HideInInspector] public GameObject pendingObj;
-    private SpriteRenderer pendingObjSpriteRenderer;
+    public SpriteRenderer pendingObjSpriteRenderer;
     [SerializeField] private Material[] materials;
 
     public float gridSize;
@@ -18,37 +18,43 @@ public class BuildingManager : MonoBehaviour
 
     public bool canPlace = true;
 
-    public List<GameObject> placedObject = new List<GameObject>();
-    [HideInInspector] public List<GameObject> objectToDestroy = new List<GameObject>();
+    public List<GameObject> placedObject = new();
+    [HideInInspector] public List<GameObject> objectToDestroy = new();
 
     private Camera cam;
 
     public float camLimit;
 
-    private bool mouseOnTrash = false;
-    private bool firstPlacement = false;
+    private bool mouseOnTrash;
+    private bool firstPlacement;
 
-    [HideInInspector] public SaveLoadLevel saveLvl;
+    [HideInInspector] public SaveManager saveLvl;
 
-    SelectObject selectObj;
+    private ObjectSelectionManager obj;
 
     [HideInInspector] public Vector3 decalage;
 
-    public Sprite trashIn;
-    public Sprite trashOut;
+    [SerializeField] private Sprite trashIn;
+    [SerializeField] private Sprite trashOut;
 
-    public GameObject explosionFX;
+    [SerializeField] private GameObject explosionFX;
     
-    void Start()
+    // private GameObject visualHeldItem;
+    // private SpriteRenderer visualHeldItemSpriteRenderer;
+
+    private void Start()
     {
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        saveLvl = GetComponent<SaveLoadLevel>();
+        saveLvl = GetComponent<SaveManager>();
         saveLvl.LoadData("Level");
         saveZID.Clear();
-        selectObj = GetComponent<SelectObject>();
+        obj = GameManager.Instance.ObjectSelectionManager;
+        // visualHeldItem = new();
+        //visualHeldItemSpriteRenderer = visualHeldItem.AddComponent<SpriteRenderer>();
+        //visualHeldItemSpriteRenderer.sortingLayerName = "Topmost";
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -60,6 +66,8 @@ public class BuildingManager : MonoBehaviour
         pendingObj.transform.position = gridOn
             ? new Vector3(Snapping.Snap(pos.x, gridSize), Snapping.Snap(pos.y, gridSize), 0)
             : pos;
+
+        // visualHeldItem.transform.position = pos;
 
         UpdateMaterials();
 
@@ -76,17 +84,19 @@ public class BuildingManager : MonoBehaviour
         Debug.Log(pendingObj);
     }
 
-    void PlaceObject()
+    private void PlaceObject()
     {
         if (!mouseOnTrash)
         {
             pendingObjSpriteRenderer.material = materials[2];
+            pendingObjSpriteRenderer.sortingLayerName = "Foreground";
             if (firstPlacement)
             {
                 placedObject.Add(pendingObj);
                 firstPlacement = false;
             }
 
+            //visualHeldItemSpriteRenderer.sprite = null;
             pendingObj = null;
         }
     }
@@ -99,31 +109,54 @@ public class BuildingManager : MonoBehaviour
 
     public void SelectObject(PrefabInButton script)
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1)) return;
-
+        if (Input.GetKeyDown(KeyCode.Mouse1) || GetPrefabDistanceFromLimit(script.prefab) == 0) return;
         GameObject objectToSpawn = script.prefab;
-
-        if (IsPrefabLimitExceeded(objectToSpawn)) return;
 
         SaveZ();
         pendingObj = Instantiate(objectToSpawn, pos, transform.rotation);
         pendingObjSpriteRenderer = pendingObj.GetComponent<SpriteRenderer>();
         pendingObjSpriteRenderer.sortingLayerName = "Topmost";
+
+        // visualHeldItemSpriteRenderer.sprite = pendingObjSpriteRenderer.sprite;
+        // visualHeldItemSpriteRenderer.sortingOrder += 1;
+
+        // UpdatePlacementButton(script);
+        
         firstPlacement = true;
-        selectObj.selectedObj = pendingObj;
+        obj.selectedObj = pendingObj;
     }
 
-    void UpdateMaterials()
+    public bool UpdatePlacementButton(PrefabInButton script)
+    {
+        return script.gameObject.GetComponent<Button>().enabled = GetPrefabDistanceFromLimit(script.prefab) != 0;
+    }
+
+    private void UpdateMaterials()
     {
         if (!pendingObj) return;
         if (!pendingObjSpriteRenderer) pendingObjSpriteRenderer = pendingObj.GetComponent<SpriteRenderer>();
         pendingObjSpriteRenderer.material = canPlace && !mouseOnTrash
-            ? materials[0]
-            : materials[1];
+            ? materials[0] // CanPlace - Green
+            : materials[1]; // CantPlace - Red
+        // visualHeldItemSpriteRenderer.material = canPlace && !mouseOnTrash
+            // ? materials[2] // Normal - White 
+            // : materials[1]; // CantPlace - Red
+    }
+
+    public void PlayDelayed(float delay)
+    {
+        StartCoroutine(Play(delay));
     }
 
     public void Play()
     {
+        StartCoroutine(Play(0));
+    }
+
+    public IEnumerator Play(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        
         saveLvl.SaveData("Level");
         levelEditorUI.SetActive(false);
         inGameUI.SetActive(true);
@@ -148,12 +181,14 @@ public class BuildingManager : MonoBehaviour
         cam.GetComponent<CameraController>().FindPlayer(cam.GetComponent<CameraController>().faceLeft);
 
         saveZID.Clear();
+
+        yield return null;
     }
 
-    public void Stop()
+    private IEnumerator Stop(float delay)
     {
-        Debug.Log("Stopped from Building Manager!");
-
+        yield return new WaitForSeconds(delay);
+        
         levelEditorUI.SetActive(true);
         saveLvl.LoadData("Level");
 
@@ -171,6 +206,18 @@ public class BuildingManager : MonoBehaviour
         cam.GetComponent<CameraController>().enabled = false;
 
         cam.transform.position = new Vector3(0, 0, -10);
+
+        yield return null;
+    }
+
+    public void Stop()
+    {
+        StartCoroutine(Stop(0));
+    }
+    
+    public void StopDelayed(float delay)
+    {
+        StartCoroutine(Stop(delay));
     }
 
     private void Delete()
@@ -181,26 +228,25 @@ public class BuildingManager : MonoBehaviour
         if (!firstPlacement)
         {
             int index = placedObject.IndexOf(pendingObj);
-            if (index < 0) return;
-            placedObject.RemoveAt(index);
+            if (index >= 0) placedObject.RemoveAt(index);
         }
         
         Destroy(pendingObj);
         pendingObj = null;
-        selectObj.selectedObj = null;
+        obj.selectedObj = null;
     }
 
     public void MouseEnterTrash(GameObject obj)
     {
         mouseOnTrash = true;
-        if (selectObj.selectedObj != null)
+        if (this.obj.selectedObj != null)
             obj.SetActive(true);
     }
 
     public void MouseEnterTrashImage(GameObject obj)
     {
         mouseOnTrash = true;
-        if (selectObj.selectedObj != null)
+        if (this.obj.selectedObj != null)
             obj.GetComponent<Image>().sprite = trashIn;
     }
 
@@ -213,26 +259,27 @@ public class BuildingManager : MonoBehaviour
     public void MouseExitTrashImage(GameObject obj)
     {
         mouseOnTrash = false;
-        if (selectObj.selectedObj != null)
+        if (this.obj.selectedObj != null)
             obj.GetComponent<Image>().sprite = trashOut;
     }
 
 
-    private bool IsPrefabLimitExceeded(GameObject prefab)
+    private int GetPrefabDistanceFromLimit(GameObject prefab)
     {
+        
+        
         int limit = prefab.GetComponent<CheckPlacement>().nbLimit;
-        if (limit == 0) return false;
+
+        if (limit == 0) return -1;
         
         int actualNb = 0;
         foreach (GameObject obj in placedObject)
         {
             if (obj.name.Replace("(Clone)", string.Empty) == prefab.name)
-            {
                 actualNb++;
-            }
         }
 
-        return actualNb >= limit;
+        return limit - actualNb;
     }
 
     public void MoveMap()
@@ -246,7 +293,7 @@ public class BuildingManager : MonoBehaviour
     }
 
     // ctrlZ
-    List<string> saveZID = new List<string>();
+    private List<string> saveZID = new List<string>();
 
     public void SaveZ()
     {

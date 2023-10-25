@@ -21,8 +21,8 @@ public class TypewriterEffect : MonoBehaviour
     {
         active = a;
     }
-    
-    void Awake ()
+
+    private void Awake ()
     {
         if (awoken || !active) return;
         awoken = true;
@@ -45,9 +45,9 @@ public class TypewriterEffect : MonoBehaviour
             StopCoroutine(PlayText());
         StartCoroutine(PlayText());
     }
-    
 
-    IEnumerator PlayText()
+
+    private IEnumerator PlayText()
     {
         tmp.text = "";
         

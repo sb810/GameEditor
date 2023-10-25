@@ -4,10 +4,10 @@ using UnityEngine;
 public class DrawCollisionBoundary : MonoBehaviour
 {
     [SerializeField] private GameObject linePrefab;
-    LineRenderer lineRenderer;
-    BoxCollider2D boxCollider2D;
+    private LineRenderer lineRenderer;
+    private BoxCollider2D boxCollider2D;
 
-    void Start()
+    private void Start()
     {
         lineRenderer = Instantiate(linePrefab).GetComponent<LineRenderer>();
         lineRenderer.transform.SetParent(transform);
@@ -16,12 +16,12 @@ public class DrawCollisionBoundary : MonoBehaviour
        
     }
 
-    void Update()
+    private void Update()
     {
         Highlight();
     }
 
-    void Highlight()
+    private void Highlight()
     {
         Vector3[] positions = new Vector3[4];
         positions[0] = transform.TransformPoint( new Vector3(boxCollider2D.size.x / 2.0f, boxCollider2D.size.y / 2.0f,0));

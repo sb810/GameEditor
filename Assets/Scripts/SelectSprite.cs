@@ -6,14 +6,14 @@ public class SelectSprite : MonoBehaviour
 {
     public GameObject selectedObj;
 
-    SpriteEditor spriteEditor;
+    private SpriteEditor spriteEditor;
 
-    void Start()
+    private void Start()
     {
         spriteEditor = GetComponent<SpriteEditor>();
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0) && spriteEditor.pendingObj == null)
         {
@@ -40,7 +40,7 @@ public class SelectSprite : MonoBehaviour
         }
     }
 
-    void Select(GameObject obj)
+    private void Select(GameObject obj)
     {
         if (obj == selectedObj) return;
 
@@ -51,7 +51,7 @@ public class SelectSprite : MonoBehaviour
         Move();
     }
 
-    void Deselect()
+    private void Deselect()
     {
         selectedObj = null;
     }

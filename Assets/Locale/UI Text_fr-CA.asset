@@ -88,6 +88,46 @@ MonoBehaviour:
     m_Localized: Mot de passe
     m_Metadata:
       m_Items: []
+  - m_Id: 8175103552516096
+    m_Localized: Blocs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175355575660544
+    m_Localized: "D\xE9but"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175681523412992
+    m_Localized: "Aper\xE7u de la simulation"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175943919071232
+    m_Localized: Recommencer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8176807287189504
+    m_Localized: Lancer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177073742934016
+    m_Localized: "Conditions de r\xE9ussite"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177380992479232
+    m_Localized: Zone de code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177623691685888
+    m_Localized: 'Blocs restants : 0'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177975719620608
+    m_Localized: Avancer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8178710507155456
+    m_Localized: "Retour \xE0 la conception"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

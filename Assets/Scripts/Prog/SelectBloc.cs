@@ -5,20 +5,21 @@ using UnityEngine;
 public class SelectBloc : MonoBehaviour
 {
     public GameObject selectedObj;
-    BlocEditor blocEditor;
+    private CodeBlockManager codeBlockManager;
 
-    void Start()
+    private void Start()
     {
-        blocEditor = GetComponent<BlocEditor>();
+        codeBlockManager = GetComponent<CodeBlockManager>();
     }
-    void Update()
+
+    private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && BlocEditor.pendingObj == null)
+        if (Input.GetMouseButtonDown(0) && CodeBlockManager.pendingObj == null)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.CompareTag("Bloc") && hit.collider.GetComponent<BlocAssemble>().type != BlocAssemble.BlocType.Start)
+                if (hit.collider.gameObject.CompareTag("Bloc") && hit.collider.GetComponent<BlockAssembly>().type != BlockAssembly.BlocType.Start)
                 {
                     Select(hit.collider.gameObject);
                 }
@@ -38,53 +39,53 @@ public class SelectBloc : MonoBehaviour
         }
     }
 
-    void Select(GameObject obj)
+    private void Select(GameObject obj)
     {
         if (obj == selectedObj) return;
 
         if (selectedObj != null) Deselect();
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        blocEditor.decalage = new Vector3(mousePosition.x, mousePosition.y, 0) - obj.transform.position;
+        codeBlockManager.offset = new Vector3(mousePosition.x, mousePosition.y, 0) - obj.transform.position;
 
         selectedObj = obj;
 
 
-        if(selectedObj.GetComponent<BlocAssemble>().previousBloc != null)
+        if(selectedObj.GetComponent<BlockAssembly>().previousBlock != null)
         {
-            if (selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.Start)
+            if (selectedObj.GetComponent<BlockAssembly>().previousBlock.GetComponent<BlockAssembly>().type == BlockAssembly.BlocType.Start)
             {
-                selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().midBloc = null;
-                selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().nextBloc = null;
+                selectedObj.GetComponent<BlockAssembly>().previousBlock.GetComponent<BlockAssembly>().midBlock = null;
+                selectedObj.GetComponent<BlockAssembly>().previousBlock.GetComponent<BlockAssembly>().nextBlock = null;
             }
 
-            if (selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.Boucle)
+            if (selectedObj.GetComponent<BlockAssembly>().previousBlock.GetComponent<BlockAssembly>().type == BlockAssembly.BlocType.Boucle)
             {
-                selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().midBloc = null;
-                selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().nextBloc = null;
+                selectedObj.GetComponent<BlockAssembly>().previousBlock.GetComponent<BlockAssembly>().midBlock = null;
+                selectedObj.GetComponent<BlockAssembly>().previousBlock.GetComponent<BlockAssembly>().nextBlock = null;
             }
 
-            if (selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().midBloc == selectedObj)
+            if (selectedObj.GetComponent<BlockAssembly>().previousBlock.GetComponent<BlockAssembly>().midBlock == selectedObj)
             {
-                selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().midBloc = null;
+                selectedObj.GetComponent<BlockAssembly>().previousBlock.GetComponent<BlockAssembly>().midBlock = null;
             }
             else
             {
-                selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().nextBloc = null;
+                selectedObj.GetComponent<BlockAssembly>().previousBlock.GetComponent<BlockAssembly>().nextBlock = null;
             }
             
-            selectedObj.GetComponent<BlocAssemble>().previousBloc = null;
+            selectedObj.GetComponent<BlockAssembly>().previousBlock = null;
         }
 
 
-        GetLastObjOfbloc().GetComponent<BlocAssemble>().lastOfThePendingBloc = true;
+        GetLastObjOfbloc().GetComponent<BlockAssembly>().lastOfThePendingBlock = true;
 
         Move();
     }
 
-    void Deselect()
+    private void Deselect()
     {
-        GetLastObjOfbloc().GetComponent<BlocAssemble>().lastOfThePendingBloc = false;
+        GetLastObjOfbloc().GetComponent<BlockAssembly>().lastOfThePendingBlock = false;
         selectedObj = null;
     }
 
@@ -96,17 +97,17 @@ public class SelectBloc : MonoBehaviour
     }
     public void Move()
     {
-        BlocEditor.pendingObj = selectedObj;
+        CodeBlockManager.pendingObj = selectedObj;
     }
 
-    GameObject GetLastObjOfbloc()
+    private GameObject GetLastObjOfbloc()
     {
-        if (selectedObj.GetComponent<BlocAssemble>().nextBloc != null)
+        if (selectedObj.GetComponent<BlockAssembly>().nextBlock != null)
         {
             GameObject lastObj = selectedObj;
-            while (lastObj.GetComponent<BlocAssemble>().nextBloc != null)
+            while (lastObj.GetComponent<BlockAssembly>().nextBlock != null)
             {
-                lastObj = lastObj.GetComponent<BlocAssemble>().nextBloc;
+                lastObj = lastObj.GetComponent<BlockAssembly>().nextBlock;
             }
             return lastObj;
         }

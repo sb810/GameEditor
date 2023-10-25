@@ -1,76 +1,35 @@
 using System.ComponentModel;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Shawn.Scripts
 {
     public class TrashVisualsHandler : MonoBehaviour
     {
-        [Category("Dependencies")]
-        public BuildingManager bm;
-        
-        [Category("Parameters")]
-        public GameObject[] buttonsToDeactivate;
-        public bool invisibleOnStart;
+        public UnityEvent onGrab;
+        public UnityEvent onDrop;
 
-        private Image img;
-        [SerializeField] private Image childImg;
-
+        private BuildingManager buildingManager;
         private bool holding;
 
-        // Start is called before the first frame update
-        void Awake()
+        private void Awake()
         {
-            img = GetComponent<Image>();
-            if (invisibleOnStart)
-            {
-                img.enabled = false;
-                childImg.enabled = false;
-            }
+            buildingManager = GameManager.Instance.BuildingManager;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            bool pendingExists = bm.pendingObj != null;
+            bool pendingExists = buildingManager.pendingObj != null;
             
             if (pendingExists && !holding)
             {
-                OnObjectHeld();
+                onGrab.Invoke();
                 holding = true;
             }
             else if(!pendingExists && holding)
             {
-                OnObjectLetGo();
+                onDrop.Invoke();
                 holding = false;
-            }
-        }
-
-        void OnObjectLetGo()
-        {
-            if (invisibleOnStart)
-            {
-                img.enabled = false;
-                childImg.enabled = false;
-                foreach (GameObject o in buttonsToDeactivate)
-                {
-                    o.SetActive(true);
-                }
-            }
-        }
-
-        void OnObjectHeld()
-        {
-            if (invisibleOnStart)
-            {
-                img.enabled = true;
-                childImg.enabled = true;
-                foreach (GameObject o in buttonsToDeactivate)
-                {
-                    o.SetActive(false);
-                }
             }
         }
     }

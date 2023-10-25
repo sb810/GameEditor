@@ -19,7 +19,7 @@ public class UnstablePlatform : MonoBehaviour
         }
     }
 
-    IEnumerator Fall()
+    private IEnumerator Fall()
     {
         yield return new WaitForSeconds(delay);
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;

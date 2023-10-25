@@ -545,7 +545,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.016088963, y: -0.100066185}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: StartFromBeginning, w: 0}
     pivot: {x: 0, y: 0}
     oldSize: {x: 0, y: 0}
     newSize: {x: 0, y: 0}
@@ -6825,7 +6825,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 309900850}
           m_TargetAssemblyTypeName: SpriteEditor, Assembly-CSharp
-          m_MethodName: MousExitTrash
+          m_MethodName: MouseExitTrash
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -22824,7 +22824,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 309900850}
           m_TargetAssemblyTypeName: SpriteEditor, Assembly-CSharp
-          m_MethodName: MousExitTrash
+          m_MethodName: MouseExitTrash
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

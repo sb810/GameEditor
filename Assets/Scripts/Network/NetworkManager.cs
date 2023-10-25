@@ -16,8 +16,8 @@ public class WebData
 
 public class NetworkManager : MonoBehaviour
 {
-    static string myId;
-    static string myUsername;
+    private static string myId;
+    private static string myUsername;
     public bool isProf;
     public GameObject profInterface;
     private void Start()
@@ -46,7 +46,8 @@ public class NetworkManager : MonoBehaviour
         myUsername = inputField.text;
         PlayerPrefs.SetString("myUsername", myUsername);
     }
-    IEnumerator Upload(SavedLevel levelSave)
+
+    private IEnumerator Upload(SavedLevel levelSave)
     {
         WebData dataToSave = new WebData
         {
@@ -90,7 +91,7 @@ public class NetworkManager : MonoBehaviour
         StartCoroutine(Upload(levelSave));
     }
 
-    IEnumerator UpdateData(SavedLevel levelSave)
+    private IEnumerator UpdateData(SavedLevel levelSave)
     {
         WebData dataToSave = new WebData
         {

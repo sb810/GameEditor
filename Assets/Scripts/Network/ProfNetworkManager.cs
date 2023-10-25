@@ -9,20 +9,23 @@ public class ProfNetworkManager : MonoBehaviour
     [HideInInspector] public WebData[] groupData;
     public GameObject studentListLocation;
     public GameObject studentButtonPrefab;
-    public SaveLoadLevel loader;
+    private SaveManager loader;
 
     private void Start()
     {
+        loader = GameManager.Instance.SaveManager;
         StartCoroutine(AutoRefresh());
     }
-    IEnumerator AutoRefresh()
+
+    private IEnumerator AutoRefresh()
     {
         RefreshButton();
         yield return new WaitForSeconds(30);
         StartCoroutine(AutoRefresh());
         yield return null;
     }
-    IEnumerator GetGroupData(string groupName)
+
+    private IEnumerator GetGroupData(string groupName)
     {
         string uri = "https://api.studioxp.ca/items/game_editor_data?filter[group][_eq]=" + groupName;
 
@@ -45,9 +48,9 @@ public class ProfNetworkManager : MonoBehaviour
 
                 int tempChildCount = studentListLocation.transform.childCount;
                 for (int i = 0; i < tempChildCount; i++)
-                    {
-                        Destroy(studentListLocation.transform.GetChild(0).gameObject);
-                        yield return null;
+                {
+                    Destroy(studentListLocation.transform.GetChild(0).gameObject);
+                    yield return null;
                 }
 
                 int tempId = 0;
@@ -60,8 +63,8 @@ public class ProfNetworkManager : MonoBehaviour
                 }
             }
         }
-
     }
+
     public void RefreshButton()
     {
         StartCoroutine(GetGroupData("default"));
@@ -72,10 +75,9 @@ public class ProfNetworkManager : MonoBehaviour
         SavedLevel dataToSave = groupData[id].data;
         SaveLoad<SavedLevel>.Save(dataToSave, "Level");
         loader.LoadData("Level");
-
     }
 
-    IEnumerator DeleteGroupData(string groupName)
+    private IEnumerator DeleteGroupData(string groupName)
     {
         for (int i = 0; i < groupData.Length; i++)
         {
@@ -87,8 +89,8 @@ public class ProfNetworkManager : MonoBehaviour
                 request.SetRequestHeader("Authorization", "Bearer tr4mfJ9rvQS9qucARPIQmuAQ61bf1Bgc");
 
                 yield return request.SendWebRequest();
-
             }
+
             yield return null;
         }
 
@@ -108,14 +110,15 @@ public class ProfNetworkManager : MonoBehaviour
             tempId++;
         }
     }
+
     public void DeleteButton()
     {
         StartCoroutine(DeleteGroupData("default"));
     }
 
-    string FixJson(string value)
+    private string FixJson(string value)
     {
-        value = value.Remove(0,9);
+        value = value.Remove(0, 9);
         value = value.Remove((value.Length - 3), 2);
         value = "{\"Items\":[" + value + "]}";
         return value;

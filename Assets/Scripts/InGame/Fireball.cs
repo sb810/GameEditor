@@ -6,7 +6,7 @@ public class Fireball : MonoBehaviour
 {
     public float speed = 1;
     public Vector2 force;
-    Collider2D triggerCollider;
+    private Collider2D triggerCollider;
     public LayerMask walls;
     private void Start()
     {
@@ -15,7 +15,8 @@ public class Fireball : MonoBehaviour
 
         triggerCollider = GetComponent<Collider2D>();
     }
-    void Update()
+
+    private void Update()
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
 

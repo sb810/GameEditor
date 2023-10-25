@@ -11,7 +11,7 @@ public class RigTransfer : MonoBehaviour
     public GameObject feetL;
     public GameObject feetR;
 
-    void Start()
+    private void Start()
     {
         int startChildCount = transform.childCount;
         for (int i = 3; i < startChildCount; i++)

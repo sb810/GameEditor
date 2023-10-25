@@ -553,7 +553,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &133382731
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_OStartFromBeginning
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3222,7 +3222,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 309900850}
           m_TargetAssemblyTypeName: SpriteEditor, Assembly-CSharp
-          m_MethodName: MousExitTrash
+          m_MethodName: MouseExitTrash
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

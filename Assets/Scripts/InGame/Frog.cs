@@ -16,12 +16,13 @@ public class Frog : MonoBehaviour
     public Transform groundCheck;
 
     private bool canJump = true;
-    void Start()
+
+    private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (!triggerCollider.IsTouchingLayers(ground) && canJump)
         {
@@ -41,7 +42,7 @@ public class Frog : MonoBehaviour
         jumpDistance *= -1;
     }
 
-    IEnumerator Jump()
+    private IEnumerator Jump()
     {
         rigidbody.AddForce(new Vector2(jumpDistance, jumpHeight), ForceMode2D.Impulse);
         yield return new WaitForSeconds(jumpDelay);

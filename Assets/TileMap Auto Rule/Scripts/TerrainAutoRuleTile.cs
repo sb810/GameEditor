@@ -14,11 +14,9 @@ using System.Linq;
 public class TerrainAutoRuleTile : ScriptableObject
 {
 
-    [SerializeField]
-    Texture2D TileMap;
-    [SerializeField]
-    RuleTile RuleTileTemplate;
-    RuleTile RuleTileTemplate_Default;
+    [SerializeField] private Texture2D TileMap;
+    [SerializeField] private RuleTile RuleTileTemplate;
+    private RuleTile RuleTileTemplate_Default;
 
     private void Awake()
     {
@@ -57,7 +55,6 @@ public class TerrainAutoRuleTile : ScriptableObject
         AssetDatabase.CreateAsset(_new, AssetDatabase.GetAssetPath(this));
     }
 
-#endif
-
 }
 
+#endif

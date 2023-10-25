@@ -545,8 +545,7 @@ Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73988272}
+  m_PrefabAsset: {fileID: 0StartFromBeginning {fileID: 73988272}
   m_Enabled: 1
   serializedVersion: 10
   m_Type: 1
@@ -2125,7 +2124,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 309900850}
           m_TargetAssemblyTypeName: SpriteEditor, Assembly-CSharp
-          m_MethodName: MousExitTrash
+          m_MethodName: MouseExitTrash
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -14531,7 +14530,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 309900850}
           m_TargetAssemblyTypeName: SpriteEditor, Assembly-CSharp
-          m_MethodName: MousExitTrash
+          m_MethodName: MouseExitTrash
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -7,7 +7,7 @@ public class Chest : MonoBehaviour
     public List<GameObject> content;
     public float throwForce;
     public float throwSpeed;
-    bool isClosed = true;
+    private bool isClosed = true;
 
     private void OnEnable()
     {
@@ -27,7 +27,7 @@ public class Chest : MonoBehaviour
         }
     }
 
-    IEnumerator OpenChest()
+    private IEnumerator OpenChest()
     {
         foreach (GameObject item in content)
         {

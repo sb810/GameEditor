@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class GameOverManager : MonoBehaviour
 {
-    BuildingManager buildingManager;
+    private BuildingManager buildingManager;
+    
     public GameObject gameOverMenu;
     public GameObject inGameUI;
 
     [HideInInspector] public GameObject player;
     private void Start()
     {
-        buildingManager = GetComponent<BuildingManager>();
+        buildingManager = GameManager.Instance.BuildingManager;
     }
 
     public void Editor()
@@ -28,7 +29,7 @@ public class GameOverManager : MonoBehaviour
         gameOverMenu.SetActive(false);
     }
 
-    public void StartFromBegining()
+    public void StartFromBeginning()
     {
         buildingManager.Stop();
         buildingManager.Play();

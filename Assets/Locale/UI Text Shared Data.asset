@@ -83,6 +83,46 @@ MonoBehaviour:
     m_Key: MainMenuPasswordPlaceholderLabel
     m_Metadata:
       m_Items: []
+  - m_Id: 8175103552516096
+    m_Key: ProgBlockListTitleLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175355575660544
+    m_Key: ProgCodeStartBlockLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175681523412992
+    m_Key: ProgPreviewTitleLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175943919071232
+    m_Key: ProgPreviewRestartButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8176807287189504
+    m_Key: ProgPreviewLaunchButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177073742934016
+    m_Key: ProgConditionsPromptTitleLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177380992479232
+    m_Key: ProgCodeZoneTitleLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177623691685888
+    m_Key: ProgBlockListRemainingBlocksLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177975719620608
+    m_Key: ProgCodeBlocksForwardButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8178710507155456
+    m_Key: ProgExitButtonLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

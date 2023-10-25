@@ -6,14 +6,15 @@ public class HandleVisibility : MonoBehaviour
 {
     public float displayDistance = 1f;
 
-    SpriteRenderer spriteRenderer;
-    void Start()
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float mouseDistance = Vector2.Distance(mousePosition, gameObject.transform.position);

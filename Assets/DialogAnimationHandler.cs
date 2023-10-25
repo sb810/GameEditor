@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 public class DialogAnimationHandler : MonoBehaviour
@@ -12,7 +10,7 @@ public class DialogAnimationHandler : MonoBehaviour
     private RectTransform rt;
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rt = GetComponent<RectTransform>();
         targetSize = rt.rect.size;
@@ -21,7 +19,7 @@ public class DialogAnimationHandler : MonoBehaviour
         StartCoroutine(ScaleUp());
     }
 
-    IEnumerator ScaleUp()
+    private IEnumerator ScaleUp()
     {
         do
         {
@@ -33,7 +31,7 @@ public class DialogAnimationHandler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }

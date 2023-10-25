@@ -12,7 +12,8 @@ public class PreviewBoss : MonoBehaviour
 
     public GameObject fireball;
     public GameObject mouth;
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position+Vector3.up/2, Vector2.left*facing,2000);
 

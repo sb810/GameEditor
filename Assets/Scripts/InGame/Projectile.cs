@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    void OnBecameInvisible()
+    private void OnBecameInvisible()
     {
         Destroy(gameObject);
     }

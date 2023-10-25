@@ -3,6 +3,7 @@ using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class SimpleMoveAnimationFunction : MonoBehaviour
 {
@@ -24,8 +25,8 @@ public class SimpleMoveAnimationFunction : MonoBehaviour
     [FoldoutGroup("Properties")] [SerializeField]
     private float durationSeconds;
 
-    [FoldoutGroup("Properties")] [SerializeField]
-    private float delaySeconds;
+    [FormerlySerializedAs("delaySeconds")] [FoldoutGroup("Properties")] [SerializeField]
+    private float initialDelay;
 
     [FoldoutGroup("Properties")] [SerializeField]
     private AnimationCurve smoothingCurve = AnimationCurve.Linear(0, 0, 1, 1);
@@ -48,13 +49,17 @@ public class SimpleMoveAnimationFunction : MonoBehaviour
 
     public void SetDelay(float delay)
     {
-        delaySeconds = delay;
+        initialDelay = delay;
     }
 
     private void Awake()
     {
         if (!rect) rect = GetComponent<RectTransform>();
-        Vector2 pos = rect.anchoredPosition;
+        
+        CachedTransform cached = rect.gameObject.GetComponent<CachedTransform>() ??
+                                 rect.gameObject.AddComponent<CachedTransform>();
+        
+        Vector2 pos = cached.AnchoredPosition;
         initialPositionAbsolute = pos + initialPositionRelative;
         endPositionAbsolute = pos + endPositionRelative;
         animationTime = 0f;
@@ -70,6 +75,11 @@ public class SimpleMoveAnimationFunction : MonoBehaviour
     [Button]
     public void Play()
     {
+        PlayDelayed(initialDelay);
+    }
+    
+    public void PlayDelayed(float delay)
+    {
         if (animating)
         {
             if (!playInReverse) return;
@@ -77,11 +87,16 @@ public class SimpleMoveAnimationFunction : MonoBehaviour
         else animationTime = 0f;
 
         playInReverse = false;
-        StartCoroutine(AnimateDelayed());
+        StartCoroutine(AnimateDelayed(delay));
     }
 
     [Button]
     public void PlayReversed()
+    {
+        PlayReversedDelayed(initialDelay);
+    }
+    
+    public void PlayReversedDelayed(float delay)
     {
         if (animating)
         {
@@ -90,14 +105,14 @@ public class SimpleMoveAnimationFunction : MonoBehaviour
         else animationTime = durationSeconds;
 
         playInReverse = true;
-        StartCoroutine(AnimateDelayed());
+        StartCoroutine(AnimateDelayed(delay));
     }
 
-    private IEnumerator AnimateDelayed()
+    private IEnumerator AnimateDelayed(float delay)
     {
         animating = true;
         doAnimationUpdate = false;
-        yield return new WaitForSeconds(delaySeconds);
+        yield return new WaitForSeconds(delay);
         doAnimationUpdate = true;
         onAnimationStart.Invoke();
         yield return null;

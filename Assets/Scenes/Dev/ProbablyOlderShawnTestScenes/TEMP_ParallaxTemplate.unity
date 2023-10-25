@@ -551,8 +551,7 @@ MonoBehaviour:
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillClockwisStartFromBeginningin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &37809371
@@ -10911,7 +10910,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2045541054}
           m_TargetAssemblyTypeName: SpriteEditor, Assembly-CSharp
-          m_MethodName: MousExitTrash
+          m_MethodName: MouseExitTrash
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -20520,7 +20519,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2045541054}
           m_TargetAssemblyTypeName: SpriteEditor, Assembly-CSharp
-          m_MethodName: MousExitTrash
+          m_MethodName: MouseExitTrash
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

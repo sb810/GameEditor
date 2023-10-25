@@ -53,6 +53,7 @@ public class AsyncSceneLoader : MonoBehaviour
         }
 
         transform.position = endPosition;
+        gameObject.SetActive(false);
         
         yield return null;
     }
@@ -75,13 +76,16 @@ public class AsyncSceneLoader : MonoBehaviour
     private IEnumerator FadeIn()
     {
         elapsedTime = 0;
+        Color col = sr.color;
         while (elapsedTime < transitionDurationSeconds)
         {
-            Color col = sr.color;
             sr.color = new Color(col.r, col.g, col.b, Mathf.Lerp(1, 0, (elapsedTime / transitionDurationSeconds)));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        
+        sr.color = new Color(col.r, col.g, col.b, 0);
+        gameObject.SetActive(false);
         
         yield return null;
     }
@@ -89,14 +93,15 @@ public class AsyncSceneLoader : MonoBehaviour
     public IEnumerator FadeOut()
     {
         elapsedTime = 0;
+        Color col = sr.color;
         while (elapsedTime < transitionDurationSeconds)
         {
-            Color col = sr.color;
             sr.color = new Color(col.r, col.g, col.b, Mathf.Lerp(0, 1, (elapsedTime / transitionDurationSeconds)));
             elapsedTime += Time.deltaTime;
-
             yield return null;
         }
+        
+        sr.color = new Color(col.r, col.g, col.b, 1);
         
         yield return null;
     }

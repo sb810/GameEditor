@@ -1,9 +1,9 @@
 const cacheName = "Studio XP-Game Editor - StudioXP-2";
 const contentToCache = [
     "Build/Build.loader.js",
-    "Build/Build.framework.js",
-    "Build/Build.data",
-    "Build/Build.wasm",
+    "Build/Build.framework.js.gz",
+    "Build/Build.data.gz",
+    "Build/Build.wasm.gz",
     "TemplateData/style.css"
 
 ];

@@ -26746,8 +26746,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 19, y: 34}
+  m_AnchoredPosition: {x: 10, y: 6}
+  m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913550116
 MonoBehaviour:
@@ -54840,7 +54840,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 930342380}
   m_HandleRect: {fileID: 930342379}
   m_Direction: 0
-  m_Value: 0
+  m_Value: -0.00000011387156
   m_Size: 0.6338798
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -58984,19 +58984,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.26811594
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.16938774
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.46376812
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.6612245
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247480, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: offset.y

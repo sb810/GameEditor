@@ -2100,10 +2100,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.28318584
-    y: -0.07302534
-    width: 0.46339503
-    height: 0.4828614
+    x: 0.31829786
+    y: -0.06515151
+    width: 0.49021277
+    height: 0.49090907
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -5550,12 +5550,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   codeList: 
-  enemyList: []
+  levelEntitiesList: []
   boss: {fileID: 1917372721}
   checkpoint: {fileID: 1707271834}
   speed: 2.2
   playerIsDead: 0
   waitTime: 2
+  flipOffset: 0
   codeText: {fileID: 3776778850703630190}
 --- !u!114 &1329239954
 MonoBehaviour:
@@ -8332,6 +8333,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 774658077}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1213834704}
         m_TargetAssemblyTypeName: AsyncSceneLoader, Assembly-CSharp
         m_MethodName: LoadScene

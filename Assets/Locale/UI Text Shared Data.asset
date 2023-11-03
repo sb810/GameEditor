@@ -179,6 +179,10 @@ MonoBehaviour:
     m_Key: ProgCodeBlocksIfObstacleButtonLabel
     m_Metadata:
       m_Items: []
+  - m_Id: 11665120404959232
+    m_Key: MainMenuWelcomeText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

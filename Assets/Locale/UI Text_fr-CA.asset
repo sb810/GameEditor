@@ -181,6 +181,10 @@ MonoBehaviour:
     m_Localized: Si obstacle
     m_Metadata:
       m_Items: []
+  - m_Id: 11665120404959232
+    m_Localized: Bonjour !
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -138,14 +138,14 @@ namespace LevelEditor.Network
                 yield return null;
             }
 
-            int tempId = 0;
+            /*int tempId = 0;
             foreach (WebData student in groupData)
             {
                 GameObject studentButton = Instantiate(studentButtonPrefab, studentListLocation.transform);
                 studentButton.GetComponent<StudentButton>().managerRef = GetComponent<TeacherNetworkManager>();
                 studentButton.GetComponent<StudentButton>().id = tempId;
                 tempId++;
-            }
+            }*/
         }
 
         public void DeleteButton()

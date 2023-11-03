@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -121,9 +127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 288
-        width: 87
-        height: 12
+        y: 0
+        width: 15
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +147,10 @@ TextureImporter:
       name: ProgProgress_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 276
-        width: 87
-        height: 12
+        x: 15
+        y: 0
+        width: 15
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +168,10 @@ TextureImporter:
       name: ProgProgress_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 264
-        width: 87
-        height: 12
+        x: 30
+        y: 0
+        width: 15
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +189,10 @@ TextureImporter:
       name: ProgProgress_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 252
-        width: 87
-        height: 12
+        x: 45
+        y: 0
+        width: 15
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +210,10 @@ TextureImporter:
       name: ProgProgress_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 240
-        width: 87
-        height: 12
+        x: 60
+        y: 0
+        width: 15
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,426 +223,6 @@ TextureImporter:
       bones: []
       spriteID: 45eca1f5124bf994db6f80dda53e127a
       internalID: -1382972874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 228
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 683b6178b422d6b488a1fce68eb93680
-      internalID: 1103770717
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 216
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 579c99a594bb71f46b26eae13e04e609
-      internalID: -621983883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 204
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 630e9c90817d60547a19e280b7182a1f
-      internalID: 1525902030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afddf58d90f5ae54cb3f0a8348c5ad84
-      internalID: -1477256605
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 180
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5f97d48ee404f14788d8e49d0b8773a
-      internalID: 585350655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 168
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a580b27bbc7b9a44b70130ee913a536
-      internalID: 1802427377
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_11
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 156
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd31767b34e1de046bd5948ed3a19159
-      internalID: -826151892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 144
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3831ec13cfbae2d4ba7fff057e1f1c7a
-      internalID: 1260081731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_13
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 132
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0248f61c12c70d5498e4fd8814772caf
-      internalID: 185386229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_14
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 120
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3d4db363f3fc8e44a9161b92e6a29ab
-      internalID: -1685988233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 108
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 85be2a1b750a46042a6be5bcbfa76adf
-      internalID: -1708662986
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e98ae7cc2738404b9ae42f0f47f6605
-      internalID: 1233385300
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_17
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 84
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9006b7041b7bedb4884573eadb84a42e
-      internalID: 1090363761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_18
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 72
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c25515d6c62a7794dbc86ad8e7f3c6ec
-      internalID: 1561060407
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_19
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 60
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2730ca1d14447e1458600af72eeeddcc
-      internalID: -436840096
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_20
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88c14d0b9a002a04798ca88c48d60f05
-      internalID: 60196886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_21
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 36
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3f53c515d0ef0349b3bff9ce5e83244
-      internalID: -1425597870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_22
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 24
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e22a685822304c341be8602b29782fe5
-      internalID: -940741309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_23
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 12
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 50edc51c34fe39c4db3fcbd45a14db4d
-      internalID: -428986914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ProgProgress_24
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e24c17868fd9d074f8d49748db1f50ea
-      internalID: 1656142264
       vertices: []
       indices: 
       edges: []
@@ -652,34 +238,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ProgProgress_4: -1382972874
       ProgProgress_0: 1042291138
-      ProgProgress_17: 1090363761
-      ProgProgress_12: 1260081731
-      ProgProgress_10: 1802427377
-      ProgProgress_11: -826151892
-      ProgProgress_7: 1525902030
-      ProgProgress_18: 1561060407
-      ProgProgress_8: -1477256605
       ProgProgress_1: -506863635
-      ProgProgress_23: -428986914
-      ProgProgress_22: -940741309
-      ProgProgress_15: -1708662986
-      ProgProgress_19: -436840096
-      ProgProgress_3: -48490931
-      ProgProgress_9: 585350655
-      ProgProgress_24: 1656142264
-      ProgProgress_21: -1425597870
-      ProgProgress_20: 60196886
-      ProgProgress_13: 185386229
-      ProgProgress_16: 1233385300
-      ProgProgress_14: -1685988233
-      ProgProgress_5: 1103770717
-      ProgProgress_6: -621983883
       ProgProgress_2: 229200701
-  spritePackingTag: 
+      ProgProgress_3: -48490931
+      ProgProgress_4: -1382972874
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

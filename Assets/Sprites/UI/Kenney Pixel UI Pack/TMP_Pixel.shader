@@ -86,7 +86,7 @@ SubShader{
 
 		uniform fixed4 _OutlineColor;
 		uniform fixed4 _DropShadowColor;
-		uniform float4 _ScreenResolution;
+		uniform half4 _ScreenResolution;
 
 		float2 UnpackUV(float uv)
 		{
@@ -121,7 +121,7 @@ SubShader{
 
 			// Clamp _ClipRect to 16bit.
 			float4 clampedRect = clamp(_ClipRect, -2e10, 2e10);
-			OUT.mask = float4(vert.xy * 2 - clampedRect.xy - clampedRect.zw, 0.25 / (0.25 * float2(_MaskSoftnessX, _MaskSoftnessY) + pixelSize.xy));
+				OUT.mask = float4(vert.xy * 2 - clampedRect.xy - clampedRect.zw, 0.25 / (0.25 * half2(_MaskSoftnessX, _MaskSoftnessY) + pixelSize.xy));
 
 			return OUT;
 		}
@@ -145,7 +145,7 @@ SubShader{
 			// Alternative implementation to UnityGet2DClipping with support for softness.
 
 			#if UNITY_UI_CLIP_RECT
-				float2 m = saturate((_ClipRect.zw - _ClipRect.xy - abs(IN.mask.xy)) * IN.mask.zw);
+				half2 m = saturate((_ClipRect.zw - _ClipRect.xy - abs(IN.mask.xy)) * IN.mask.zw);
 				color *= m.x * m.y;
 			#endif
 

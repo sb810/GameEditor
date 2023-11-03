@@ -128,6 +128,59 @@ MonoBehaviour:
     m_Localized: "Retour \xE0 la conception"
     m_Metadata:
       m_Items: []
+  - m_Id: 8780343259688960
+    m_Localized: '[ ] Atteindre le drapeau'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8790016058716160
+    m_Localized: "Niveau compl\xE9t\xE9.\nBien jou\xE9 !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8790248590929920
+    m_Localized: Niveau suivant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8904963858100224
+    m_Localized: Retour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9456504511918080
+    m_Localized: Attaquer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9689803301842944
+    m_Localized: "[ ] \xC9liminer le joueur\n[ ] Atteindre le drapeau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10205815730335744
+    m_Localized: "[ ] \xC9liminer TOUS les joueurs (0/2)\n[ ] Atteindre le drapeau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10206789752582144
+    m_Localized: En boucle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10863671592873984
+    m_Localized: "[ ] \xC9liminer TOUS les joueurs (0/2)\n[ ] Atteindre le drapeau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10873911013011456
+    m_Localized: "[ ] \xC9liminer le joueur\n[ ] Garder le champignon alli\xE9 en
+      vie\n[ ] Atteindre le drapeau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10882468672434176
+    m_Localized: Si joueur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11118520611893248
+    m_Localized: Se retourner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11118664002564096
+    m_Localized: Si obstacle
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

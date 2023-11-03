@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -120,12 +126,12 @@ TextureImporter:
       name: Biker_idle_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 0
-        width: 19
-        height: 34
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.3, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +147,12 @@ TextureImporter:
       name: Biker_idle_1
       rect:
         serializedVersion: 2
-        x: 51
+        x: 48
         y: 0
-        width: 20
-        height: 34
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.3, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +168,12 @@ TextureImporter:
       name: Biker_idle_2
       rect:
         serializedVersion: 2
-        x: 99
+        x: 96
         y: 0
-        width: 20
-        height: 34
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.3, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +189,12 @@ TextureImporter:
       name: Biker_idle_3
       rect:
         serializedVersion: 2
-        x: 148
+        x: 144
         y: 0
-        width: 19
-        height: 34
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.3, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -211,13 +217,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Biker_idle_2: 1082061693
-      Biker_idle_1: -592053973
       Biker_idle_0: -456119807
+      Biker_idle_1: -592053973
+      Biker_idle_2: 1082061693
       Biker_idle_3: 2126958822
-  spritePackingTag: 
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

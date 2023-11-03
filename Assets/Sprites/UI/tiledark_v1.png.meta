@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -121,12 +127,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 120
+        y: 84
         width: 112
-        height: 24
+        height: 60
       alignment: 4
       pivot: {x: 0, y: 0.5}
-      border: {x: 32, y: 12, z: 4, w: 6}
+      border: {x: 32, y: 21, z: 3, w: 21}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -142,12 +148,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 120
+        y: 84
         width: 112
-        height: 24
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 32, y: 12, z: 4, w: 6}
+      border: {x: 32, y: 21, z: 3, w: 21}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -225,10 +231,10 @@ TextureImporter:
       name: tiledark_v1_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 104
-        width: 16
-        height: 16
+        x: 41
+        y: 109
+        width: 4
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,13 +252,13 @@ TextureImporter:
       name: tiledark_v1_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
-        width: 112
-        height: 24
+        x: 57
+        y: 108
+        width: 10
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 16, y: 12, z: 4, w: 4}
+      border: {x: 5, y: 3, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -267,10 +273,10 @@ TextureImporter:
       name: tiledark_v1_7
       rect:
         serializedVersion: 2
-        x: 112
-        y: 104
-        width: 16
-        height: 16
+        x: 143
+        y: 108
+        width: 6
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,13 +294,13 @@ TextureImporter:
       name: tiledark_v1_8
       rect:
         serializedVersion: 2
-        x: 112
-        y: 80
-        width: 112
-        height: 24
+        x: 154
+        y: 107
+        width: 7
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 16, y: 12, z: 4, w: 4}
+      border: {x: 2, y: 6, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -922,13 +928,13 @@ TextureImporter:
       name: tiledark_v1_38
       rect:
         serializedVersion: 2
-        x: 560
-        y: 120
-        width: 112
-        height: 24
+        x: 630
+        y: 31
+        width: 14
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 32, y: 12, z: 4, w: 6}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 8, y: 5, z: 4, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -946,10 +952,10 @@ TextureImporter:
         x: 560
         y: 84
         width: 112
-        height: 20
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 16, y: 12, z: 4, w: 6}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 31, y: 21, z: 3, w: 21}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -969,7 +975,7 @@ TextureImporter:
         width: 112
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 16, y: 12, z: 4, w: 6}
       outline: []
       physicsShape: []
@@ -992,50 +998,49 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tiledark_v1_24: 1028308387
-      tiledark_v1_4: -1869444130
-      tiledark_v1_13: 1538642450
-      tiledark_v1_23: -1995279486
-      tiledark_v1_26: -601714307
-      tiledark_v1_30: -2015179877
-      tiledark_v1_8: 1763007515
-      tiledark_v1_17: 1089753163
+      tiledark_v1_0: -1370727581
+      tiledark_v1_1: 645069209
+      tiledark_v1_10: 923730995
       tiledark_v1_11: 1972035310
-      tiledark_v1_40: 1327567160
-      tiledark_v1_34: -1329866953
+      tiledark_v1_12: -1585455137
+      tiledark_v1_13: 1538642450
+      tiledark_v1_14: -637495196
+      tiledark_v1_15: -1078267109
+      tiledark_v1_16: -1305630009
+      tiledark_v1_17: 1089753163
       tiledark_v1_18: 495431619
-      tiledark_v1_36: -2134714952
-      tiledark_v1_9: -968067068
+      tiledark_v1_19: -1122211237
+      tiledark_v1_2: -1703452581
+      tiledark_v1_20: -697474638
+      tiledark_v1_21: 1770428523
+      tiledark_v1_22: -1963574589
+      tiledark_v1_23: -1995279486
+      tiledark_v1_24: 1028308387
+      tiledark_v1_25: -1773738218
+      tiledark_v1_26: -601714307
       tiledark_v1_27: 289662945
       tiledark_v1_28: 1614292641
-      tiledark_v1_38: 1325044508
-      tiledark_v1_0: -1370727581
-      tiledark_v1_12: -1585455137
-      tiledark_v1_22: -1963574589
-      tiledark_v1_2: -1703452581
-      tiledark_v1_7: 418824388
-      tiledark_v1_3: 1667168958
-      tiledark_v1_19: -1122211237
-      tiledark_v1_16: -1305630009
-      tiledark_v1_1: 645069209
-      tiledark_v1_15: -1078267109
-      tiledark_v1_20: -697474638
-      tiledark_v1_6: -527896116
-      tiledark_v1_32: -1677786143
-      tiledark_v1_10: 923730995
-      tiledark_v1_31: 1882751547
-      tiledark_v1_25: -1773738218
-      tiledark_v1_39: -1632781254
-      tiledark_v1_5: -1644637384
-      tiledark_v1_35: 184495717
-      tiledark_v1_14: -637495196
-      tiledark_v1_33: -1803520098
       tiledark_v1_29: 818110185
-      tiledark_v1_21: 1770428523
+      tiledark_v1_3: 1667168958
+      tiledark_v1_30: -2015179877
+      tiledark_v1_31: 1882751547
+      tiledark_v1_32: -1677786143
+      tiledark_v1_33: -1803520098
+      tiledark_v1_34: -1329866953
+      tiledark_v1_35: 184495717
+      tiledark_v1_36: -2134714952
       tiledark_v1_37: -1261792981
-  spritePackingTag: 
+      tiledark_v1_38: 1325044508
+      tiledark_v1_39: -1632781254
+      tiledark_v1_4: -1869444130
+      tiledark_v1_40: 1327567160
+      tiledark_v1_5: -1644637384
+      tiledark_v1_6: -527896116
+      tiledark_v1_7: 418824388
+      tiledark_v1_8: 1763007515
+      tiledark_v1_9: -968067068
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

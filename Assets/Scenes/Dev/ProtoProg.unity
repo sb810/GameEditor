@@ -603,7 +603,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1754275457}
           m_TargetAssemblyTypeName: BlocEditor, Assembly-CSharp
-          m_MethodName: SelectObject
+          m_MethodName: InstantiateNewBlock
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 3416840130568941302, guid: 475dac4cfdb845a4d8fea1a2f4400c6c, type: 3}
@@ -1190,7 +1190,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1754275457}
           m_TargetAssemblyTypeName: BlocEditor, Assembly-CSharp
-          m_MethodName: SelectObject
+          m_MethodName: InstantiateNewBlock
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 3416840130568941302, guid: 33ac288fee1d229429c198dffcfce324, type: 3}

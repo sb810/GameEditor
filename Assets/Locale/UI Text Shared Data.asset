@@ -123,6 +123,62 @@ MonoBehaviour:
     m_Key: ProgExitButtonLabel
     m_Metadata:
       m_Items: []
+  - m_Id: 8780343259688960
+    m_Key: ProgExercise1ConditionsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8790016058716160
+    m_Key: ProgWinScreenCongratsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8790248590929920
+    m_Key: ProgWinScreenNextLevelButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8904963858100224
+    m_Key: SecondPasswordBackButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9346633896554496
+    m_Key: ProgBlock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9456504511918080
+    m_Key: ProgCodeBlocksAttackButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9689803301842944
+    m_Key: ProgExercise2ConditionsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10205815730335744
+    m_Key: ProgExercise3ConditionsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10206789752582144
+    m_Key: ProgCodeBlocksLoopButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10863671592873984
+    m_Key: ProgExercise4ConditionsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10873911013011456
+    m_Key: ProgExercise5ConditionsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10882468672434176
+    m_Key: ProgCodeBlocksIfPlayerButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11118520611893248
+    m_Key: ProgCodeBlocksFlipButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11118664002564096
+    m_Key: ProgCodeBlocksIfObstacleButtonLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

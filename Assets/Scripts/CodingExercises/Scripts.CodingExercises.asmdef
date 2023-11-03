@@ -1,0 +1,19 @@
+{
+    "name": "Scripts.CodingExercises",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:21b0c9841f8de0e4084033f5cc492192",
+        "GUID:2c29d2549303489488e37eb955473abe",
+        "GUID:f1d5546624d45b948976f45c65bd07df"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

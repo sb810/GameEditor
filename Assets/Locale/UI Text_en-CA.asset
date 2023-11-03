@@ -128,6 +128,71 @@ MonoBehaviour:
     m_Localized: Back to design
     m_Metadata:
       m_Items: []
+  - m_Id: 8780343259688960
+    m_Localized: '[ ] Reach the flag'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8790016058716160
+    m_Localized: 'Level complete.
+
+      Good job !'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8790248590929920
+    m_Localized: Next level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8904963858100224
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9456504511918080
+    m_Localized: Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9689803301842944
+    m_Localized: '[ ] Eliminate the player
+
+      [ ] Reach the flag'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10205815730335744
+    m_Localized: '[ ] Eliminate ALL players (0/2)
+
+      [ ] Reach the flag'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10206789752582144
+    m_Localized: Loop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10863671592873984
+    m_Localized: '[ ] Eliminate ALL players (0/2)
+
+      [ ] Reach the flag'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10873911013011456
+    m_Localized: '[ ] Eliminate the player
+
+      [ ] Keep the friendly mushroom
+      alive
+
+      [ ] Reach the flag'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10882468672434176
+    m_Localized: If player
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11118520611893248
+    m_Localized: Flip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11118664002564096
+    m_Localized: If obstacle
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

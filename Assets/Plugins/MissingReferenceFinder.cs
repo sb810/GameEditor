@@ -1,11 +1,11 @@
-#if UNITY_EDITOR
-namespace Fury.Editor
-{
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.SceneManagement;
-    using UnityEditor;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
+namespace Plugins
+{
     public class MissingReferenceFinder : EditorWindow
     {
 

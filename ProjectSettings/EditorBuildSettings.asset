@@ -9,26 +9,32 @@ EditorBuildSettings:
     path: Assets/Scenes/Prod/MainMenu.unity
     guid: 21c561932ab9a2542845eb40f67439ad
   - enabled: 1
-    path: Assets/Scenes/Prod/UI TEST 2.unity
-    guid: 596160b2abd3a77448a55c0670cf3acc
-  - enabled: 1
-    path: Assets/Scenes/Prod/ExerciceProg/Exo1.unity
-    guid: 1d74b6ce8c0e8e04a941152551954867
-  - enabled: 1
-    path: Assets/Scenes/Prod/ExerciceProg/Exo2.unity
-    guid: f29e694017154f941ab313cc20e542e1
-  - enabled: 1
-    path: Assets/Scenes/Prod/ExerciceProg/Exo3.unity
-    guid: 642466dc3b0e1394286724e870a9c150
-  - enabled: 1
-    path: Assets/Scenes/Prod/ExerciceProg/Exo4.unity
-    guid: b30487e39c65f164abf423151160386c
-  - enabled: 1
-    path: Assets/Scenes/Prod/ExerciceProg/Exo5.unity
-    guid: 850c9e071d370144fb4781441cb14a3a
-  - enabled: 1
     path: Assets/Scenes/Prod/FirstPassword.unity
     guid: acbca0de028786246b30d3209527cf67
+  - enabled: 1
+    path: Assets/Scenes/Prod/LevelEditor.unity
+    guid: 596160b2abd3a77448a55c0670cf3acc
+  - enabled: 1
+    path: Assets/Scenes/Prod/SecondPassword.unity
+    guid: a36bb5410c0b7824591d76fcf5339705
+  - enabled: 1
+    path: Assets/Scenes/Prod/Coding Exercises/Exercise1.unity
+    guid: 1d74b6ce8c0e8e04a941152551954867
+  - enabled: 1
+    path: Assets/Scenes/Prod/Coding Exercises/Exercise2.unity
+    guid: f29e694017154f941ab313cc20e542e1
+  - enabled: 1
+    path: Assets/Scenes/Prod/Coding Exercises/Exercise3.unity
+    guid: e4685225f0c02aa47a11fcb376a37573
+  - enabled: 1
+    path: Assets/Scenes/Prod/Coding Exercises/Exercise4.unity
+    guid: 271cf289d5ba22f45b8df83feb34a2e5
+  - enabled: 1
+    path: Assets/Scenes/Prod/Coding Exercises/Exercise5.unity
+    guid: 8beae6df09d94d448957ab4645b2e522
+  - enabled: 1
+    path: Assets/Scenes/Prod/Coding Exercises/Exercise6.unity
+    guid: 591f36935f9e326419a1f89b155431ad
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 4bf86e3945874ab458f74677d4a5d346, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: ca934072a36b52b43a4981feb3be051a, type: 2}

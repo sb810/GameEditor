@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: Localization Settings
   m_EditorClassIdentifier: 
   m_StartupSelectors:
-  - rid: 2038147158737158144
-  - rid: 2038147158737158145
   - rid: 2038147158737158146
-  - rid: 2038147158737158168
   m_AvailableLocales:
     rid: 2038147158737158147
   m_AssetDatabase:
@@ -27,16 +24,13 @@ MonoBehaviour:
     m_Items: []
   m_ProjectLocaleIdentifier:
     m_Code: fr-CA
+  m_PreloadBehavior: 3
   m_InitializeSynchronously: 0
   references:
     version: 2
     RefIds:
-    - rid: 2038147158737158144
-      type: {class: CommandLineLocaleSelector, ns: UnityEngine.Localization.Settings, asm: Unity.Localization}
-      data:
-        m_CommandLineArgument: -language=
-    - rid: 2038147158737158145
-      type: {class: SystemLocaleSelector, ns: UnityEngine.Localization.Settings, asm: Unity.Localization}
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 2038147158737158146
       type: {class: SpecificLocaleSelector, ns: UnityEngine.Localization.Settings, asm: Unity.Localization}
       data:
@@ -44,17 +38,26 @@ MonoBehaviour:
           m_Code: fr-CA
     - rid: 2038147158737158147
       type: {class: LocalesProvider, ns: UnityEngine.Localization.Settings, asm: Unity.Localization}
+      data: 
     - rid: 2038147158737158148
       type: {class: LocalizedAssetDatabase, ns: UnityEngine.Localization.Settings, asm: Unity.Localization}
       data:
         m_DefaultTableReference:
           m_TableCollectionName: 
+        m_CustomTableProvider:
+          rid: -2
+        m_CustomTablePostprocessor:
+          rid: -2
         m_UseFallback: 0
     - rid: 2038147158737158149
       type: {class: LocalizedStringDatabase, ns: UnityEngine.Localization.Settings, asm: Unity.Localization}
       data:
         m_DefaultTableReference:
           m_TableCollectionName: 
+        m_CustomTableProvider:
+          rid: -2
+        m_CustomTablePostprocessor:
+          rid: -2
         m_UseFallback: 0
         m_MissingTranslationState: 1
         m_NoTranslationFoundMessage: No translation found for '{key}' in {table.TableCollectionName}
@@ -119,14 +122,19 @@ MonoBehaviour:
         m_Groups: []
     - rid: 2038147158737158155
       type: {class: DictionarySource, ns: UnityEngine.Localization.SmartFormat.Extensions, asm: Unity.Localization}
+      data: 
     - rid: 2038147158737158156
       type: {class: ValueTupleSource, ns: UnityEngine.Localization.SmartFormat.Extensions, asm: Unity.Localization}
+      data: 
     - rid: 2038147158737158157
       type: {class: XmlSource, ns: UnityEngine.Localization.SmartFormat.Extensions, asm: Unity.Localization}
+      data: 
     - rid: 2038147158737158158
       type: {class: ReflectionSource, ns: UnityEngine.Localization.SmartFormat.Extensions, asm: Unity.Localization}
+      data: 
     - rid: 2038147158737158159
       type: {class: DefaultSource, ns: UnityEngine.Localization.SmartFormat.Extensions, asm: Unity.Localization}
+      data: 
     - rid: 2038147158737158160
       type: {class: PluralLocalizationFormatter, ns: UnityEngine.Localization.SmartFormat.Extensions, asm: Unity.Localization}
       data:
@@ -186,8 +194,3 @@ MonoBehaviour:
         - default
         - d
         - 
-    - rid: 2038147158737158168
-      type: {class: SpecificLocaleSelector, ns: UnityEngine.Localization.Settings, asm: Unity.Localization}
-      data:
-        m_LocaleId:
-          m_Code: en-CA

@@ -22,7 +22,7 @@ namespace PlayerData
                 ? "/" + dataToSave.id 
                 : "");
             
-            Debug.Log("Preparing webrequest. URI is " + uri + ", data is " + jsonData);
+            Debug.Log("Preparing "+method+" webrequest. URI is " + uri + ", data is " + jsonData);
             
             using UnityWebRequest request = new UnityWebRequest(uri, method);
             request.SetRequestHeader("Content-Type", "application/json");
@@ -37,7 +37,7 @@ namespace PlayerData
                 
                 if (method is "PATCH" or "GET")
                 {
-                    Debug.Log(method + " error ! Trying again with POST...");
+                    Debug.Log(method + " error ! Trying again with POST...\nResponse : "+request.responseCode + " " + request.error);
                     PlayerDataManager.Data.id = "";
                     UploadNewSaveData();
                     yield break;

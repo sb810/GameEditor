@@ -32,18 +32,18 @@ namespace PlayerData
             request.downloadHandler = new DownloadHandlerBuffer();
             yield return request.SendWebRequest();
 
-            if (request.result != UnityWebRequest.Result.Success)
+            if (request.result is not UnityWebRequest.Result.Success)
             {
                 
                 if (method is "PATCH" or "GET")
                 {
-                    Debug.Log(method + " error ! Trying again with POST...\nResponse : "+request.responseCode + " " + request.error);
+                    Debug.Log(method + " error ! Trying again with POST...\nResponse : "+request.responseCode + "; " + request.error + "; " + request.downloadHandler.text);
                     PlayerDataManager.Data.id = "";
                     UploadNewSaveData();
                     yield break;
                 }
                 
-                Debug.LogError(method + " error in NetworkManager.CreateWebRequest function : " + request.downloadHandler.text);
+                // Debug.LogError(method + " error in NetworkManager.CreateWebRequest function : " + request.downloadHandler.text);
             }
             else
             {

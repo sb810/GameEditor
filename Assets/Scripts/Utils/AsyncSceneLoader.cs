@@ -39,7 +39,7 @@ namespace Utils
         // [SerializeField] private AnimationCurve curve;
         // public Password password;
 
-        private void Start()
+        /*private void Start()
         {
             sr = GetComponent<SpriteRenderer>();
 
@@ -118,14 +118,20 @@ namespace Utils
             sr.color = new Color(col.r, col.g, col.b, 1);
             onTransitionEnd.Invoke();
             yield return null;
-        }
+        }*/
 
+        public void LoadScene(string sceneName)
+        {
+            Transitioner.Instance.TransitionToScene(sceneName);
+        }
+        
         public void LoadScene(int buildIndex)
         {
-            StartCoroutine(LoadSceneAsync(buildIndex));
+            Transitioner.Instance.TransitionToScene(buildIndex);
+            // StartCoroutine(LoadSceneAsync(buildIndex));
         }
 
-        private IEnumerator LoadSceneAsync(int buildIndex)
+        /*private IEnumerator LoadSceneAsync(int buildIndex)
         {
             yield return StartCoroutine(transitionType == TransitionType.Wipe && endPositionTransform
                 ? WipeOut()
@@ -152,13 +158,13 @@ namespace Utils
         } while (scene.progress < 0.9f && iterations < 100); */
 
 
-            yield return StartCoroutine(transitionType == TransitionType.Wipe && endPositionTransform
+            /*yield return StartCoroutine(transitionType == TransitionType.Wipe && endPositionTransform
                 ? WipeOut()
                 : FadeOut());
             // yield return new WaitForSeconds(0.5f);
             transitionDurationSeconds = tempTransitionDuration;
 
             // scene.allowSceneActivation = true;
-        }
+        }*/
     }
 }

@@ -686,6 +686,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5992206717481038, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 743502811334490867, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

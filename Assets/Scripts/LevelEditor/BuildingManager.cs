@@ -4,12 +4,15 @@ using System.Linq;
 using LevelEditor.InGame;
 using LevelEditor.Save;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace LevelEditor
 {
     public class BuildingManager : MonoBehaviour
     {
+        [SerializeField] private CheckPlacementAction[] postPlacementActions;
+        
         public GameObject levelEditorUI;
         public GameObject inGameUI;
         public Scrollbar map;
@@ -35,9 +38,9 @@ namespace LevelEditor
 
         [HideInInspector] public SaveManager saveLvl;
 
-        private ObjectSelectionManager obj;
+        private ObjectSelectionManager selectionManager;
 
-        [HideInInspector] public Vector3 decalage;
+        [FormerlySerializedAs("decalage")] [HideInInspector] public Vector3 offset;
 
         [SerializeField] private Sprite trashIn;
         [SerializeField] private Sprite trashOut;
@@ -53,7 +56,7 @@ namespace LevelEditor
             saveLvl = GetComponent<SaveManager>();
             saveLvl.ReloadLevelData();
             // saveZID.Clear();
-            obj = GameManager.Instance.ObjectSelectionManager;
+            selectionManager = GameManager.Instance.ObjectSelectionManager;
             // visualHeldItem = new();
             //visualHeldItemSpriteRenderer = visualHeldItem.AddComponent<SpriteRenderer>();
             //visualHeldItemSpriteRenderer.sortingLayerName = "Topmost";
@@ -104,12 +107,15 @@ namespace LevelEditor
                 //visualHeldItemSpriteRenderer.sprite = null;
                 pendingObj = null;
             }
+
+            foreach (var action in postPlacementActions)
+                action.Evaluate();
         }
 
         private void FixedUpdate()
         {
             Vector2 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-            pos = new Vector3(mousePosition.x, mousePosition.y, 0) - decalage;
+            pos = new Vector3(mousePosition.x, mousePosition.y, 0) - offset;
         }
 
         public void SelectObject(PrefabInButton script)
@@ -126,19 +132,17 @@ namespace LevelEditor
             // visualHeldItemSpriteRenderer.sortingOrder += 1;
 
             // UpdatePlacementButton(script);
-        
-            firstPlacement = true;
-            obj.selectedObj = pendingObj;
-        }
 
-        public bool UpdatePlacementButton(PrefabInButton script)
-        {
-            return script.gameObject.GetComponent<Button>().enabled = GetPrefabDistanceFromLimit(script.prefab) != 0;
+            canPlace = true;
+            firstPlacement = true;
+            selectionManager.selectedObj = pendingObj;
         }
 
         private void UpdateMaterials()
         {
             if (!pendingObj) return;
+            if(canPlace) Debug.Log("Can place !");
+            if(mouseOnTrash) Debug.Log("Mouse on trash !");
             if (!pendingObjSpriteRenderer) pendingObjSpriteRenderer = pendingObj.GetComponent<SpriteRenderer>();
             pendingObjSpriteRenderer.material = canPlace && !mouseOnTrash
                 ? materials[0] // CanPlace - Green
@@ -233,38 +237,41 @@ namespace LevelEditor
         
             Destroy(pendingObj);
             pendingObj = null;
-            obj.selectedObj = null;
+            selectionManager.selectedObj = null;
+            
+            foreach (var action in postPlacementActions)
+                action.Evaluate();
         }
 
-        public void MouseEnterTrash(GameObject obj)
+        public void MouseEnterTrash(GameObject go)
         {
             mouseOnTrash = true;
-            if (this.obj.selectedObj != null)
-                obj.SetActive(true);
+            if (selectionManager.selectedObj != null)
+                go.SetActive(true);
         }
 
-        public void MouseEnterTrashImage(GameObject obj)
+        public void MouseEnterTrashImage(GameObject go)
         {
             mouseOnTrash = true;
-            if (this.obj.selectedObj != null)
-                obj.GetComponent<Image>().sprite = trashIn;
+            if (selectionManager.selectedObj != null)
+                go.GetComponent<Image>().sprite = trashIn;
         }
 
-        public void MouseExitTrash(GameObject obj)
+        public void MouseExitTrash(GameObject go)
         {
             mouseOnTrash = false;
-            obj.SetActive(false);
+            go.SetActive(false);
         }
 
-        public void MouseExitTrashImage(GameObject obj)
+        public void MouseExitTrashImage(GameObject go)
         {
             mouseOnTrash = false;
-            if (this.obj.selectedObj != null)
-                obj.GetComponent<Image>().sprite = trashOut;
+            if (selectionManager.selectedObj != null)
+                go.GetComponent<Image>().sprite = trashOut;
         }
 
 
-        private int GetPrefabDistanceFromLimit(GameObject prefab)
+        public int GetPrefabDistanceFromLimit(GameObject prefab)
         {
             int limit = prefab.GetComponent<CheckPlacement>().nbLimit;
 

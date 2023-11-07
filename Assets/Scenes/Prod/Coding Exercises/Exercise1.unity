@@ -1733,6 +1733,7 @@ GameObject:
   - component: {fileID: 266575505}
   - component: {fileID: 266575504}
   - component: {fileID: 266575507}
+  - component: {fileID: 266575508}
   m_Layer: 5
   m_Name: Exercise (5)
   m_TagString: Untagged
@@ -1890,18 +1891,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 774658077}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
         - m_Target: {fileID: 53444211}
           m_TargetAssemblyTypeName: PlayerData.PlayerDataHelper, Scripts.PlayerData
           m_MethodName: SetSelectedCodingLevel
@@ -1914,18 +1903,35 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1213834704}
-          m_TargetAssemblyTypeName: Utils.AsyncSceneLoader, Scripts.Utils
+        - m_Target: {fileID: 266575508}
+          m_TargetAssemblyTypeName: Utils.TransitionerHelper, Scripts.Utils
           m_MethodName: LoadScene
-          m_Mode: 3
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 9
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Exercise6
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &266575508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266575502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c120b99decdde4eac03fb4a3c533d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideSettings: 0
+  widthOfTransitionInBlocks: 0
+  transitionBlockPrefab: {fileID: 0}
+  transitionBlockSprite: {fileID: 0}
+  transitionOrderPrefab: {fileID: 0}
 --- !u!1 &338671726
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,10 +2106,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.31829786
-    y: -0.06515151
-    width: 0.49021277
-    height: 0.49090907
+    x: 0.18945102
+    y: 0.19281664
+    width: 0.6200215
+    height: 0.6124764
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2404,28 +2410,16 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 774658077}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1213834704}
-          m_TargetAssemblyTypeName: AsyncSceneLoader, Assembly-CSharp
+        - m_Target: {fileID: 7887666417766711732}
+          m_TargetAssemblyTypeName: Utils.TransitionerHelper, Scripts.Utils
           m_MethodName: LoadScene
-          m_Mode: 3
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 5
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Exercise2
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &681095983
@@ -2940,6 +2934,7 @@ GameObject:
   - component: {fileID: 807344988}
   - component: {fileID: 807344987}
   - component: {fileID: 807344990}
+  - component: {fileID: 807344991}
   m_Layer: 5
   m_Name: Exercise (3)
   m_TagString: Untagged
@@ -3097,18 +3092,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 774658077}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
         - m_Target: {fileID: 53444211}
           m_TargetAssemblyTypeName: PlayerData.PlayerDataHelper, Scripts.PlayerData
           m_MethodName: SetSelectedCodingLevel
@@ -3121,18 +3104,35 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1213834704}
-          m_TargetAssemblyTypeName: Utils.AsyncSceneLoader, Scripts.Utils
+        - m_Target: {fileID: 807344991}
+          m_TargetAssemblyTypeName: Utils.TransitionerHelper, Scripts.Utils
           m_MethodName: LoadScene
-          m_Mode: 3
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 7
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Exercise4
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &807344991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807344985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c120b99decdde4eac03fb4a3c533d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideSettings: 0
+  widthOfTransitionInBlocks: 0
+  transitionBlockPrefab: {fileID: 0}
+  transitionBlockSprite: {fileID: 0}
+  transitionOrderPrefab: {fileID: 0}
 --- !u!1 &808196358
 GameObject:
   m_ObjectHideFlags: 0
@@ -3190,6 +3190,7 @@ GameObject:
   - component: {fileID: 824288279}
   - component: {fileID: 824288281}
   - component: {fileID: 824288282}
+  - component: {fileID: 824288283}
   m_Layer: 5
   m_Name: Exercise
   m_TagString: Untagged
@@ -3347,18 +3348,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 774658077}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
         - m_Target: {fileID: 53444211}
           m_TargetAssemblyTypeName: PlayerData.PlayerDataHelper, Scripts.PlayerData
           m_MethodName: SetSelectedCodingLevel
@@ -3371,18 +3360,35 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1213834704}
-          m_TargetAssemblyTypeName: Utils.AsyncSceneLoader, Scripts.Utils
+        - m_Target: {fileID: 824288283}
+          m_TargetAssemblyTypeName: Utils.TransitionerHelper, Scripts.Utils
           m_MethodName: LoadScene
-          m_Mode: 3
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 4
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Exercise1
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &824288283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824288277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c120b99decdde4eac03fb4a3c533d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideSettings: 0
+  widthOfTransitionInBlocks: 0
+  transitionBlockPrefab: {fileID: 0}
+  transitionBlockSprite: {fileID: 0}
+  transitionOrderPrefab: {fileID: 0}
 --- !u!1 &825444557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3921,6 +3927,7 @@ GameObject:
   - component: {fileID: 957864283}
   - component: {fileID: 957864282}
   - component: {fileID: 957864285}
+  - component: {fileID: 957864286}
   m_Layer: 5
   m_Name: Exercise (4)
   m_TagString: Untagged
@@ -4078,18 +4085,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 774658077}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
         - m_Target: {fileID: 53444211}
           m_TargetAssemblyTypeName: PlayerData.PlayerDataHelper, Scripts.PlayerData
           m_MethodName: SetSelectedCodingLevel
@@ -4102,18 +4097,35 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1213834704}
-          m_TargetAssemblyTypeName: Utils.AsyncSceneLoader, Scripts.Utils
+        - m_Target: {fileID: 957864286}
+          m_TargetAssemblyTypeName: Utils.TransitionerHelper, Scripts.Utils
           m_MethodName: LoadScene
-          m_Mode: 3
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 8
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Exercise5
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &957864286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957864280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c120b99decdde4eac03fb4a3c533d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideSettings: 0
+  widthOfTransitionInBlocks: 0
+  transitionBlockPrefab: {fileID: 0}
+  transitionBlockSprite: {fileID: 0}
+  transitionOrderPrefab: {fileID: 0}
 --- !u!1 &969423440
 GameObject:
   m_ObjectHideFlags: 0
@@ -5302,7 +5314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6040477131227156939, guid: 5af2a85c4617402449f72bc790e37302, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6040477131091046614, guid: 5af2a85c4617402449f72bc790e37302, type: 3}
@@ -5322,17 +5334,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1213834705}
   m_SourcePrefab: {fileID: 100100000, guid: 5af2a85c4617402449f72bc790e37302, type: 3}
---- !u!114 &1213834704 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6040477131091046613, guid: 5af2a85c4617402449f72bc790e37302, type: 3}
-  m_PrefabInstance: {fileID: 1213834703}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774658077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b719cdc8bef39441932415ea7e1dfff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1213834705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5619,6 +5620,107 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &1431216545
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 123336, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_Name
+      value: PuzzleWobbleCornerTransitioner
+      objectReference: {fileID: 0}
+    - target: {fileID: 123336, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 418018, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418018, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418018, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418018, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 418018, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418018, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418018, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418018, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418018, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418018, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425254, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: _transitionTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425254, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: dontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425254, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: _transitionBlockPrefab
+      value: 
+      objectReference: {fileID: 181284, guid: d712b27318a77ba4ca763cb7e93b1909, type: 3}
+    - target: {fileID: 11425254, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: _transitionBlockSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f86581fdbab4784fa313aa7f9166944, type: 3}
+    - target: {fileID: 11425254, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: _transitionOrderPrefab
+      value: 
+      objectReference: {fileID: 194382, guid: 0d665b4a79b245547a3b950228417d8c, type: 3}
+    - target: {fileID: 11425254, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: _transitionBlockColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425254, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: _transitionBlockColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425254, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: _transitionBlockColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425254, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: _widthOfTransitionInBlocks
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425254, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
+      propertyPath: _transitionBlockAnimationTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f46554facd3e35545ad9f628b9e47529, type: 3}
 --- !u!1 &1470580067 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8516772188800843084, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
@@ -6535,6 +6637,7 @@ GameObject:
   - component: {fileID: 1759418533}
   - component: {fileID: 1759418532}
   - component: {fileID: 1759418535}
+  - component: {fileID: 1759418536}
   m_Layer: 5
   m_Name: Exercise (2)
   m_TagString: Untagged
@@ -6692,18 +6795,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 774658077}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
         - m_Target: {fileID: 53444211}
           m_TargetAssemblyTypeName: PlayerData.PlayerDataHelper, Scripts.PlayerData
           m_MethodName: SetSelectedCodingLevel
@@ -6716,18 +6807,35 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1213834704}
-          m_TargetAssemblyTypeName: Utils.AsyncSceneLoader, Scripts.Utils
+        - m_Target: {fileID: 1759418536}
+          m_TargetAssemblyTypeName: Utils.TransitionerHelper, Scripts.Utils
           m_MethodName: LoadScene
-          m_Mode: 3
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 6
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Exercise3
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1759418536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759418530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c120b99decdde4eac03fb4a3c533d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideSettings: 0
+  widthOfTransitionInBlocks: 0
+  transitionBlockPrefab: {fileID: 0}
+  transitionBlockSprite: {fileID: 0}
+  transitionOrderPrefab: {fileID: 0}
 --- !u!1 &1853380576
 GameObject:
   m_ObjectHideFlags: 0
@@ -7362,6 +7470,7 @@ GameObject:
   - component: {fileID: 2069523676}
   - component: {fileID: 2069523675}
   - component: {fileID: 2069523678}
+  - component: {fileID: 2069523679}
   m_Layer: 5
   m_Name: Exercise (1)
   m_TagString: Untagged
@@ -7519,18 +7628,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 774658077}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
         - m_Target: {fileID: 53444211}
           m_TargetAssemblyTypeName: PlayerData.PlayerDataHelper, Scripts.PlayerData
           m_MethodName: SetSelectedCodingLevel
@@ -7543,18 +7640,35 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1213834704}
-          m_TargetAssemblyTypeName: Utils.AsyncSceneLoader, Scripts.Utils
+        - m_Target: {fileID: 2069523679}
+          m_TargetAssemblyTypeName: Utils.TransitionerHelper, Scripts.Utils
           m_MethodName: LoadScene
-          m_Mode: 3
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 5
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: Exercise2
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2069523679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069523673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c120b99decdde4eac03fb4a3c533d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideSettings: 0
+  widthOfTransitionInBlocks: 0
+  transitionBlockPrefab: {fileID: 0}
+  transitionBlockSprite: {fileID: 0}
+  transitionOrderPrefab: {fileID: 0}
 --- !u!1 &2079308955
 GameObject:
   m_ObjectHideFlags: 0
@@ -8332,31 +8446,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5504429676210370765}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 774658077}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1213834704}
-        m_TargetAssemblyTypeName: AsyncSceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: UI TEST 2
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2937554946253729960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10517,6 +10607,7 @@ GameObject:
   - component: {fileID: 2319545340367695364}
   - component: {fileID: 617727714}
   - component: {fileID: 617727719}
+  - component: {fileID: 7887666417766711732}
   m_Layer: 5
   m_Name: Suivant
   m_TagString: Untagged
@@ -10524,6 +10615,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7887666417766711732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7887666417766711731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c120b99decdde4eac03fb4a3c533d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideSettings: 0
+  widthOfTransitionInBlocks: 0
+  transitionBlockPrefab: {fileID: 0}
+  transitionBlockSprite: {fileID: 0}
+  transitionOrderPrefab: {fileID: 0}
 --- !u!224 &8119621632252260495
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10708,6 +10816,7 @@ GameObject:
   - component: {fileID: 2825522643896859851}
   - component: {fileID: 534080854}
   - component: {fileID: 9011659025772159073}
+  - component: {fileID: 9011659025772159074}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -10760,6 +10869,39 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9011659025772159074}
+          m_TargetAssemblyTypeName: Utils.TransitionerHelper, Scripts.Utils
+          m_MethodName: LoadScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: LevelEditor
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &9011659025772159074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9011659025772159072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c120b99decdde4eac03fb4a3c533d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideSettings: 0
+  widthOfTransitionInBlocks: 0
+  transitionBlockPrefab: {fileID: 0}
+  transitionBlockSprite: {fileID: 0}
+  transitionOrderPrefab: {fileID: 0}
 --- !u!224 &9063561113117315714
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10848,3 +10990,4 @@ SceneRoots:
   - {fileID: 497296844}
   - {fileID: 391527052}
   - {fileID: 808196360}
+  - {fileID: 1431216545}

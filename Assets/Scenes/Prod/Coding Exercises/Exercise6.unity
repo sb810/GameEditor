@@ -3204,6 +3204,10 @@ PrefabInstance:
       propertyPath: midBase
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5771759911771869454, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_text
+      value: "Retour \xE0 la conception"
+      objectReference: {fileID: 0}
     - target: {fileID: 6205982685811926330, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
       value: 8178710507155456
@@ -3324,6 +3328,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6883664980757543444, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.234501
+      objectReference: {fileID: 0}
     - target: {fileID: 6941950420038491075, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3392,6 +3400,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7982895251660363304, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.94
+      objectReference: {fileID: 0}
     - target: {fileID: 8026753494492346532, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: enemyTotal
       value: 2
@@ -3450,7 +3462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8026753495878038369, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.07
+      value: 3.304501
       objectReference: {fileID: 0}
     - target: {fileID: 8026753495878038369, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_LocalPosition.y

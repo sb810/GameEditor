@@ -41,7 +41,7 @@ namespace LevelEditor
             if (selectedObj != null) Deselect();
 
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            buildManager.decalage = new Vector3(mousePosition.x, mousePosition.y, 0) -obj.transform.position;
+            buildManager.offset = new Vector3(mousePosition.x, mousePosition.y, 0) -obj.transform.position;
 
             selectedObj = obj;
             buildManager.pendingObj = selectedObj;

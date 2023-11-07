@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 21263318}
   - component: {fileID: 11497350}
   m_Layer: 0
-  m_Name: TB_GrowAndSlideFromRight_BIGGER
+  m_Name: TB_SlideFromRight_BIGGER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

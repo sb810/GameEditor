@@ -7,22 +7,6 @@
       "dependencies": {},
       "url": "https://registry.spoiledcat.com"
     },
-    "com.spoiledcat.git.api": {
-      "version": "1.0.18",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://registry.spoiledcat.com"
-    },
-    "com.spoiledcat.git.ui": {
-      "version": "1.0.18",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.spoiledcat.git.api": "1.0.18"
-      },
-      "url": "https://registry.spoiledcat.com"
-    },
     "com.unity.2d.animation": {
       "version": "9.0.4",
       "depth": 1,
@@ -240,7 +224,7 @@
       "source": "builtin",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
-        "com.unity.burst": "1.8.4",
+        "com.unity.burst": "1.8.9",
         "com.unity.render-pipelines.core": "14.0.9",
         "com.unity.shadergraph": "14.0.9"
       }

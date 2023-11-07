@@ -12,6 +12,10 @@ namespace Utils
         [SerializeField] private GameObject transitionBlockPrefab;
         [SerializeField] private Sprite transitionBlockSprite;
         [SerializeField] private GameObject transitionOrderPrefab;
+        [Range(0,5)]
+        [SerializeField] private float transitionTime;
+        [Range(0,5)]
+        [SerializeField] private float transitionBlockAnimationTime;
 
         public void LoadScene(string sceneName)
         {
@@ -25,13 +29,15 @@ namespace Utils
             Transitioner.Instance.TransitionToScene(sceneIndex);
         }
 
-        public void OverrideSettings()
+        private void OverrideSettings()
         {
             if (!overrideSettings) return;
             if (widthOfTransitionInBlocks > 0) Transitioner.Instance._widthOfTransitionInBlocks = widthOfTransitionInBlocks;
             if (transitionBlockPrefab) Transitioner.Instance._transitionBlockPrefab = transitionBlockPrefab;
             if (transitionBlockSprite) Transitioner.Instance._transitionBlockSprite = transitionBlockSprite;
             if (transitionOrderPrefab) Transitioner.Instance._transitionOrderPrefab = transitionOrderPrefab;
+            if (transitionTime > 0) Transitioner.Instance._transitionTime = transitionTime;
+            if (transitionBlockAnimationTime > 0) Transitioner.Instance._transitionBlockAnimationTime = transitionBlockAnimationTime;
         }
     }
 }

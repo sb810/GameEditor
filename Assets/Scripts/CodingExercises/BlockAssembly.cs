@@ -31,6 +31,7 @@ namespace CodingExercises
         [FormerlySerializedAs("collidingWithBlocEnd")] [HideInInspector] public bool collidingWithBlockEnd;
 
         [SerializeField] private GameObject highlightFX;
+        [SerializeField] private GameObject highlightArrow;
     
         public GameObject bot;
         //private Vector3 botBasePos;
@@ -73,6 +74,12 @@ namespace CodingExercises
         }
 
         public void SetExecutionHighlightActive(bool active)
+        {
+            highlightFX.SetActive(active);
+            highlightArrow.SetActive(active);
+        }
+        
+        public void SetHoverHighlightActive(bool active)
         {
             highlightFX.SetActive(active);
         }

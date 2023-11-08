@@ -13,10 +13,18 @@ namespace CodingExercises
         public GameObject fireball;
         public GameObject mouth;
         [SerializeField] private BoxCollider2D attackHitbox;
-
+        [SerializeField] private float playerDetectionDistance = 2.5f;
+        
         private void FixedUpdate()
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position+Vector3.up/2, Vector2.left*facing,2000);
+            Vector2 origin = transform.position + Vector3.up / 2;
+            Vector2 direction = Vector2.left * facing;
+            
+            #if UNITY_EDITOR
+            Debug.DrawRay(origin, direction * playerDetectionDistance);
+            #endif
+            
+            RaycastHit2D hit = Physics2D.Raycast(origin, direction, playerDetectionDistance);
             seePlayer = hit.collider != null && hit.collider.CompareTag("Player");
             hole = !triggerCollider.IsTouchingLayers(ground);
         }

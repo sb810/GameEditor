@@ -71,15 +71,14 @@ namespace CodingExercises
         private bool isBlockMappingInvalid()
         {
             
-            int hoveredPositionIndex = codeZoneData.HoveredPositionIndex;
+            int hovered = codeZoneData.HoveredPositionIndex;
             BlockAssembly[] mappings = codeZoneData.indexedBlockPositionMappings;
 
-            if (hoveredPositionIndex > mappings.Length - 1) hoveredPositionIndex = mappings.Length - 1;
-            
+            //if (hoveredPositionIndex > mappings.Length - 1) hoveredPositionIndex = mappings.Length - 1;
+
             return mouseOnTrash
-                   || hoveredPositionIndex < 1
-                   || mappings[hoveredPositionIndex] == null
-                   || mappings[hoveredPositionIndex - 1] == null;
+                   || hovered < 1;
+            // || (hovered > 0 && mappings[hovered - 1] == null) ;
         }
         
         private void Update()
@@ -197,10 +196,17 @@ namespace CodingExercises
                 Debug.Log("TWO BEFORE BUT NOT PREVIOUS");
 
                 BlockAssembly parentLoop = mappings[snapPositionIndex];
+                //BlockAssembly lastOfLoop = parentLoop.midBlock.GetComponent<BlockAssembly>();
+                //while (lastOfLoop.nextBlock != null)
+                //    lastOfLoop = lastOfLoop.nextBlock.GetComponent<BlockAssembly>();
+                // RectTransform lastof
+
                 parent = (RectTransform)parentLoop.transform;
                 rt.parent = parent;
                 isLoop = true;
-                rt.anchoredPosition = new Vector2(17, -17);
+                rt.anchoredPosition = new Vector2(17, twoBefore == parentLoop 
+                    ? -17 
+                    : ((RectTransform)twoBefore.transform).anchoredPosition.y - 17 * GetBlockSize(twoBefore));
                 pendingObj.GetComponent<BlockAssembly>().midBase = parent.gameObject;
                 pendingObj.transform.SetSiblingIndex(twoBefore == parentLoop
                     ? 0
@@ -392,7 +398,7 @@ namespace CodingExercises
             for (var i = 0; i < mappings.Length - 1 && i >= 0; i++)
             {
                 if (mappings[i] == null) continue;
-
+                
                 if (i >= 2
                     && mappings[i - 1] != null
                     && mappings[i - 1].type is BlockAssembly.BlocType.Loop
@@ -400,13 +406,13 @@ namespace CodingExercises
                     && mappings[i - 1].midBase != null
                     && mappings[i - 2] == null)
                 {
-                    Debug.Log("MIDBASE !!!!!");
                     mappings[i].midBase = mappings[i - 1].midBase;
                 }
 
+                // Dynamic blocks : no need to handle if empty
                 if (i <= mappings.Length - 3 && mappings[i] == mappings[i + 2])
                     continue;
-
+                
                 if (mappings[i].type is BlockAssembly.BlocType.If && mappings[i - 1] != null)
                     i = AssignMidBlocks(i, mappings[i]);
 
@@ -435,25 +441,22 @@ namespace CodingExercises
             for (var i = index + 1; i < mappings.Length - 1; i++)
             {
                 if (mappings[i] == null) continue;
-                if (mappings[i + 1] != null)
+                if (mappings[i + 1] == null) continue;
+                if (mappings[i] == parent) return i;
+                if (mappings[i].type is BlockAssembly.BlocType.Loop && mappings[i - 1] == null) continue;
+
+                if (mappings[i].type is BlockAssembly.BlocType.If && mappings[i - 1] != null)
                 {
-                    if (mappings[i].type is BlockAssembly.BlocType.Loop && mappings[i - 1] == null) continue;
-
-                    if (mappings[i].type is BlockAssembly.BlocType.If && mappings[i - 1] != null)
-                    {
-                        i = AssignMidBlocks(i, mappings[i]);
-                        continue;
-                    }
-
-                    mappings[i].nextBlock = mappings[i + 1].gameObject;
-                    mappings[i].midBase = parent.gameObject;
-                    if (mappings[i] != parent) continue;
-                    if (mappings[i + 1].type is BlockAssembly.BlocType.If)
-                        return AssignMidBlocks(i + 1, mappings[i + 1]);
-                    return i + 1;
+                    i = AssignMidBlocks(i, mappings[i]);
+                    continue;
                 }
 
-                if (mappings[i] == parent) return i + 2;
+                mappings[i].nextBlock = mappings[i + 1].gameObject;
+                mappings[i].midBase = parent.gameObject;
+                if (mappings[i] != parent) continue;
+                if (mappings[i + 1].type is BlockAssembly.BlocType.If)
+                    return AssignMidBlocks(i + 1, mappings[i + 1]);
+                return i + 1;
             }
 
             return -1;
@@ -471,6 +474,7 @@ namespace CodingExercises
                 c = pendingObj.AddComponent<CachedTransform>();
             c.ApplyAll();
 
+            pendingObj.GetComponent<BlockAssembly>().SetExecutionHighlightActive(false);
             MouseIconHandler.Instance.SetCursorLock(false);
             MouseIconHandler.Instance.SetCursorDefault();
             hasPendingBlock = false;

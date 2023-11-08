@@ -17,6 +17,8 @@ namespace CodingExercises
         // [AssetsOnly] 
         [SerializeField] private GameObject explosionFX;
 
+        [SerializeField] private GameObject blocksList;
+
         private Vector3 pos;
         public Vector3 posOffset;
 
@@ -66,14 +68,29 @@ namespace CodingExercises
             remainingBlocks.text = label.Substring(0, label.Length - 1) + (maxBlocNb - blocNb);
         }
 
+        private bool isBlockMappingInvalid()
+        {
+            
+            int hoveredPositionIndex = codeZoneData.HoveredPositionIndex;
+            BlockAssembly[] mappings = codeZoneData.indexedBlockPositionMappings;
+
+            if (hoveredPositionIndex > mappings.Length - 1) hoveredPositionIndex = mappings.Length - 1;
+            
+            return mouseOnTrash
+                   || hoveredPositionIndex < 1
+                   || mappings[hoveredPositionIndex] == null
+                   || mappings[hoveredPositionIndex - 1] == null;
+        }
+        
         private void Update()
         {
             if (pendingObj == null) return;
 
             codeZoneData = codeZoneBlocksManager.GetCodeZoneData();
-            int hoveredPositionIndex = codeZoneData.HoveredPositionIndex;
+            //int hoveredPositionIndex = codeZoneData.HoveredPositionIndex;
+            //BlockAssembly[] mappings = codeZoneData.indexedBlockPositionMappings;
             // int totalIndexes = codeZoneData.TotalPositionIndexes;
-            Debug.Log("POSITION INDEX : " + codeZoneData.HoveredPositionIndex);
+            //Debug.Log("POSITION INDEX : " + codeZoneData.HoveredPositionIndex);
 
             if (shouldFlowback)
             {
@@ -86,11 +103,11 @@ namespace CodingExercises
 
             pendingObj.transform.position = pos + posOffset;
 
-            pendingObj.GetComponent<Image>().material = hoveredPositionIndex < 1 ? cantPlaceMaterial : canPlaceMaterial;
+            pendingObj.GetComponent<Image>().material = isBlockMappingInvalid() ? cantPlaceMaterial : canPlaceMaterial;
 
             if (Input.GetMouseButtonUp(0))
             {
-                if (mouseOnTrash || hoveredPositionIndex < 1) Delete();
+                if (isBlockMappingInvalid()) Delete();
                 else PlaceBlock();
                 codeZoneBlocksManager.RecalculateData();
                 codeZoneData = codeZoneBlocksManager.GetCodeZoneData();
@@ -102,7 +119,7 @@ namespace CodingExercises
 
         private static int GetBlockSize(BlockAssembly block)
         {
-            if (block.type is not (BlockAssembly.BlocType.Loop or BlockAssembly.BlocType.If))
+            if (block.type is BlockAssembly.BlocType.Default or BlockAssembly.BlocType.Start)
                 return 1;
 
             int size = 3;
@@ -121,11 +138,35 @@ namespace CodingExercises
         {
             BlockAssembly[] mapping = codeZoneData.indexedBlockPositionMappings;
             mapping ??= startBlock.transform.parent.GetComponentsInChildren<BlockAssembly>();
+            
+            
+
             for (var i = 0; i < mapping.Length; i++)
             {
                 if (mapping[i]?.type is BlockAssembly.BlocType.If or BlockAssembly.BlocType.Loop)
-                    mapping[i].midBlockPosition.SetActive(highlightIndex +1 == i);
-                mapping[i]?.nextBlockPosition.SetActive(highlightIndex - 1 == i);
+                {
+                    bool isFirst = true;
+                    for (var j = i - 1; j >= 0; j--)
+                        if (mapping[j] == mapping[i])
+                            isFirst = false;
+
+                    //if(!isFirst) Debug.Log("LAST FOUND : INDEX " + i);
+                    //if(isFirst) Debug.Log("FIRST FOUND : INDEX " + i);
+
+                    /*if (isFirst && highlightIndex - 1 == i)
+                    {
+                        Debug.Log("Midblock should highlight : INDEX " + i + ", Midblock : " + mapping[i].midBlockPosition);
+                        mapping[i].midBlockPosition.SetActive(true);
+                    }*/
+
+                    if (isFirst)
+                        mapping[i].midBlockPosition.SetActive(highlightIndex - 1 == i);
+                    else mapping[i].nextBlockPosition.SetActive(highlightIndex - 1 == i);
+
+                    //mapping[i].midBlockPosition.SetActive(isFirst && highlightIndex - 1 == i);
+                    //mapping[i].nextBlockPosition.SetActive(!isFirst && highlightIndex - 1 == i); 
+                }
+                else mapping[i]?.nextBlockPosition.SetActive(highlightIndex - 1 == i);
             }
         }
 
@@ -161,8 +202,10 @@ namespace CodingExercises
                 isLoop = true;
                 rt.anchoredPosition = new Vector2(17, -17);
                 pendingObj.GetComponent<BlockAssembly>().midBase = parent.gameObject;
-                pendingObj.transform.SetSiblingIndex(twoBefore == parentLoop ? 0 : twoBefore.transform.GetSiblingIndex() + 1);
-            } 
+                pendingObj.transform.SetSiblingIndex(twoBefore == parentLoop
+                    ? 0
+                    : twoBefore.transform.GetSiblingIndex() + 1);
+            }
             else if (previous.midBase != null)
             {
                 Debug.Log("MIDBASE");
@@ -170,9 +213,9 @@ namespace CodingExercises
                 rt.parent = parent;
                 isLoop = true;
                 var positioner = (RectTransform)previous.transform;
-                
+
                 Vector2 positionerAnchoredPosition = positioner.anchoredPosition;
-                rt.anchoredPosition = new Vector2(17,positionerAnchoredPosition.y - 17 * GetBlockSize(previous));
+                rt.anchoredPosition = new Vector2(17, positionerAnchoredPosition.y - 17 * GetBlockSize(previous));
                 pendingObj.GetComponent<BlockAssembly>().midBase = previous.midBase;
                 pendingObj.transform.SetSiblingIndex(positioner.GetSiblingIndex() + 1);
             }
@@ -202,20 +245,30 @@ namespace CodingExercises
             int hoveredBlockIndex = codeZoneData.HoveredPositionIndex;
             BlockAssembly[] allBlocks = codeZoneData.indexedBlockPositionMappings;
             int pendingBlockSize = GetBlockSize(pendingObj.GetComponent<BlockAssembly>());
+            BlockAssembly parentLoop = null;
             for (var i = 1; i < allBlocks.Length; i++)
             {
                 var block = allBlocks[i];
                 if (block == null)
                 {
                     i++;
+                    if (allBlocks[i] == parentLoop) parentLoop = null;
                     continue;
                 } // skip two; one for empty block, and one for end of loop/if.
 
                 RectTransform rt = (RectTransform)block.transform;
                 CachedTransform c = block.GetComponent<CachedTransform>();
 
+                Vector2 position = c.AnchoredPosition;
+                float positionAdjustment =
+                    (hoveredBlockIndex > 0 && i >= hoveredBlockIndex) && parentLoop == null ? 17 * pendingBlockSize : 0;
+                rt.anchoredPosition = new Vector2(position.x, position.y + positionAdjustment);
+                
                 if (block.type is BlockAssembly.BlocType.If or BlockAssembly.BlocType.Loop)
                 {
+                    if (i >= hoveredBlockIndex && parentLoop == null)
+                        parentLoop = block;
+
                     Vector2 cSizeDelta = c.sizeDelta;
                     float heightAdjustment =
                         (hoveredBlockIndex > i && hoveredBlockIndex <= GetLastIndexOfDynamicBlock(block))
@@ -224,11 +277,10 @@ namespace CodingExercises
                     rt.sizeDelta = new Vector2(cSizeDelta.x, cSizeDelta.y + heightAdjustment);
                 }
 
-                Vector2 position = c.AnchoredPosition;
-                float positionAdjustment =
-                    (hoveredBlockIndex > 0 && i >= hoveredBlockIndex) ? 17 * pendingBlockSize : 0;
-                rt.anchoredPosition = new Vector2(position.x, position.y + positionAdjustment);
                 c.ApplyAll();
+
+                //Debug.Log("BLOCK : " + block.type);
+                //Debug.Log("PENDING SIZE : " + pendingBlockSize);
             }
         }
 
@@ -253,20 +305,31 @@ namespace CodingExercises
             int hoveredBlockIndex = codeZoneData.HoveredPositionIndex;
             BlockAssembly[] allBlocks = codeZoneData.indexedBlockPositionMappings;
             int pendingBlockSize = GetBlockSize(pendingObj.GetComponent<BlockAssembly>());
+            BlockAssembly parentLoop = null;
             for (var i = 1; i < allBlocks.Length; i++)
             {
                 var block = allBlocks[i];
                 if (block == null)
                 {
                     i++;
+                    if (allBlocks[i] == parentLoop) parentLoop = null;
                     continue;
                 } // skip two; one for empty block, and one for end of loop/if.
 
                 RectTransform rt = (RectTransform)block.transform;
                 CachedTransform c = block.GetComponent<CachedTransform>();
 
-                if (block.type is BlockAssembly.BlocType.If or BlockAssembly.BlocType.Loop)
+                Vector2 cPos = c.AnchoredPosition;
+                float positionAdjustment = hoveredBlockIndex > 0 && i >= hoveredBlockIndex && parentLoop == null
+                    ? -17 * pendingBlockSize
+                    : 0;
+                rt.anchoredPosition = new Vector2(cPos.x, cPos.y + positionAdjustment);
+
+                if (block.type is BlockAssembly.BlocType.If or BlockAssembly.BlocType.Loop) // Resize dynamic blocks
                 {
+                    if (i >= hoveredBlockIndex && parentLoop == null)
+                        parentLoop = block;
+
                     Vector2 cSizeDelta = c.sizeDelta;
                     float heightAdjustment =
                         (hoveredBlockIndex > i && hoveredBlockIndex <= GetLastIndexOfDynamicBlock(block))
@@ -275,9 +338,7 @@ namespace CodingExercises
                     rt.sizeDelta = new Vector2(cSizeDelta.x, cSizeDelta.y + heightAdjustment);
                 }
 
-                Vector2 cPos = c.AnchoredPosition;
-                float positionAdjustment = hoveredBlockIndex > 0 && i >= hoveredBlockIndex ? -17 * pendingBlockSize : 0;
-                rt.anchoredPosition = new Vector2(cPos.x, cPos.y + positionAdjustment);
+                Debug.Log("Index : " + hoveredBlockIndex + ", I : " + i + ", parentLoop : " + parentLoop);
             }
 
 
@@ -331,53 +392,59 @@ namespace CodingExercises
             for (var i = 0; i < mappings.Length - 1 && i >= 0; i++)
             {
                 if (mappings[i] == null) continue;
-                
-                if (i >= 2 && 
-                    mappings[i-1].type is BlockAssembly.BlocType.Loop 
-                        or BlockAssembly.BlocType.If 
-                    && mappings[i-1].midBase != null
+
+                if (i >= 2
+                    && mappings[i - 1] != null
+                    && mappings[i - 1].type is BlockAssembly.BlocType.Loop
+                        or BlockAssembly.BlocType.If
+                    && mappings[i - 1].midBase != null
                     && mappings[i - 2] == null)
                 {
                     Debug.Log("MIDBASE !!!!!");
-                    mappings[i].midBase = mappings[i-1].midBase;
+                    mappings[i].midBase = mappings[i - 1].midBase;
                 }
-                
-                if (mappings[i].type is BlockAssembly.BlocType.If && mappings[i-1] != null)
+
+                if (i <= mappings.Length - 3 && mappings[i] == mappings[i + 2])
+                    continue;
+
+                if (mappings[i].type is BlockAssembly.BlocType.If && mappings[i - 1] != null)
                     i = AssignMidBlocks(i, mappings[i]);
-                
+
                 if (i < 0 || i >= mappings.Length - 1) break;
 
                 if (mappings[i + 1] != null)
                 {
                     mappings[i].nextBlock = mappings[i + 1].gameObject;
                     if (mappings[i].midBase != null) mappings[i + 1].midBase = mappings[i].midBase;
-                    if (mappings[i].type is BlockAssembly.BlocType.Loop)
+                    if (i > 0 && mappings[i - 1] != null && mappings[i].type is BlockAssembly.BlocType.Loop)
                         mappings[i + 1].midBase = mappings[i].gameObject;
                 }
             }
         }
-        
+
         private int AssignMidBlocks(int index, BlockAssembly parent)
         {
+            Debug.Log("Assigning midblocks. Index = " + index);
             BlockAssembly[] mappings = codeZoneData.indexedBlockPositionMappings;
             if (mappings[index + 1] != null)
             {
                 mappings[index].midBlock = mappings[index + 1].gameObject;
                 mappings[index + 1].midBase = parent.gameObject;
             }
+
             for (var i = index + 1; i < mappings.Length - 1; i++)
             {
                 if (mappings[i] == null) continue;
                 if (mappings[i + 1] != null)
                 {
-                    if (mappings[i].type is BlockAssembly.BlocType.Loop && mappings[i-1] == null) continue;
-                    
-                    if (mappings[i].type is BlockAssembly.BlocType.If && mappings[i-1] != null)
+                    if (mappings[i].type is BlockAssembly.BlocType.Loop && mappings[i - 1] == null) continue;
+
+                    if (mappings[i].type is BlockAssembly.BlocType.If && mappings[i - 1] != null)
                     {
                         i = AssignMidBlocks(i, mappings[i]);
                         continue;
                     }
-                    
+
                     mappings[i].nextBlock = mappings[i + 1].gameObject;
                     mappings[i].midBase = parent.gameObject;
                     if (mappings[i] != parent) continue;
@@ -388,6 +455,7 @@ namespace CodingExercises
 
                 if (mappings[i] == parent) return i + 2;
             }
+
             return -1;
         }
 
@@ -500,13 +568,15 @@ namespace CodingExercises
             codeZoneBlocksManager.RecalculateData();
 
             pendingObj.GetComponent<BlockAssembly>().nextBlock = null;
-            pendingObj.GetComponent<Image>().raycastTarget = false;
+            foreach (var image in pendingObj.GetComponentsInChildren<Image>())
+                image.raycastTarget = false;
         }
 
         public void InstantiateNewBlock(GameObject bloc)
         {
             if (blocNb >= maxBlocNb) return;
             blocNb++;
+            blocksList.GetComponent<BatchButtonActivator>().SetAllElementsInteractable(blocNb < maxBlocNb);
             Transform t = transform;
             SelectBlock(Instantiate(bloc, pos, t.rotation, t));
         }
@@ -523,6 +593,7 @@ namespace CodingExercises
                 Instantiate(explosionFX, obj.transform.position, Quaternion.identity, transform);
                 Destroy(obj);
                 blocNb--;
+                blocksList.GetComponent<BatchButtonActivator>().SetAllElementsInteractable(blocNb < maxBlocNb);
                 if (blocNb < 0) blocNb = 0;
             }
 

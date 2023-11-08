@@ -183,6 +183,10 @@ MonoBehaviour:
     m_Key: MainMenuWelcomeText
     m_Metadata:
       m_Items: []
+  - m_Id: 13302732286849024
+    m_Key: LoadingLabel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

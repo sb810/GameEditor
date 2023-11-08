@@ -93,7 +93,7 @@ namespace CodingExercises
             for (var i = 0; i < parent.childCount; i++)
             {
                 if (!parent.GetChild(i).TryGetComponent(out BlockAssembly block)) continue;
-                Debug.Log("Regular ! TYPE " + block.type + ", INDEX " + index);
+                // Debug.Log("Regular ! TYPE " + block.type + ", INDEX " + index);
                 if (block.type is BlockAssembly.BlocType.Loop or BlockAssembly.BlocType.If)
                 {
                     indexedBlockPositionMappings[index++] = block;
@@ -113,7 +113,7 @@ namespace CodingExercises
             {
                 if (!t.GetChild(i).TryGetComponent(out BlockAssembly child)) continue;
                 if (child == block) continue;
-                Debug.Log("In block ! TYPE " + child.type + ", INDEX " + index);
+                // Debug.Log("In block ! TYPE " + child.type + ", INDEX " + index);
                 if (child.type is BlockAssembly.BlocType.Loop or BlockAssembly.BlocType.If)
                 {
                     indexedBlockPositionMappings[index++] = child;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,11 @@ namespace Utils
                 foreach (var image in obj.GetComponentsInChildren<Image>())
                 {
                     image.raycastTarget = interactable;
+                }
+                
+                foreach (var tmp in obj.GetComponentsInChildren<TextMeshProUGUI>())
+                {
+                    tmp.raycastTarget = interactable;
                 }
             }
         }

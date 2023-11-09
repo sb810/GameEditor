@@ -10,6 +10,9 @@ namespace LevelEditor.InGame
         public float moveSpeed = 1f;
         public LayerMask ground;
         [FormerlySerializedAs("ennemi")] public LayerMask enemy;
+        
+        [SerializeField] private BoxCollider2D attackHitbox;
+        [SerializeField] private float playerDetectionDistance = 2.5f;
 
         private Rigidbody2D rb;
         private Animator anim;
@@ -23,6 +26,8 @@ namespace LevelEditor.InGame
         private static readonly int AttackAnimHash = Animator.StringToHash("Attack");
         private static readonly int IsWalkingAnimHash = Animator.StringToHash("IsWalking");
 
+        private bool isWalking = true;
+        
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -41,21 +46,39 @@ namespace LevelEditor.InGame
                     anim.SetTrigger(AttackAnimHash);
                     StartCoroutine(Move());
                     break;
-                case 4 :
+                /*case 4 :
                 case 5 :
                 case 6 :
                     StartCoroutine(MeleeAttackLoop());
-                    break;
+                    break;*/
                 
             }
         }
 
+        private IEnumerator WaitBeforeWalking()
+        {
+            yield return new WaitForSeconds(2);
+            isWalking = true;
+            yield return null;
+        }
+
+        
+        public void StartMeleeAttack()
+        {
+            attackHitbox.enabled = true;
+        }
+
+        public void EndMeleeAttack()
+        {
+            attackHitbox.enabled = false;
+        }
 
         private void FixedUpdate()
         {
             if (selectedCodeLevel == 0) return;
             switch (selectedCodeLevel)
             {
+                case 1:
                 case 2:
                 case 3: // Flip on enemy collision
                     if(triggerColliderWall.IsTouchingLayers(enemy))
@@ -76,11 +99,31 @@ namespace LevelEditor.InGame
                 case 6 : // Move AND attack, flip on enemy collision OR flip on ground edge
                     if (!triggerColliderGround.IsTouchingLayers(ground) || triggerColliderWall.IsTouchingLayers(enemy))
                         Flip();
-                    anim.SetBool(IsWalkingAnimHash, true);
-                    rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left * moveSpeed, 10);
-                    if (hit.collider != null && hit.collider.CompareTag("Player"))
-                        anim.SetTrigger(AttackAnimHash); 
+                    if(isWalking)
+                    {
+                        anim.SetBool(IsWalkingAnimHash, true);
+                        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+                    }
+                    Vector2 origin = transform.position + Vector3.up / 2;
+                    Vector2 direction = Vector2.left * moveSpeed;
+#if UNITY_EDITOR
+                    Debug.DrawRay(origin, -direction * playerDetectionDistance);
+#endif
+                    
+                    if (isWalking)
+                    {
+                        RaycastHit2D[] allHits = Physics2D.RaycastAll(origin, -direction, playerDetectionDistance);
+                        foreach (var hit in allHits)
+                        {
+                            if(hit.collider != null && hit.collider.CompareTag("Player"))
+                            {
+                                isWalking = false;
+                                StartCoroutine(WaitBeforeWalking());
+                                anim.SetBool(IsWalkingAnimHash, false);
+                                anim.SetTrigger(AttackAnimHash);
+                            }
+                        }
+                    }
                     break;
                 
             }

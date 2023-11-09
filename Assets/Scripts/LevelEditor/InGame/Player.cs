@@ -44,6 +44,9 @@ namespace LevelEditor.InGame
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
         private static readonly int Active = Animator.StringToHash("active");
 
+        private bool willDie;
+        private bool dying;
+
         private void Start()
         {
             gameOverManager = GameManager.Instance.GameOverManager;
@@ -62,6 +65,20 @@ namespace LevelEditor.InGame
 
         private void Update()
         {
+            /*if (willDie)
+            {
+                if (!isGrounded) return;
+                willDie = false;
+                dying = true;
+                return;
+            }
+
+            if (dying)
+            {
+                
+                return;
+            }*/
+            
             var pos = transform.position;
             RaycastHit2D hit = Physics2D.Raycast(pos + new Vector3(0.35f*facing, 0, 0), Vector2.up, 1);
         
@@ -92,6 +109,7 @@ namespace LevelEditor.InGame
         
             if(hp == 0 || transform.position.y <= -13)
             {
+                //willDie = true;
                 Death();
             }
         }
@@ -205,6 +223,7 @@ namespace LevelEditor.InGame
             gameOverManager.inGameUI.SetActive(false);
             gameOverManager.player = gameObject;    
 
+            //anim.SetBool("");
             gameObject.SetActive(false);
 
         }

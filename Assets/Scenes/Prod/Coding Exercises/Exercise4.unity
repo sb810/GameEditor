@@ -921,6 +921,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Exercise5
       objectReference: {fileID: 0}
+    - target: {fileID: 643695578217981242, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 724241031, guid: 8f8260e7a318e074fb73b1f32be2b077, type: 3}
     - target: {fileID: 743502811334490867, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -949,6 +953,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1364820378696588122, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 724241031, guid: 8f8260e7a318e074fb73b1f32be2b077, type: 3}
     - target: {fileID: 1594495151657984750, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: overrideSettings
       value: 1
@@ -1001,6 +1009,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2647345465884924646, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687978203164103911, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 379212935, guid: 0e3984dc5d890f8459aae58bf15e4bc6, type: 3}
     - target: {fileID: 2694820477057304830, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.7
@@ -1089,6 +1105,10 @@ PrefabInstance:
       propertyPath: levelEntitiesList.Array.data[1]
       value: 
       objectReference: {fileID: 1111295029}
+    - target: {fileID: 4253681588160117397, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 724241031, guid: 8f8260e7a318e074fb73b1f32be2b077, type: 3}
     - target: {fileID: 4612870362792550848, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1237,6 +1257,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6883664980757543444, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.82
+      objectReference: {fileID: 0}
     - target: {fileID: 6941950420038491075, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1261,6 +1285,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CodingExerciseLayout
       objectReference: {fileID: 0}
+    - target: {fileID: 7345471165111842217, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cc9f193ddb93b27448ecc9095412c910, type: 2}
+    - target: {fileID: 7541197033982185397, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 724241031, guid: 8f8260e7a318e074fb73b1f32be2b077, type: 3}
     - target: {fileID: 7850588830318329797, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1357,6 +1389,10 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.height
       value: 0.99814814
       objectReference: {fileID: 0}
+    - target: {fileID: 8203417901391755940, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 724241031, guid: 8f8260e7a318e074fb73b1f32be2b077, type: 3}
     - target: {fileID: 8563116493232720194, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1369,6 +1405,10 @@ PrefabInstance:
       propertyPath: cantPlaceMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 5b9af6e49afe13442a302b3734cbea42, type: 2}
+    - target: {fileID: 9177492337469411469, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c4392fab6c303814fb5aca5f77e09bab, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4988807943969794856, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}

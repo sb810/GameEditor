@@ -15,6 +15,8 @@ namespace CodingExercises
             {
                 collision.gameObject.GetComponent<Animator>().SetBool(IsDeadAnimHash, true);
                 collision.gameObject.GetComponent<Animator>().SetTrigger(HurtAnimHash);
+                ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+                ps.Play();
                 collision.enabled = false;
                 //collision.gameObject.SetActive(false);
                 checkpoint.enemyCount--;

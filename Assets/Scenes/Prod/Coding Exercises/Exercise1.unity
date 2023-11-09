@@ -2109,10 +2109,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.036231883
-    y: 0.030434784
-    width: 0.92753625
-    height: 0.9391305
+    x: 0.010195412
+    y: 0.01925926
+    width: 0.9787595
+    height: 0.96
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -5593,6 +5593,7 @@ MonoBehaviour:
   lastOfThePendingBlock: 0
   collidingWithBlockEnd: 0
   highlightFX: {fileID: 0}
+  highlightArrow: {fileID: 0}
   bot: {fileID: 797225858}
   midBase: {fileID: 0}
   midBaseRescaleOffset: 2

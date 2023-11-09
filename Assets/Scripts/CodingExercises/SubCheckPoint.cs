@@ -6,11 +6,10 @@ namespace CodingExercises
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("DeadBody"))
-            {
-                transform.parent.GetComponent<PreviewCheckpoint>().checkpointCount--;
-                gameObject.SetActive(false);
-            }
+            if (!other.CompareTag("DeadBody")) return;
+            transform.parent.GetComponent<PreviewCheckpoint>().checkpointCount--;
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponentInChildren<Animator>().gameObject.SetActive(true);
         }
     }
 }

@@ -1446,6 +1446,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2687978203164103911, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 379212935, guid: 0e3984dc5d890f8459aae58bf15e4bc6, type: 3}
     - target: {fileID: 2694820477057304830, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.7
@@ -1538,6 +1542,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2087329079, guid: fe24824150032a543a558e36696d45e4, type: 3}
+    - target: {fileID: 4324953840968299626, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4732776719127792780, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1582,9 +1590,21 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.height
       value: 0.97737557
       objectReference: {fileID: 0}
+    - target: {fileID: 5669582286904927310, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5684242081642088896, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: midBase
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909017247896382484, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144489273444168112, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6256920872903874727, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_Name
@@ -1649,7 +1669,7 @@ PrefabInstance:
     - target: {fileID: 7345471165111842217, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 4d5c3f681ea7ded4d87cd94734261ab8, type: 2}
+      objectReference: {fileID: 9100000, guid: cc9f193ddb93b27448ecc9095412c910, type: 2}
     - target: {fileID: 7541197033982185397, guid: 3519d19a5daf7ff43a8e0db2d74a9c36, type: 3}
       propertyPath: m_Sprite
       value: 

@@ -14,19 +14,11 @@ namespace Utils
             foreach (var obj in objects)
             {
                 foreach (var button in obj.GetComponentsInChildren<Button>())
-                {
                     button.interactable = interactable;
-                }
-
                 foreach (var image in obj.GetComponentsInChildren<Image>())
-                {
                     image.raycastTarget = interactable;
-                }
-                
                 foreach (var tmp in obj.GetComponentsInChildren<TextMeshProUGUI>())
-                {
                     tmp.raycastTarget = interactable;
-                }
             }
         }
     }

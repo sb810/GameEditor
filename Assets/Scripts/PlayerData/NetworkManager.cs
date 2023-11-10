@@ -69,8 +69,19 @@ namespace PlayerData
 
                     Debug.Log("AFTER JSON TRIMMING : " + jsonData);
                     PlayerDataManager.Data = JsonUtility.FromJson<WebData>(jsonData);
-                    PlayerPrefs.SetString("clientID", PlayerDataManager.Data.id);
-                    PlayerPrefs.Save();
+                    PlayerDataManager.SetGroupFromURL();
+
+                    if (PlayerPrefs.HasKey("clientID"))
+                    {
+                        PlayerDataManager.IsViewingStudentData = PlayerDataManager.Data.isTeacher &&
+                                                                 PlayerPrefs.GetString("clientID") !=
+                                                                 PlayerDataManager.Data.id;
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetString("clientID", PlayerDataManager.Data.id);
+                        PlayerPrefs.Save();
+                    }
                 }
 
                 Debug.Log(method + " complete in NetworkManager.UpdateData !\nDATA : " + PlayerDataManager.Data);
@@ -79,12 +90,14 @@ namespace PlayerData
 
         public void UploadNewSaveData()
         {
-            StartCoroutine(SendWebRequest("POST"));
+            if (!PlayerDataManager.IsViewingStudentData)
+                StartCoroutine(SendWebRequest("POST"));
         }
 
         public void UpdateNetworkSavedData()
         {
-            StartCoroutine(SendWebRequest("PATCH"));
+            if (!PlayerDataManager.IsViewingStudentData)
+                StartCoroutine(SendWebRequest("PATCH"));
         }
 
         public void GetNetworkSavedData()

@@ -27,16 +27,23 @@ namespace PlayerData
         public static readonly string DesignPassword = "mario";
         public static readonly string CodingPassword = "luigi";
 
+        public static bool IsViewingStudentData = false;
+
         public static WebData Data = new();
 
         static PlayerDataManager()
         {
-            Data.group = GetGroupFromCurrentURL();
+            SetGroupFromURL();
             if (PlayerPrefs.HasKey("clientID"))
             {
                 Data.id = PlayerPrefs.GetString("clientID");
                 Debug.Log("Client ID found in PlayerPrefs ! " + Data.id);
             } else Debug.Log("Client ID not found... Waiting for a new connection.");
+        }
+
+        public static void SetGroupFromURL()
+        {
+            Data.group = GetGroupFromCurrentURL();
         }
 
         private static string GetGroupFromCurrentURL()

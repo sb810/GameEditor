@@ -20,7 +20,7 @@ namespace Utils
             }
             else onPasswordInvalid.Invoke();
         }
-        
+
         public void ValidateCodingPassword(TMP_InputField input)
         {
             if (input.text == PlayerDataManager.CodingPassword)
@@ -30,14 +30,22 @@ namespace Utils
             }
             else onPasswordInvalid.Invoke();
         }
-        
+
         public void ValidateDesignPasswordInCache()
         {
             if (PlayerDataManager.Data.isTeacher || PlayerDataManager.Data.designPasswordEntered)
                 onPasswordValid.Invoke();
             else onPasswordInvalid.Invoke();
         }
-        
+
+        public void ValidateDesignPasswordAndNameEnteredInCache()
+        {
+            if (PlayerDataManager.Data.username.Length > 0 &&
+                (PlayerDataManager.Data.isTeacher || PlayerDataManager.Data.designPasswordEntered))
+                onPasswordValid.Invoke();
+            else onPasswordInvalid.Invoke();
+        }
+
         public void ValidateCodingPasswordInCache()
         {
             if (PlayerDataManager.Data.isTeacher || PlayerDataManager.Data.codingPasswordEntered)

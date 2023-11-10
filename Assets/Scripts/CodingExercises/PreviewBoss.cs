@@ -24,8 +24,14 @@ namespace CodingExercises
             Debug.DrawRay(origin, direction * playerDetectionDistance);
             #endif
             
-            RaycastHit2D hit = Physics2D.Raycast(origin, direction, playerDetectionDistance);
-            seePlayer = hit.collider != null && hit.collider.CompareTag("Player");
+            RaycastHit2D[] hits = Physics2D.RaycastAll(origin, direction, playerDetectionDistance);
+            bool playerFound = false;
+            foreach (var hit in hits)
+            {
+                if (hit.collider != null && hit.collider.CompareTag("Player")) playerFound = true;
+            }
+
+            seePlayer = playerFound;
             hole = !triggerCollider.IsTouchingLayers(ground);
         }
 

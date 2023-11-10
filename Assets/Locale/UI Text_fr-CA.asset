@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 240411381399552
-    m_Localized: RESET
+    m_Localized: Recommencer
     m_Metadata:
       m_Items: []
   - m_Id: 255599379808256
@@ -55,7 +55,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1431827294187520
-    m_Localized: SAUVER
+    m_Localized: Sauvegarder
     m_Metadata:
       m_Items: []
   - m_Id: 1484286313955328

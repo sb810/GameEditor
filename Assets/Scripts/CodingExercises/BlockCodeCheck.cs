@@ -142,8 +142,8 @@ namespace CodingExercises
         {
             foreach(GameObject obj in bloc)
             {
-                if (obj != null)
-                    obj.GetComponent<BlockAssembly>().SetExecutionHighlightActive(false);
+                if (obj != null && obj.TryGetComponent(out BlockAssembly assembly))
+                    assembly.SetExecutionHighlightActive(false);
             }
         }
 

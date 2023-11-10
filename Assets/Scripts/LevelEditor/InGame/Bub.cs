@@ -11,10 +11,12 @@ namespace LevelEditor.InGame
         private Rigidbody2D rb;
         public Collider2D triggerColliderGround;
         public Collider2D triggerColliderWall;
+        private static readonly int IsWalkingAnimHash = Animator.StringToHash("IsWalking");
 
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+            GetComponent<Animator>().SetBool(IsWalkingAnimHash, true);
         }
 
         private void Update()

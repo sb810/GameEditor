@@ -389,7 +389,16 @@ namespace CodingExercises
                 block.nextBlock = null;
                 block.midBlock = null;
                 block.midBase = null;
-                block.GetComponent<Image>().raycastTarget = GetBlockSize(block) <= 3;
+                if(GetBlockSize(block) > 3)
+                {
+                    block.gameObject.AddComponent<KeepRaycastDeactivated>();
+                    block.GetComponent<Image>().raycastTarget = false;
+                }
+                else
+                {
+                    Destroy(block.gameObject.GetComponent<KeepRaycastDeactivated>());
+                    block.GetComponent<Image>().raycastTarget = true;
+                }
                 if (!block.gameObject.TryGetComponent(out CachedTransform c))
                     c = block.gameObject.AddComponent<CachedTransform>();
                 c.ApplyAll();

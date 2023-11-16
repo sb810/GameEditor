@@ -1,0 +1,220 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Text Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI Text
+  m_TableCollectionNameGuidString: 1cc9ecebb5c509a418d8c8ca28abe4f9
+  m_Entries:
+  - m_Id: 14899841331200
+    m_Key: MainMenuSubtitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15050228101120
+    m_Key: MainMenuStartButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143374254145536
+    m_Key: LoadingText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 238834914492416
+    m_Key: EditorPlayButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 240411381399552
+    m_Key: EditorRestartButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 255599379808256
+    m_Key: FirstPasswordNamePrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 711803587784704
+    m_Key: FirstPasswordPassPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 734538665816064
+    m_Key: FirstPasswordValidateButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 753969693454336
+    m_Key: FirstPasswordIncorrectPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1431827294187520
+    m_Key: EditorSaveButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484286313955328
+    m_Key: EditorRestartConfirmationConfirmButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484486025740288
+    m_Key: EditorRestartConfirmationCancelButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484884874690560
+    m_Key: EditorRestartConfirmationPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792450867560448
+    m_Key: EditorGameOverTryAgainButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792618694246400
+    m_Key: EditorGameOverEditorButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792969266757632
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3160891742744576
+    m_Key: MainMenuPasswordPlaceholderLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175103552516096
+    m_Key: ProgBlockListTitleLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175355575660544
+    m_Key: ProgCodeStartBlockLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175681523412992
+    m_Key: ProgPreviewTitleLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175943919071232
+    m_Key: ProgPreviewRestartButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8176807287189504
+    m_Key: ProgPreviewLaunchButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177073742934016
+    m_Key: ProgConditionsPromptTitleLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177380992479232
+    m_Key: ProgCodeZoneTitleLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177623691685888
+    m_Key: ProgBlockListRemainingBlocksLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177975719620608
+    m_Key: ProgCodeBlocksForwardButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8178710507155456
+    m_Key: ProgExitButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8780343259688960
+    m_Key: ProgExercise1ConditionsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8790016058716160
+    m_Key: ProgWinScreenCongratsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8790248590929920
+    m_Key: ProgWinScreenNextLevelButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8904963858100224
+    m_Key: SecondPasswordBackButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9346633896554496
+    m_Key: ProgBlock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9456504511918080
+    m_Key: ProgCodeBlocksAttackButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9689803301842944
+    m_Key: ProgExercise2ConditionsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10205815730335744
+    m_Key: ProgExercise3ConditionsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10206789752582144
+    m_Key: ProgCodeBlocksLoopButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10863671592873984
+    m_Key: ProgExercise4ConditionsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10873911013011456
+    m_Key: ProgExercise5ConditionsPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10882468672434176
+    m_Key: ProgCodeBlocksIfPlayerButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11118520611893248
+    m_Key: ProgCodeBlocksFlipButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11118664002564096
+    m_Key: ProgCodeBlocksIfObstacleButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11665120404959232
+    m_Key: MainMenuWelcomeText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13302732286849024
+    m_Key: LoadingLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16291178165039104
+    m_Key: ProgFlagConditionPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16294777708343296
+    m_Key: ProgEnemyConditionPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16295327166361600
+    m_Key: ProgAllyConditionPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16297349202571264
+    m_Key: ProgFlagConditionPromptMultiple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16305673386061824
+    m_Key: ProgEnemyConditionPromptMultiple
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2038147158737158169
+  references:
+    version: 2
+    RefIds:
+    - rid: 2038147158737158169
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1696209662697

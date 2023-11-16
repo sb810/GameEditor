@@ -1,0 +1,19 @@
+{
+    "name": "Scripts.GoodOldCode",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f1d5546624d45b948976f45c65bd07df",
+        "GUID:5a3bcdfe0ce63c6408e0124a1c852fe1"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

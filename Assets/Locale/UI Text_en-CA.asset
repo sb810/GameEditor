@@ -1,0 +1,226 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Text_en-CA
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en-CA
+  m_SharedData: {fileID: 11400000, guid: 1cc9ecebb5c509a418d8c8ca28abe4f9, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 15050228101120
+    m_Localized: LET'S GO !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14899841331200
+    m_Localized: TRIAL WORKSHOP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143374254145536
+    m_Localized: Loading...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 238834914492416
+    m_Localized: PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 240411381399552
+    m_Localized: RESET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 255599379808256
+    m_Localized: What's your name ?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 711803587784704
+    m_Localized: 'Enter the password :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 734538665816064
+    m_Localized: Submit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 753969693454336
+    m_Localized: Invalid password !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1431827294187520
+    m_Localized: SAVE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484286313955328
+    m_Localized: YES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484486025740288
+    m_Localized: NO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1484884874690560
+    m_Localized: Are you sure you want to restart ?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792450867560448
+    m_Localized: Try again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792618694246400
+    m_Localized: Edit level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1792969266757632
+    m_Localized: 'Game
+
+      Over !'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3160891742744576
+    m_Localized: Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175103552516096
+    m_Localized: Blocks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175355575660544
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175681523412992
+    m_Localized: Simulation preview
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8175943919071232
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8176807287189504
+    m_Localized: Launch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177073742934016
+    m_Localized: Success conditions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177380992479232
+    m_Localized: Coding Zone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177623691685888
+    m_Localized: 'Blocks left : 0'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8177975719620608
+    m_Localized: Forward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8178710507155456
+    m_Localized: Back to design
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8780343259688960
+    m_Localized: Reach the flag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8790016058716160
+    m_Localized: 'Level complete.
+
+      Good job !'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8790248590929920
+    m_Localized: Next level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8904963858100224
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9456504511918080
+    m_Localized: Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9689803301842944
+    m_Localized: '[ ] Eliminate the player
+
+      [ ] Reach the flag'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10205815730335744
+    m_Localized: '[ ] Eliminate ALL players (0/2)
+
+      [ ] Reach the flag'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10206789752582144
+    m_Localized: Loop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10863671592873984
+    m_Localized: '[ ] Eliminate ALL players (0/2)
+
+      [ ] Reach the flag'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10873911013011456
+    m_Localized: '[ ] Eliminate the player
+
+      [ ] Keep the friendly goblin alive
+
+      [
+      ] Reach the flag'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10882468672434176
+    m_Localized: If player
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11118520611893248
+    m_Localized: Flip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11118664002564096
+    m_Localized: If obstacle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11665120404959232
+    m_Localized: Welcome !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13302732286849024
+    m_Localized: Loading...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16291178165039104
+    m_Localized: Reach the flag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16294777708343296
+    m_Localized: Eliminate the player
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16295327166361600
+    m_Localized: Protect the goblin ally
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16297349202571264
+    m_Localized: Reach the flags
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16305673386061824
+    m_Localized: Eliminate the players
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

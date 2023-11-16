@@ -129,7 +129,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 8780343259688960
-    m_Localized: '[ ] Atteindre le drapeau'
+    m_Localized: Atteindre le drapeau
     m_Metadata:
       m_Items: []
   - m_Id: 8790016058716160
@@ -165,8 +165,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10873911013011456
-    m_Localized: "[ ] \xC9liminer le joueur\n[ ] Garder le champignon alli\xE9 en
-      vie\n[ ] Atteindre le drapeau"
+    m_Localized: "[ ] \xC9liminer le joueur\n[ ] Garder le gobelin alli\xE9 en vie\n[
+      ] Atteindre le drapeau"
     m_Metadata:
       m_Items: []
   - m_Id: 10882468672434176
@@ -187,6 +187,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 13302732286849024
     m_Localized: Chargement...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16291178165039104
+    m_Localized: Atteindre le drapeau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16294777708343296
+    m_Localized: "\xC9liminer le joueur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16295327166361600
+    m_Localized: "Prot\xE9ger le gobelin alli\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16297349202571264
+    m_Localized: Atteindre les drapeaux
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16305673386061824
+    m_Localized: "\xC9liminer les joueurs"
     m_Metadata:
       m_Items: []
   references:

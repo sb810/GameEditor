@@ -1,9 +1,9 @@
 const cacheName = "Studio XP-Game Editor - StudioXP-2.0";
 const contentToCache = [
     "Build/Build.loader.js",
-    "Build/97166811ab8598913a74cd68370a1a29.js.unityweb",
-    "Build/7340041c53f1a83939da52ac963e202d.data.unityweb",
-    "Build/74ff800f79ecbb3d3595be46d4bc55c1.wasm.unityweb",
+    "Build/668bd8b8868948dad8be3a9cc03efae1.js.unityweb",
+    "Build/2bddce81454c4674f63f893234a74737.data.unityweb",
+    "Build/bb81976fa8baa1ca8e2b04d6223b5587.wasm.unityweb",
     "TemplateData/style.css"
 
 ];

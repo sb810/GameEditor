@@ -129,7 +129,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 8780343259688960
-    m_Localized: '[ ] Reach the flag'
+    m_Localized: Reach the flag
     m_Metadata:
       m_Items: []
   - m_Id: 8790016058716160
@@ -175,10 +175,10 @@ MonoBehaviour:
   - m_Id: 10873911013011456
     m_Localized: '[ ] Eliminate the player
 
-      [ ] Keep the friendly mushroom
-      alive
+      [ ] Keep the friendly goblin alive
 
-      [ ] Reach the flag'
+      [
+      ] Reach the flag'
     m_Metadata:
       m_Items: []
   - m_Id: 10882468672434176
@@ -199,6 +199,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 13302732286849024
     m_Localized: Loading...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16291178165039104
+    m_Localized: Reach the flag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16294777708343296
+    m_Localized: Eliminate the player
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16295327166361600
+    m_Localized: Protect the goblin ally
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16297349202571264
+    m_Localized: Reach the flags
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16305673386061824
+    m_Localized: Eliminate the players
     m_Metadata:
       m_Items: []
   references:

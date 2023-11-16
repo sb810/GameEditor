@@ -19,7 +19,7 @@ namespace CodingExercises
                 ps.Play();
                 collision.enabled = false;
                 //collision.gameObject.SetActive(false);
-                checkpoint.enemyCount--;
+                checkpoint.KillEnemy();
             }
             else if (collision.CompareTag("Enemy"))
             {
@@ -30,6 +30,7 @@ namespace CodingExercises
                 codeCheck.StopAllCoroutines();
                 codeCheck.UnhighlightAllBlocks();
                 collision.enabled = false;
+                checkpoint.KillAlly();
                 //collision.gameObject.SetActive(false);
                 // codeCheck.ResetPreview();
             }

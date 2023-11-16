@@ -159,11 +159,11 @@ namespace CodingExercises
             boss.transform.rotation = Quaternion.Euler(Vector3.zero);
             boss.GetComponent<PreviewBoss>().facing = 1;
             speed = baseSpeed;
-            checkpoint.GetComponent<PreviewCheckpoint>().enemyCount = checkpoint.GetComponent<PreviewCheckpoint>().enemyTotal;
-            checkpoint.GetComponent<PreviewCheckpoint>().checkpointCount = checkpoint.GetComponent<PreviewCheckpoint>().checkpointTotal;
+            checkpoint.GetComponent<PreviewCheckpoint>().ResetCounters();
             foreach(Transform obj in checkpoint.transform)
             {
                 obj.gameObject.SetActive(true);
+                obj.GetComponent<SpriteRenderer>().enabled = true;
             }
             foreach(GameObject obj in levelEntitiesList)
             {

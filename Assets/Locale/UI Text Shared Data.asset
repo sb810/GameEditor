@@ -187,6 +187,26 @@ MonoBehaviour:
     m_Key: LoadingLabel
     m_Metadata:
       m_Items: []
+  - m_Id: 16291178165039104
+    m_Key: ProgFlagConditionPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16294777708343296
+    m_Key: ProgEnemyConditionPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16295327166361600
+    m_Key: ProgAllyConditionPrompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16297349202571264
+    m_Key: ProgFlagConditionPromptMultiple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16305673386061824
+    m_Key: ProgEnemyConditionPromptMultiple
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

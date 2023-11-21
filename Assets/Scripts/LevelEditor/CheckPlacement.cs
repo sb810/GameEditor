@@ -40,7 +40,6 @@ namespace LevelEditor
 
         private void OnMouseDown()
         {
-            buildManager.canPlace = true;
             MouseIconHandler.Instance.SetCursorHandHold();
             MouseIconHandler.Instance.SetCursorLock(true);
         }

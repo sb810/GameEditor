@@ -19,16 +19,14 @@ namespace Utils
 
         public void LoadScene(string sceneName)
         {
-            //Transitioner.Instance.FinishTransition();
             OverrideSettings();
-            Transitioner.Instance.TransitionToScene(sceneName, true);
+            Transitioner.Instance.TransitionToScene(sceneName);
         }
         
         public void LoadScene(int sceneIndex)
         {
-            //Transitioner.Instance.FinishTransition();
             OverrideSettings();
-            Transitioner.Instance.TransitionToScene(sceneIndex, true);
+            Transitioner.Instance.TransitionToScene(sceneIndex);
         }
 
         private void OverrideSettings()

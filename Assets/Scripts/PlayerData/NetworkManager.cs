@@ -1,17 +1,12 @@
 using System.Collections;
 using System.Text;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Networking;
-using UnityEngine.Serialization;
 
 namespace PlayerData
 {
     public class NetworkManager : MonoBehaviour
     {
-        [SerializeField] private UnityEvent onReturningUser;
-        [FormerlySerializedAs("onGetIsTeacher")] [FormerlySerializedAs("isTeacher")] [SerializeField] private UnityEvent<bool> onGetIsStudent;
-        
         private void Awake()
         {
             if (!string.IsNullOrEmpty(PlayerDataManager.Data.id))
@@ -44,8 +39,6 @@ namespace PlayerData
                     Debug.Log(method + " error ! Trying again with POST...\nResponse : " + request.responseCode + "; " +
                               request.error + "; " + request.downloadHandler.text);
                     PlayerDataManager.Data.id = "";
-                    PlayerDataManager.ClientID = "";
-                    PlayerPrefs.DeleteAll();
                     UploadNewSaveData();
                     yield break;
                 }
@@ -80,41 +73,31 @@ namespace PlayerData
 
                     if (PlayerPrefs.HasKey("clientID"))
                     {
-                        // PlayerDataManager.IsViewingStudentData = PlayerDataManager.Data.isTeacher &&
-                                                                 // PlayerPrefs.GetString("clientID") !=
-                                                                 // PlayerDataManager.Data.id;
-                        Debug.Log("Not first connection ! Viewing student data : " + 
-                            PlayerDataManager.ClientID != PlayerDataManager.Data.id);
-                        onReturningUser.Invoke();
+                        PlayerDataManager.IsViewingStudentData = PlayerDataManager.Data.isTeacher &&
+                                                                 PlayerPrefs.GetString("clientID") !=
+                                                                 PlayerDataManager.Data.id;
                     }
                     else
-                    { // Setting local client ID (previously unassigned)
+                    {
                         PlayerPrefs.SetString("clientID", PlayerDataManager.Data.id);
                         PlayerPrefs.Save();
-                        PlayerDataManager.ClientID = PlayerDataManager.Data.id;
-                        Debug.Log("First connection ! Viewing student data : " + 
-                            PlayerDataManager.ClientID != PlayerDataManager.Data.id);
                     }
                 }
 
-                onGetIsStudent.Invoke(!PlayerDataManager.Data.isTeacher);
-                
                 Debug.Log(method + " complete in NetworkManager.UpdateData !\nDATA : " + PlayerDataManager.Data);
             }
         }
 
         public void UploadNewSaveData()
         {
-            if (PlayerDataManager.ClientID == PlayerDataManager.Data.id)
+            if (!PlayerDataManager.IsViewingStudentData)
                 StartCoroutine(SendWebRequest("POST"));
-            else Debug.Log("Viewing another user. Aborting save.");
         }
 
         public void UpdateNetworkSavedData()
         {
-            if (PlayerDataManager.ClientID == PlayerDataManager.Data.id)
+            if (!PlayerDataManager.IsViewingStudentData)
                 StartCoroutine(SendWebRequest("PATCH"));
-            else Debug.Log("Viewing another user. Aborting save.");
         }
 
         public void GetNetworkSavedData()

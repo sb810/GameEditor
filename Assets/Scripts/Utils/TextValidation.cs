@@ -1,5 +1,4 @@
 using System.Text.RegularExpressions;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,11 +18,6 @@ namespace Utils
                     onTextInvalid.Invoke();
                 else onTextValid.Invoke();
             } else onTextValid.Invoke();
-        }
-        
-        public void Validate(TMP_InputField input)
-        {
-            Validate(input.text);
         }
     }
 }

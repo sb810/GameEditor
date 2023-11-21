@@ -207,14 +207,6 @@ MonoBehaviour:
     m_Key: ProgEnemyConditionPromptMultiple
     m_Metadata:
       m_Items: []
-  - m_Id: 18327344146018304
-    m_Key: MainMenuWelcomeUserLabel
-    m_Metadata:
-      m_Items: []
-  - m_Id: 18327533070053376
-    m_Key: MainMenuNewUserLabel
-    m_Metadata:
-      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

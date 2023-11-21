@@ -109,13 +109,13 @@ namespace PlayerData
 
         public void UploadNewSaveData()
         {
-            if (!PlayerDataManager.IsViewingStudentData)
+            if (string.IsNullOrEmpty(PlayerDataManager.ClientID) ||
+                PlayerDataManager.ClientID == PlayerDataManager.Data.id)
                 StartCoroutine(SendWebRequest("POST"));
         }
 
         public void UpdateNetworkSavedData()
         {
-            if (!PlayerDataManager.IsViewingStudentData)
             if (PlayerDataManager.ClientID == PlayerDataManager.Data.id)
                 StartCoroutine(SendWebRequest("PATCH"));
         }

@@ -76,11 +76,14 @@ namespace PlayerData
                         PlayerDataManager.IsViewingStudentData = PlayerDataManager.Data.isTeacher &&
                                                                  PlayerPrefs.GetString("clientID") !=
                                                                  PlayerDataManager.Data.id;
+                        Debug.Log("Not first connection ! Viewing student data : " + PlayerDataManager.IsViewingStudentData);
                     }
                     else
-                    {
+                    { // Setting local client ID (previously unassigned)
                         PlayerPrefs.SetString("clientID", PlayerDataManager.Data.id);
                         PlayerPrefs.Save();
+                        PlayerDataManager.ClientID = PlayerDataManager.Data.id;
+                        Debug.Log("First connection ! Viewing student data : " + PlayerDataManager.IsViewingStudentData);
                     }
                 }
 

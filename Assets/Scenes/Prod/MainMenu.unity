@@ -2598,6 +2598,7 @@ GameObject:
   - component: {fileID: 1182905259}
   - component: {fileID: 1182905260}
   - component: {fileID: 1182905261}
+  - component: {fileID: 1182905262}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -2771,9 +2772,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1182905255}
-          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-          m_MethodName: set_interactable
+        - m_Target: {fileID: 1182905262}
+          m_TargetAssemblyTypeName: Utils.BatchButtonActivator, Scripts.Utils
+          m_MethodName: SetAllElementsInteractable
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2873,6 +2874,22 @@ MonoBehaviour:
           m_StringArgument: FirstPassword
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1182905262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182905248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86aaf0af15def84287f8d26bfae58ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 1182905248}
+  - {fileID: 1782317692}
+  - {fileID: 1872801628}
 --- !u!1 &1191286504
 GameObject:
   m_ObjectHideFlags: 0

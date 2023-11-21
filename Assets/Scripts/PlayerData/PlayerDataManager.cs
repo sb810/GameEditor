@@ -27,8 +27,7 @@ namespace PlayerData
         public static readonly string DesignPassword = "mario";
         public static readonly string CodingPassword = "luigi";
 
-        public static bool IsViewingStudentData = false;
-
+        public static string ClientID;
         public static WebData Data = new();
 
         static PlayerDataManager()
@@ -37,6 +36,7 @@ namespace PlayerData
             if (PlayerPrefs.HasKey("clientID"))
             {
                 Data.id = PlayerPrefs.GetString("clientID");
+                ClientID = Data.id;
                 Debug.Log("Client ID found in PlayerPrefs ! " + Data.id);
             } else Debug.Log("Client ID not found... Waiting for a new connection.");
         }

@@ -11,8 +11,8 @@ namespace LevelEditor.Network
         public TMP_Text timestamp;
         private void Start()
         {
-            username.text = managerRef.groupData[id].username;
-            timestamp.text = managerRef.groupData[id].levelData.timestamp;
+            //username.text = managerRef.groupData[id].username;
+            //timestamp.text = managerRef.groupData[id].levelData.timestamp;
         }
 
         public void LoadButton()

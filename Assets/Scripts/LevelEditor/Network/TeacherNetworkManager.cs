@@ -2,8 +2,11 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using LevelEditor.Save;
 using PlayerData;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 namespace LevelEditor.Network
 {
@@ -54,8 +57,8 @@ namespace LevelEditor.Network
                 int tempChildCount = studentListLocation.transform.childCount;
                 for (int i = 0; i < tempChildCount; i++)
                 {
-                    Destroy(studentListLocation.transform.GetChild(0).gameObject);
-                    yield return null;
+                    Destroy(studentListLocation.transform.GetChild(i).gameObject);
+                    //yield return null;
                 }
                 
                 if (string.IsNullOrEmpty(request.downloadHandler.text) || request.downloadHandler.text.Length < 20)
@@ -74,9 +77,21 @@ namespace LevelEditor.Network
                 foreach (WebData student in groupData)
                 {
                     Debug.Log("ID = " + tempId);
-                    GameObject studentButton = Instantiate(studentButtonPrefab, studentListLocation.transform);
-                    studentButton.GetComponent<StudentButton>().managerRef = GetComponent<TeacherNetworkManager>();
-                    studentButton.GetComponent<StudentButton>().id = tempId;
+                    GameObject button = Instantiate(studentButtonPrefab, studentListLocation.transform);
+                    StudentButton studentButton = button.GetComponent<StudentButton>();
+                    studentButton.managerRef = GetComponent<TeacherNetworkManager>();
+                    studentButton.id = tempId;
+                    studentButton.username.text = student.username;
+                    studentButton.timestamp.text = student.levelData.timestamp;
+                    
+                    if (student.id == PlayerDataManager.ClientID)
+                    {
+                        studentButton.username.text += " (you)";
+                        button.transform.SetSiblingIndex(0);
+                    }
+
+                    RefreshButtonsVisualStatus();
+
                     tempId++;
                 }
             }
@@ -84,13 +99,25 @@ namespace LevelEditor.Network
             yield return null;
         }
 
+        private void RefreshButtonsVisualStatus()
+        {
+            foreach (StudentButton studentButton in studentListLocation.GetComponentsInChildren<StudentButton>())
+            {
+                studentButton.GetComponent<Button>().interactable = groupData[studentButton.id].id != PlayerDataManager.Data.id;
+            }
+        }
+
         public void LoadLevel(int id)
         {
             //SavedLevel dataToSave = groupData[id].levelData;
             //SaveLoad<SavedLevel>.SaveToLocal(dataToSave, "Level");
-            
-            loader.SaveDataToNetwork();
+
+            if (PlayerDataManager.ClientID == PlayerDataManager.Data.id)
+                loader.SaveDataToNetwork();
+
             PlayerDataManager.Data.levelData = groupData[id].levelData;
+            PlayerDataManager.Data.id = groupData[id].id;
+            RefreshButtonsVisualStatus();
             loader.ReloadLevelData();
         }
 
@@ -111,7 +138,8 @@ namespace LevelEditor.Network
                 Debug.Log ("No group parameter found in the URL");
             }*/
             
-            StartCoroutine(GetGroupData());
+            if(PlayerDataManager.Data.isTeacher)
+                StartCoroutine(GetGroupData());
         }
 
         private IEnumerator DeleteGroupData()

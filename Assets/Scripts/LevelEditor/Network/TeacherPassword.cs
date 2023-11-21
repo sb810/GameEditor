@@ -9,6 +9,7 @@ namespace LevelEditor.Network
     {
         [SerializeField] private Button button;
         [SerializeField] private TMP_InputField inputField;
+        [SerializeField] private NetworkManager network;
 
         private void Start()
         {
@@ -26,6 +27,7 @@ namespace LevelEditor.Network
             PlayerDataManager.Data.isTeacher = true;
             PlayerDataManager.Data.designPasswordEntered = true;
             PlayerDataManager.Data.codingPasswordEntered = true;
+            network.UpdateNetworkSavedData();
         }
     }
 }

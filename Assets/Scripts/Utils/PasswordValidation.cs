@@ -40,7 +40,7 @@ namespace Utils
 
         public void ValidateDesignPasswordAndNameEnteredInCache()
         {
-            if (PlayerDataManager.Data.username.Length > 0 &&
+            if (PlayerDataManager.Data.username?.Length > 0 &&
                 (PlayerDataManager.Data.isTeacher || PlayerDataManager.Data.designPasswordEntered))
                 onPasswordValid.Invoke();
             else onPasswordInvalid.Invoke();

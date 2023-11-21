@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Networking;
+using UnityEngine.Serialization;
 
 namespace PlayerData
 {
     public class NetworkManager : MonoBehaviour
     {
+        [SerializeField] private UnityEvent onReturningUser;
+        [FormerlySerializedAs("isTeacher")] [SerializeField] private UnityEvent<bool> onGetIsTeacher;
+        
         private void Awake()
         {
             if (!string.IsNullOrEmpty(PlayerDataManager.Data.id))
@@ -77,6 +82,7 @@ namespace PlayerData
                                                                  PlayerPrefs.GetString("clientID") !=
                                                                  PlayerDataManager.Data.id;
                         Debug.Log("Not first connection ! Viewing student data : " + PlayerDataManager.IsViewingStudentData);
+                        onReturningUser.Invoke();
                     }
                     else
                     { // Setting local client ID (previously unassigned)
@@ -87,6 +93,8 @@ namespace PlayerData
                     }
                 }
 
+                onGetIsTeacher.Invoke(PlayerDataManager.Data.isTeacher);
+                
                 Debug.Log(method + " complete in NetworkManager.UpdateData !\nDATA : " + PlayerDataManager.Data);
             }
         }

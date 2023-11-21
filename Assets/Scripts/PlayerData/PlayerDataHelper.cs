@@ -14,5 +14,10 @@ namespace PlayerData
         {
             PlayerDataManager.Data.username = input.text;
         }
+        
+        public void SetTextUsername(TextMeshProUGUI output)
+        {
+            output.text = PlayerDataManager.Data.username;
+        }
     }
 }

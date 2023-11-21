@@ -57,7 +57,7 @@ namespace LevelEditor.Network
                 int tempChildCount = studentListLocation.transform.childCount;
                 for (int i = 0; i < tempChildCount; i++)
                 {
-                    Destroy(studentListLocation.transform.GetChild(0).gameObject);
+                    Destroy(studentListLocation.transform.GetChild(i).gameObject);
                     //yield return null;
                 }
                 

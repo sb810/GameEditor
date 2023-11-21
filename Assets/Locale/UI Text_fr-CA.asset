@@ -209,6 +209,14 @@ MonoBehaviour:
     m_Localized: "\xC9liminer les joueurs"
     m_Metadata:
       m_Items: []
+  - m_Id: 18327344146018304
+    m_Localized: Bienvenue,
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18327533070053376
+    m_Localized: Nouvel utilisateur
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

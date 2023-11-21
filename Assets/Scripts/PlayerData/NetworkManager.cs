@@ -45,6 +45,7 @@ namespace PlayerData
                               request.error + "; " + request.downloadHandler.text);
                     PlayerDataManager.Data.id = "";
                     PlayerDataManager.ClientID = "";
+                    PlayerPrefs.DeleteAll();
                     UploadNewSaveData();
                     yield break;
                 }

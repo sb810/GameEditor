@@ -61917,19 +61917,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.023178808
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.04366197
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.95364237
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.91267604
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247480, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: offset.y

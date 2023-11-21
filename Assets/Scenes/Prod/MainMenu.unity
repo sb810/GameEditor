@@ -1388,10 +1388,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.023178808
-    y: 0.023529412
-    width: 0.95364237
-    height: 0.9529412
+    x: 0.026958719
+    y: 0.112716764
+    width: 0.48525694
+    height: 0.46820807
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2467,12 +2467,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onGetIsTeacher:
+  onGetIsStudent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1209497193}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: set_interactable
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1209497194}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Graphic, UnityEngine.UI
+        m_MethodName: set_raycastTarget
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1191286506}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Graphic, UnityEngine.UI
+        m_MethodName: set_raycastTarget
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5230,6 +5254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1209497193}
   inputField: {fileID: 225791609}
+  network: {fileID: 724975864}
 --- !u!1 &1824446539
 GameObject:
   m_ObjectHideFlags: 0

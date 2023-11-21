@@ -10,7 +10,7 @@ namespace PlayerData
     public class NetworkManager : MonoBehaviour
     {
         [SerializeField] private UnityEvent onReturningUser;
-        [FormerlySerializedAs("isTeacher")] [SerializeField] private UnityEvent<bool> onGetIsTeacher;
+        [FormerlySerializedAs("onGetIsTeacher")] [FormerlySerializedAs("isTeacher")] [SerializeField] private UnityEvent<bool> onGetIsStudent;
         
         private void Awake()
         {
@@ -97,7 +97,7 @@ namespace PlayerData
                     }
                 }
 
-                onGetIsTeacher.Invoke(PlayerDataManager.Data.isTeacher);
+                onGetIsStudent.Invoke(!PlayerDataManager.Data.isTeacher);
                 
                 Debug.Log(method + " complete in NetworkManager.UpdateData !\nDATA : " + PlayerDataManager.Data);
             }

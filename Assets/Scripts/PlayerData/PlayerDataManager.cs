@@ -27,8 +27,6 @@ namespace PlayerData
         public static readonly string DesignPassword = "mario";
         public static readonly string CodingPassword = "luigi";
 
-        public static bool IsViewingStudentData = false;
-        // public static bool IsViewingStudentData = false;
         public static string ClientID;
         public static WebData Data = new();
 

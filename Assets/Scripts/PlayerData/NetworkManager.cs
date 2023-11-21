@@ -79,10 +79,6 @@ namespace PlayerData
 
                     if (PlayerPrefs.HasKey("clientID"))
                     {
-                        PlayerDataManager.IsViewingStudentData = PlayerDataManager.Data.isTeacher &&
-                                                                 PlayerPrefs.GetString("clientID") !=
-                                                                 PlayerDataManager.Data.id;
-                        Debug.Log("Not first connection ! Viewing student data : " + PlayerDataManager.IsViewingStudentData);
                         // PlayerDataManager.IsViewingStudentData = PlayerDataManager.Data.isTeacher &&
                                                                  // PlayerPrefs.GetString("clientID") !=
                                                                  // PlayerDataManager.Data.id;
@@ -95,7 +91,6 @@ namespace PlayerData
                         PlayerPrefs.SetString("clientID", PlayerDataManager.Data.id);
                         PlayerPrefs.Save();
                         PlayerDataManager.ClientID = PlayerDataManager.Data.id;
-                        Debug.Log("First connection ! Viewing student data : " + PlayerDataManager.IsViewingStudentData);
                         Debug.Log("First connection ! Viewing student data : " + 
                             PlayerDataManager.ClientID != PlayerDataManager.Data.id);
                     }
@@ -109,15 +104,16 @@ namespace PlayerData
 
         public void UploadNewSaveData()
         {
-            if (string.IsNullOrEmpty(PlayerDataManager.ClientID) ||
-                PlayerDataManager.ClientID == PlayerDataManager.Data.id)
+            if (PlayerDataManager.ClientID == PlayerDataManager.Data.id)
                 StartCoroutine(SendWebRequest("POST"));
+            else Debug.Log("Viewing another user. Aborting save.");
         }
 
         public void UpdateNetworkSavedData()
         {
             if (PlayerDataManager.ClientID == PlayerDataManager.Data.id)
                 StartCoroutine(SendWebRequest("PATCH"));
+            else Debug.Log("Viewing another user. Aborting save.");
         }
 
         public void GetNetworkSavedData()

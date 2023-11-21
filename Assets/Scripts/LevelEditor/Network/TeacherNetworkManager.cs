@@ -111,8 +111,10 @@ namespace LevelEditor.Network
         {
             //SavedLevel dataToSave = groupData[id].levelData;
             //SaveLoad<SavedLevel>.SaveToLocal(dataToSave, "Level");
-            
-            loader.SaveDataToNetwork();
+
+            if (PlayerDataManager.ClientID == PlayerDataManager.Data.id)
+                loader.SaveDataToNetwork();
+
             PlayerDataManager.Data.levelData = groupData[id].levelData;
             PlayerDataManager.Data.id = groupData[id].id;
             RefreshButtonsVisualStatus();

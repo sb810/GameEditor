@@ -44,6 +44,7 @@ namespace PlayerData
                     Debug.Log(method + " error ! Trying again with POST...\nResponse : " + request.responseCode + "; " +
                               request.error + "; " + request.downloadHandler.text);
                     PlayerDataManager.Data.id = "";
+                    PlayerDataManager.ClientID = "";
                     UploadNewSaveData();
                     yield break;
                 }
@@ -82,6 +83,11 @@ namespace PlayerData
                                                                  PlayerPrefs.GetString("clientID") !=
                                                                  PlayerDataManager.Data.id;
                         Debug.Log("Not first connection ! Viewing student data : " + PlayerDataManager.IsViewingStudentData);
+                        // PlayerDataManager.IsViewingStudentData = PlayerDataManager.Data.isTeacher &&
+                                                                 // PlayerPrefs.GetString("clientID") !=
+                                                                 // PlayerDataManager.Data.id;
+                        Debug.Log("Not first connection ! Viewing student data : " + 
+                            PlayerDataManager.ClientID != PlayerDataManager.Data.id);
                         onReturningUser.Invoke();
                     }
                     else
@@ -90,6 +96,8 @@ namespace PlayerData
                         PlayerPrefs.Save();
                         PlayerDataManager.ClientID = PlayerDataManager.Data.id;
                         Debug.Log("First connection ! Viewing student data : " + PlayerDataManager.IsViewingStudentData);
+                        Debug.Log("First connection ! Viewing student data : " + 
+                            PlayerDataManager.ClientID != PlayerDataManager.Data.id);
                     }
                 }
 
@@ -108,6 +116,7 @@ namespace PlayerData
         public void UpdateNetworkSavedData()
         {
             if (!PlayerDataManager.IsViewingStudentData)
+            if (PlayerDataManager.ClientID == PlayerDataManager.Data.id)
                 StartCoroutine(SendWebRequest("PATCH"));
         }
 

@@ -32,7 +32,6 @@ namespace GoodOldCode
             foreach (GameObject prefab in dictionary)
             {
                 prefab.GetComponent<BoxCollider2D>().enabled = false;
-                prefab.GetComponent<CheckPlacement>().enabled = false;
                 prefab.transform.localPosition = Vector3.zero;
 
                 // GetComponent<SaveEditedAsset>().LoadData(prefab.name);
@@ -56,7 +55,6 @@ namespace GoodOldCode
             foreach (GameObject prefab in dictionary)
             {
                 prefab.GetComponent<BoxCollider2D>().enabled = false;
-                prefab.GetComponent<CheckPlacement>().enabled = false;
             }
 
             editedPrefab.transform.position = Vector3.zero;
@@ -148,7 +146,6 @@ namespace GoodOldCode
             }
             placedObject.Clear();
             editedPrefab.GetComponent<BoxCollider2D>().enabled = true;
-            editedPrefab.GetComponent<CheckPlacement>().enabled = true;
             editedPrefab.transform.localPosition = new Vector3(0, -20, 0);
             spriteEditor.SetActive(false);
             buildingManager.transform.parent.gameObject.SetActive(true);
@@ -156,7 +153,6 @@ namespace GoodOldCode
             foreach (GameObject prefab in dictionary)
             {
                 prefab.GetComponent<BoxCollider2D>().enabled = true;
-                prefab.GetComponent<CheckPlacement>().enabled = true;
             }
 
             GameManager.Instance.SaveManager.ReloadLevelData();

@@ -15,6 +15,8 @@ namespace LevelEditor
         public NetworkManager NetworkManager { get; private set; }
         public BackgroundManager BackgroundManager { get; private set; }
 
+        public AdvanceTagManager AdvanceTagManager { get; private set; }
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -30,6 +32,7 @@ namespace LevelEditor
             GameOverManager = GetComponent<GameOverManager>();
             NetworkManager = GetComponent<NetworkManager>();
             BackgroundManager = GetComponent<BackgroundManager>();
+            AdvanceTagManager = GetComponent<AdvanceTagManager>();
         }
     }
 }

@@ -3228,6 +3228,7 @@ GameObject:
   - component: {fileID: 130612214}
   - component: {fileID: 4858766085527090161}
   - component: {fileID: 4858766085527090164}
+  - component: {fileID: 4858766085527090165}
   m_Layer: 0
   m_Name: GameManagerMaster
   m_TagString: Untagged
@@ -3247,10 +3248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707e0e979c90f1e4cab67c5cdca2da78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  postPlacementActions:
-  - {fileID: 1216564041}
-  - {fileID: 1274040533}
-  - {fileID: 1207719436}
   levelEditorUI: {fileID: 787154912}
   inGameUI: {fileID: 1506508269048826749}
   map: {fileID: 2027181345}
@@ -35022,54 +35019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa0af6d50d29914f84e0cb76e793b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkedObjects:
-  - {fileID: 1916446778}
-  checkedPrefabInButtons: []
-  actionOnMaxReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1207719435}
-        m_TargetAssemblyTypeName: Utils.BatchButtonActivator, Scripts.Utils
-        m_MethodName: SetAllElementsInteractable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  actionOnNeitherMinNorMax:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1207719435}
-        m_TargetAssemblyTypeName: Utils.BatchButtonActivator, Scripts.Utils
-        m_MethodName: SetAllElementsInteractable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  actionOnMinReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1207719435}
-        m_TargetAssemblyTypeName: Utils.BatchButtonActivator, Scripts.Utils
-        m_MethodName: SetAllElementsInteractable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!1001 &1215746423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35434,7 +35383,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1216564034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4858766085527090165}
+        m_TargetAssemblyTypeName: AdvanceTagManager, Scripts.LevelEditor
+        m_MethodName: ClearTag
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Player
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1216564041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35447,54 +35408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa0af6d50d29914f84e0cb76e793b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkedObjects: []
-  checkedPrefabInButtons:
-  - {fileID: 1216564037}
-  actionOnMaxReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1216564042}
-        m_TargetAssemblyTypeName: Utils.BatchButtonActivator, Scripts.Utils
-        m_MethodName: SetAllElementsInteractable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  actionOnNeitherMinNorMax:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1216564042}
-        m_TargetAssemblyTypeName: Utils.BatchButtonActivator, Scripts.Utils
-        m_MethodName: SetAllElementsInteractable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  actionOnMinReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1216564042}
-        m_TargetAssemblyTypeName: Utils.BatchButtonActivator, Scripts.Utils
-        m_MethodName: SetAllElementsInteractable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1216564042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36887,55 +36800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa0af6d50d29914f84e0cb76e793b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkedObjects: []
-  checkedPrefabInButtons:
-  - {fileID: 1216564037}
-  - {fileID: 1207719431}
-  actionOnMaxReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1274040534}
-        m_TargetAssemblyTypeName: Utils.BatchButtonActivator, Scripts.Utils
-        m_MethodName: SetAllElementsInteractable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  actionOnNeitherMinNorMax:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1274040534}
-        m_TargetAssemblyTypeName: Utils.BatchButtonActivator, Scripts.Utils
-        m_MethodName: SetAllElementsInteractable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  actionOnMinReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1274040534}
-        m_TargetAssemblyTypeName: Utils.BatchButtonActivator, Scripts.Utils
-        m_MethodName: SetAllElementsInteractable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1274040534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53352,17 +53216,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6952628394585513801, guid: b684af2b594eca740a3a000be71be2df, type: 3}
   m_PrefabInstance: {fileID: 1215746423}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1916446778 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1970442854654190451, guid: b684af2b594eca740a3a000be71be2df, type: 3}
-  m_PrefabInstance: {fileID: 1215746423}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916446772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e7721cdd12e382429ec259c3e1db450, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1917956459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62213,6 +62066,18 @@ MonoBehaviour:
   - {fileID: 280167205}
   - {fileID: 756551765}
   - {fileID: 249826241}
+--- !u!114 &4858766085527090165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130612209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc61ded62dcc875a86d22f3d5e4b9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4875033183685822488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62375,19 +62240,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.27687547
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.20508167
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.44547564
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247366, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.58802176
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4963531417260247480, guid: 0696aa2ab477b034e86671402a00c0bb, type: 3}
       propertyPath: offset.y

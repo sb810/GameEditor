@@ -11,7 +11,6 @@ namespace LevelEditor
 {
     public class BuildingManager : MonoBehaviour
     {
-        [SerializeField] private CheckPlacementAction[] postPlacementActions;
         
         public GameObject levelEditorUI;
         public GameObject inGameUI;
@@ -89,7 +88,7 @@ namespace LevelEditor
                 }
             }
         
-            Debug.Log(pendingObj);
+           // Debug.Log(pendingObj);
         }
 
         private void PlaceObject()
@@ -107,9 +106,6 @@ namespace LevelEditor
                 //visualHeldItemSpriteRenderer.sprite = null;
                 pendingObj = null;
             }
-
-            foreach (var action in postPlacementActions)
-                action.Evaluate();
         }
 
         private void FixedUpdate()
@@ -120,7 +116,7 @@ namespace LevelEditor
 
         public void SelectObject(PrefabInButton script)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse1) || GetPrefabDistanceFromLimit(script.prefab) == 0) return;
+            if (Input.GetKeyDown(KeyCode.Mouse1) ) return;
             GameObject objectToSpawn = script.prefab;
 
             // SaveZ();
@@ -141,8 +137,8 @@ namespace LevelEditor
         private void UpdateMaterials()
         {
             if (!pendingObj) return;
-            if(canPlace) Debug.Log("Can place !");
-            if(mouseOnTrash) Debug.Log("Mouse on trash !");
+          //  if(canPlace) Debug.Log("Can place !");
+          //  if(mouseOnTrash) Debug.Log("Mouse on trash !");
             if (!pendingObjSpriteRenderer) pendingObjSpriteRenderer = pendingObj.GetComponent<SpriteRenderer>();
             pendingObjSpriteRenderer.material = canPlace && !mouseOnTrash
                 ? materials[0] // CanPlace - Green
@@ -224,6 +220,7 @@ namespace LevelEditor
             StartCoroutine(Stop(delay));
         }
 
+
         private void Delete()
         {
             Vector3 camPos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -239,8 +236,6 @@ namespace LevelEditor
             pendingObj = null;
             selectionManager.selectedObj = null;
             
-            foreach (var action in postPlacementActions)
-                action.Evaluate();
         }
 
         public void MouseEnterTrash(GameObject go)
@@ -268,23 +263,6 @@ namespace LevelEditor
             mouseOnTrash = false;
             if (selectionManager.selectedObj != null)
                 go.GetComponent<Image>().sprite = trashOut;
-        }
-
-
-        public int GetPrefabDistanceFromLimit(GameObject prefab)
-        {
-            int limit = prefab.GetComponent<CheckPlacement>().nbLimit;
-
-            if (limit == 0) return -1;
-        
-            int actualNb = 0;
-            foreach (GameObject obj in placedObject)
-            {
-                if (obj.name.Replace("(Clone)", string.Empty) == prefab.name)
-                    actualNb++;
-            }
-
-            return limit - actualNb;
         }
 
         public void MoveMap()

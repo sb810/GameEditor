@@ -126,7 +126,7 @@ namespace LevelEditor.Save
         private void InstantiateDefaultLevel()
         {
             Debug.Log("Instantiating default level !");
-            
+          /*  
             GameObject player = Instantiate(GetPrefabByName("Player"));
             manager.placedObject.Add(player);
             player.transform.position = new Vector3(-7.75f, -4, 0);
@@ -134,7 +134,7 @@ namespace LevelEditor.Save
             GameObject finish = Instantiate(GetPrefabByName("Finish"));
             manager.placedObject.Add(finish);
             finish.transform.position = new Vector3(7.75f, -4f, 0);
-
+*/
             for (int i = 0; i < 6; i++)
             {
                 GameObject platform = Instantiate(GetPrefabByName("PlatformForestL"));
